@@ -130,8 +130,13 @@ function ScheduleMockup() {
 
 export function Hero() {
   return (
-    <section className="px-4 pb-16 pt-12 md:px-6 md:pb-24 md:pt-20">
-      <div className="mx-auto max-w-3xl text-center">
+    <section className="relative overflow-hidden px-4 pb-16 pt-12 md:px-6 md:pb-24 md:pt-20">
+      {/* Gradient blob */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
+        <div className="h-[300px] w-[500px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(13,115,119,0.15)_0%,_rgba(91,181,184,0.08)_40%,_transparent_70%)] blur-3xl md:h-[400px] md:w-[600px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-3xl text-center">
         <h1 className="text-balance text-[28px] font-extrabold leading-tight text-foreground md:text-5xl md:leading-tight">
           Seu estúdio organizado, sem papel, sem planilha.
         </h1>
@@ -153,7 +158,9 @@ export function Hero() {
           </p>
         </div>
       </div>
-      <ScheduleMockup />
+      <div className="relative z-10">
+        <ScheduleMockup />
+      </div>
     </section>
   )
 }
