@@ -61,3 +61,177 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* =====================
+   SCROLL ANIMATIONS
+   ===================== */
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate[data-delay="100"] { transition-delay: 100ms; }
+.scroll-animate[data-delay="200"] { transition-delay: 200ms; }
+.scroll-animate[data-delay="300"] { transition-delay: 300ms; }
+.scroll-animate[data-delay="400"] { transition-delay: 400ms; }
+
+/* =====================
+   GRADIENT TEXT (Hero)
+   ===================== */
+
+.gradient-text {
+  background: linear-gradient(90deg, #0D7377 0%, #1aadbb 40%, #7c5cbf 70%, #0D7377 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text-flow 4s linear infinite;
+}
+
+@keyframes gradient-text-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* =====================
+   FLOAT ANIMATION (Schedule Mockup)
+   ===================== */
+
+.float-bob {
+  animation: float-bob 4.5s ease-in-out infinite;
+}
+
+@keyframes float-bob {
+  0%,  100% { transform: translateY(0px); }
+  50%        { transform: translateY(-12px); }
+}
+
+/* =====================
+   HERO GRADIENT BLOBS
+   ===================== */
+
+.hero-blob-1 {
+  animation: blob-drift-1 14s ease-in-out infinite;
+}
+
+.hero-blob-2 {
+  animation: blob-drift-2 18s ease-in-out infinite;
+}
+
+@keyframes blob-drift-1 {
+  0%,  100% { transform: translate(0, 0) scale(1); }
+  33%        { transform: translate(30px, -20px) scale(1.06); }
+  66%        { transform: translate(-15px, 15px) scale(0.97); }
+}
+
+@keyframes blob-drift-2 {
+  0%,  100% { transform: translate(0, 0) scale(1); }
+  33%        { transform: translate(-25px, 18px) scale(1.04); }
+  66%        { transform: translate(20px, -25px) scale(0.96); }
+}
+
+/* =====================
+   CARD HOVER EFFECTS
+   ===================== */
+
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+
+.card-hover-teal:hover {
+  box-shadow: 0 12px 40px rgba(13, 115, 119, 0.18), 0 0 0 1.5px rgba(13, 115, 119, 0.25);
+}
+
+.card-hover-purple:hover {
+  box-shadow: 0 12px 40px rgba(107, 63, 197, 0.14), 0 0 0 1.5px rgba(107, 63, 197, 0.22);
+}
+
+.card-hover-orange:hover {
+  box-shadow: 0 12px 40px rgba(234, 88, 12, 0.12), 0 0 0 1.5px rgba(234, 88, 12, 0.20);
+}
+
+.card-hover-emerald:hover {
+  box-shadow: 0 12px 40px rgba(5, 150, 105, 0.14), 0 0 0 1.5px rgba(5, 150, 105, 0.22);
+}
+
+/* =====================
+   CTA GLOW BUTTON
+   ===================== */
+
+.btn-glow {
+  box-shadow: 0 0 0 0 rgba(13, 115, 119, 0);
+  transition: box-shadow 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 28px 6px rgba(13, 115, 119, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-glow-white:hover {
+  box-shadow: 0 0 28px 6px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* =====================
+   ANIMATED GRADIENT BORDER (Beta card)
+   ===================== */
+
+@keyframes gradient-border-flow {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.gradient-border-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #0D7377 0%, #7c5cbf 50%, #0D7377 100%);
+  background-size: 200% auto;
+  animation: gradient-border-flow 4s linear infinite;
+}
+
+/* =====================
+   STATS TIMELINE CONNECTOR
+   ===================== */
+
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.timeline-line-animated {
+  transform-origin: left center;
+  animation: line-grow 0.8s ease forwards;
+}
+
+/* =====================
+   PROBLEM SECTION ICON GLOW
+   ===================== */
+
+.icon-glow {
+  filter: drop-shadow(0 0 8px rgba(13, 115, 119, 0.5));
+}
+
+/* =====================
+   EYEBROW LABEL
+   ===================== */
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
