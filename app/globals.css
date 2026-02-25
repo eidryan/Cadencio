@@ -4,61 +4,60 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #FAFAF9;
-  --foreground: #1C1917;
+  /* Preset A - Organic Tech */
+  --background: #F2F0E9;
+  --foreground: #1A1A1A;
   --card: #FFFFFF;
-  --card-foreground: #1C1917;
+  --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
-  --popover-foreground: #1C1917;
-  --primary: #0D7377;
-  --primary-foreground: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: #2E4036; /* Moss */
+  --primary-foreground: #F2F0E9;
   --secondary: #F5F5F4;
-  --secondary-foreground: #1C1917;
-  --muted: #F5F5F4;
+  --secondary-foreground: #1A1A1A;
+  --muted: #E8E4DD;
   --muted-foreground: #78716C;
-  --accent: #0D7377;
-  --accent-foreground: #FFFFFF;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #E7E5E4;
-  --input: #E7E5E4;
-  --ring: #0D7377;
-  --radius: 0.25rem;
+  --accent: #CC5833; /* Clay */
+  --accent-foreground: #F2F0E9;
+  --border: #E8E4DD;
+  --input: #E8E4DD;
+  --ring: #CC5833;
+  --radius: 2rem;
 
-  /* Brand Scale */
-  --brand-50: #EFFCFC;
-  --brand-100: #D7F6F7;
-  --brand-200: #B4EEEF;
-  --brand-300: #80E1E4;
-  --brand-400: #45CCD1;
-  --brand-500: #24AEB5;
-  --brand-600: #0D7377;
-  --brand-700: #0F6266;
-  --brand-800: #134F52;
-  --brand-900: #144245;
+  /* Theme Surfaces */
+  --surface-primary: #F2F0E9;
+  --surface-dark: #1A1A1A;
+  --surface-card: #FFFFFF;
 
-  /* Accents */
-  --coral: #FF6B6B;
-  --coral-light: #FFE5E5;
-  --gold: #FFD93D;
-  --gold-light: #FFF8E1;
-  --violet: #8B5CF6;
-  --violet-light: #EDE9FE;
-  --mint: #6EE7B7;
-  --mint-light: #ECFDF5;
+  /* Old Brand Variables - Retained for legacy components if needed, but mapped slightly to organic tech */
+  --brand-50: #F4F7F5;
+  --brand-100: #E6ECE8;
+  --brand-200: #CBD5CF;
+  --brand-300: #A8B8B0;
+  --brand-400: #82988E;
+  --brand-500: #62796D;
+  --brand-600: #495E52;
+  --brand-700: #3E4B43;
+  --brand-800: #343E38;
+  --brand-900: #2E4036; /* Moss */
 
-  /* Surfaces */
-  --surface-dark: #0C0A09;
+  --coral: #CC5833;
+  --coral-light: #E8CCB8;
+  --gold: #D29D52;
+  --gold-light: #EFE4D3;
+  --violet: #534563;
+  --violet-light: #DFD3EC;
+  --mint: #86A890;
+  --mint-light: #D5E5DA;
 
   /* Gradients */
   --gradient-aurora:
-    radial-gradient(ellipse 100% 80% at 0% 0%, rgba(13, 115, 119, 0.12), transparent 50%),
-    radial-gradient(ellipse 80% 60% at 100% 20%, rgba(139, 92, 246, 0.08), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(110, 231, 183, 0.06), transparent 50%);
+    radial-gradient(ellipse 100% 80% at 0% 0%, rgba(46, 64, 54, 0.12), transparent 50%),
+    radial-gradient(ellipse 80% 60% at 100% 20%, rgba(204, 88, 51, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(134, 168, 144, 0.06), transparent 50%);
 }
 
 @theme inline {
-  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -73,36 +72,19 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 1rem);
   --radius-md: var(--radius);
-  --radius-lg: calc(var(--radius) + 4px);
-  --radius-xl: calc(var(--radius) + 8px);
+  --radius-lg: calc(var(--radius) + 0.5rem);
+  --radius-xl: calc(var(--radius) + 1rem);
 
-  /* Brand colors as Tailwind utilities */
-  --color-brand-50: var(--brand-50);
-  --color-brand-100: var(--brand-100);
-  --color-brand-200: var(--brand-200);
-  --color-brand-300: var(--brand-300);
-  --color-brand-400: var(--brand-400);
-  --color-brand-500: var(--brand-500);
-  --color-brand-600: var(--brand-600);
-  --color-brand-700: var(--brand-700);
-  --color-brand-800: var(--brand-800);
-  --color-brand-900: var(--brand-900);
-  --color-coral: var(--coral);
-  --color-coral-light: var(--coral-light);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-violet-accent: var(--violet);
-  --color-violet-light: var(--violet-light);
-  --color-mint: var(--mint);
-  --color-mint-light: var(--mint-light);
-  --color-surface-dark: var(--surface-dark);
+  /* Specific theme colors */
+  --color-moss: var(--primary);
+  --color-clay: var(--accent);
+  --color-cream: var(--background);
+  --color-charcoal: var(--foreground);
 }
 
 @layer base {
@@ -118,7 +100,7 @@
     scroll-behavior: smooth;
   }
   ::selection {
-    background: rgba(13, 115, 119, 0.15);
+    background: rgba(46, 64, 54, 0.15); /* Moss */
   }
 }
 

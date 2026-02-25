@@ -1,19 +1,20 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Plus_Jakarta_Sans, Outfit, Cormorant_Garamond, IBM_Plex_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-sans' })
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
+const cormorantGaramond = Cormorant_Garamond({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], style: ['normal', 'italic'], variable: '--font-cormorant' })
+const ibmPlexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' })
 
 export const metadata: Metadata = {
-  title: 'Cadencio — Controle de presença para estúdios e academias',
-  description: 'Presença, turmas e alunos num só lugar. Feito para estúdios de dança, pilates, yoga e academias. Beta gratuito.',
+  title: 'Cadencio — Precisão em Gestão',
+  description: 'Controle de presença e gestão de turmas com precisão milimétrica.',
   openGraph: {
-    title: 'Cadencio — Seu estúdio organizado, sem papel, sem planilha.',
-    description: 'Controle de presença, turmas e alunos num só lugar. Beta gratuito para os primeiros estúdios.',
+    title: 'Cadencio — Precisão em Gestão',
+    description: 'Controle de presença e gestão de turmas.',
     type: 'website',
-    url: 'https://cadencio.app',
-    images: ['/og-image.png'],
   },
 }
 
@@ -24,7 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="font-sans antialiased">
+      <body className={`${plusJakartaSans.variable} ${outfit.variable} ${cormorantGaramond.variable} ${ibmPlexMono.variable} font-sans antialiased text-[#1A1A1A] bg-[#F2F0E9] selection:bg-[#2E4036]/20 overflow-x-hidden`} suppressHydrationWarning>
+        {/* SVG filter for noise overlay */}
+        <svg className="pointer-events-none fixed isolate z-50 opacity-5 mix-blend-soft-light" width="100%" height="100%">
+          <filter id="pedroduartenoise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.80" numOctaves="4" stitchTiles="stitch" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#pedroduartenoise)" />
+        </svg>
         {children}
         <Analytics />
       </body>

@@ -2,181 +2,115 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Menu, X } from "lucide-react"
+import { gsap } from "gsap"
 
 const WHATSAPP = "https://wa.me/5521999999999?text=Oi%2C%20quero%20conhecer%20o%20Cadencio"
 
 const SECTIONS = [
-  { id: "funcionalidades", label: "Funcionalidades" },
-  { id: "como-funciona", label: "Como funciona" },
-  { id: "preco", label: "Preço" },
-  { id: "faq", label: "FAQ" },
+  { id: "funcionalidades", label: "Protocolos" },
+  { id: "como-funciona", label: "Metodologia" },
+  { id: "preco", label: "Planos" },
 ]
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
-  const [sectionName, setSectionName] = useState("")
-  const [indicatorVisible, setIndicatorVisible] = useState(false)
-  const indicatorTextRef = useRef<HTMLSpanElement>(null)
-  const currentSectionRef = useRef("")
+  const navRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const sectionEls = document.querySelectorAll<HTMLElement>("section[data-section]")
-
-    function onScroll() {
-      const y = window.scrollY
-      setScrolled(y > 40)
-
-      // Section indicator
-      const heroEl = document.getElementById("hero")
-      const heroH = heroEl ? heroEl.offsetHeight : window.innerHeight
-      setIndicatorVisible(y > heroH * 0.4)
-
-      // Find current section
-      let found = ""
-      sectionEls.forEach((s) => {
-        const rect = s.getBoundingClientRect()
-        if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.3) {
-          found = s.dataset.section || ""
-        }
-      })
-
-      if (found && found !== currentSectionRef.current) {
-        currentSectionRef.current = found
-        if (indicatorTextRef.current) {
-          indicatorTextRef.current.style.opacity = "0"
-          setTimeout(() => {
-            setSectionName(found)
-            if (indicatorTextRef.current) indicatorTextRef.current.style.opacity = "1"
-          }, 140)
-        } else {
-          setSectionName(found)
-        }
-      }
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40)
     }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Magnetic button hover effect
+      const magneticItems = document.querySelectorAll(".magnetic-nav")
+      magneticItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          gsap.to(item, { scale: 1.03, duration: 0.3, ease: "power2.out" })
+        })
+        item.addEventListener("mouseleave", () => {
+          gsap.to(item, { scale: 1, duration: 0.3, ease: "power2.out" })
+        })
+      })
+    }, navRef)
+    return () => ctx.revert()
   }, [])
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-glow ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm"
-          : "bg-white/50 backdrop-blur-md"
-      }`}
-      style={{ height: 64 }}
+      ref={navRef}
+      className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 rounded-full px-6 py-3 flex items-center justify-between gap-8 ${scrolled
+          ? "bg-[#F2F0E9]/80 backdrop-blur-xl border border-[#E8E4DD] shadow-lg text-[#1A1A1A] w-[90%] md:w-[700px]"
+          : "bg-transparent text-[#F2F0E9] w-full px-12"
+        }`}
     >
-      <div className="mx-auto flex h-full max-w-7xl items-center justify-between px-6 lg:px-8">
-        {/* Logo */}
-        <a href="/" className="flex items-center gap-3 group shrink-0">
-          <svg
-            className="logo-breath"
-            width="36"
-            height="36"
-            viewBox="0 0 100 100"
-            aria-label="Cadencio"
-          >
-            <polygon points="50,5 85,35 70,90 30,90 15,35" fill="#0D7377" />
-            <polygon points="50,18 72,40 62,80 38,80 28,40" fill="#24AEB5" opacity="0.6" />
-            <polygon points="15,35 4,24 29,31" fill="#45CCD1" opacity="0.8" />
-            <polygon points="85,35 96,24 71,31" fill="#0F6266" opacity="0.8" />
-          </svg>
-          <span className="text-xl font-bold text-gray-900 relative">
-            Cadencio
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-500 transition-all duration-300 group-hover:w-full" />
-          </span>
-        </a>
+      {/* Logo */}
+      <a href="/" className="text-xl font-bold font-sans tracking-tight shrink-0 magnetic-nav">
+        Cadencio
+      </a>
 
-        {/* Section indicator – desktop */}
-        <div
-          className={`hidden md:flex items-center gap-2 px-3 py-1 text-[11px] font-bold tracking-widest uppercase text-brand-700 bg-brand-50 border border-brand-200 rounded-sm transition-all duration-300 ${
-            indicatorVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1 pointer-events-none"
-          }`}
-        >
-          <span
-            className="w-1.5 h-1.5 rounded-sm rotate-45"
-            style={{ background: "#24AEB5" }}
-          />
-          <span
-            ref={indicatorTextRef}
-            style={{ transition: "opacity 0.15s ease" }}
-          >
-            {sectionName}
-          </span>
-        </div>
-
-        {/* Desktop links + CTA */}
-        <div className="hidden md:flex items-center gap-1">
-          {SECTIONS.map((s) => (
-            <a
-              key={s.id}
-              href={`#${s.id}`}
-              className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-brand-700 rounded-sm hover:bg-brand-50 transition-all duration-150"
-            >
-              {s.label}
-            </a>
-          ))}
-          <div className="w-px h-5 bg-gray-200 mx-2" />
+      {/* Desktop links */}
+      <div className="hidden md:flex items-center gap-6">
+        {SECTIONS.map((s) => (
           <a
-            href="/login"
-            className="btn-ghost-angular text-sm"
+            key={s.id}
+            href={`#${s.id}`}
+            className={`text-sm font-medium transition-all duration-300 hover:-translate-y-[1px] ${scrolled ? "text-[#1A1A1A]/70 hover:text-[#1A1A1A]" : "text-[#F2F0E9]/80 hover:text-[#F2F0E9]"
+              }`}
           >
-            <span>Entrar</span>
+            {s.label}
           </a>
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary-angular text-sm ml-2"
-          >
-            Começar grátis
-          </a>
-        </div>
-
-        {/* Mobile */}
-        <div className="flex items-center gap-3 md:hidden">
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary-angular text-sm"
-          >
-            Começar
-          </a>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="p-1.5 text-gray-700"
-            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
-        </div>
+        ))}
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Desktop CTA */}
+      <a
+        href={WHATSAPP}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:inline-flex relative group items-center justify-center px-6 py-2.5 text-sm font-semibold text-[#F2F0E9] bg-[#CC5833] rounded-full overflow-hidden magnetic-nav shrink-0"
+      >
+        <span className="relative z-10 transition-transform duration-300 group-hover:scale-105">Começar</span>
+        <div className="absolute inset-0 h-full w-full opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/10 z-0"></div>
+      </a>
+
+      {/* Mobile Toggle */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className={`md:hidden p-2 rounded-full ${scrolled ? "text-[#1A1A1A]" : "text-[#F2F0E9]"}`}
+        aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+      >
+        {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+      </button>
+
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-lg px-6 py-4 md:hidden flex flex-col gap-2">
+        <div className="absolute top-16 left-0 right-0 bg-[#F2F0E9]/95 backdrop-blur-xl border border-[#E8E4DD] shadow-xl rounded-2xl p-6 flex flex-col gap-4 md:hidden">
           {SECTIONS.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="block py-2 text-sm font-medium text-gray-700 hover:text-brand-700"
+              className="text-lg font-medium text-[#1A1A1A] hover:opacity-70"
               onClick={() => setMenuOpen(false)}
             >
               {s.label}
             </a>
           ))}
-          <div className="h-px bg-gray-100 my-1" />
+          <div className="h-px bg-[#E8E4DD] my-2" />
           <a
-            href="/login"
-            className="block py-2 text-sm font-medium text-brand-700 text-center border border-brand-200 rounded-sm"
+            href={WHATSAPP}
+            className="w-full py-3 text-center text-sm font-bold text-[#F2F0E9] bg-[#CC5833] rounded-full"
           >
-            Entrar
+            Começar
           </a>
         </div>
       )}
     </nav>
   )
 }
+
