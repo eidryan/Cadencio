@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { ArrowRight, Play, Check, Users } from "lucide-react"
+import { gsap } from "gsap"
 
 const WHATSAPP = "https://wa.me/5521999999999?text=Oi%2C%20quero%20conhecer%20o%20Cadencio"
 
