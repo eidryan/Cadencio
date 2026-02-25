@@ -24,7 +24,7 @@ const problems: { icon: LucideIcon; title: string; description: string }[] = [
 
 export function ProblemSection() {
   return (
-    <section className="px-4 py-16 md:px-6 md:py-24">
+    <section className="bg-white px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center text-2xl font-bold text-foreground md:text-3xl">
           Reconhece alguma dessas situações?
