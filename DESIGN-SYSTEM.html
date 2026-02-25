@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadencio Design System v5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CADENCIO DESIGN SYSTEM v5
+   
+   Updates from v4:
+   - Square/angular buttons with paper-cut aesthetic, tilted options
+   - Fixed header indicator positioning
+   - Added accent colored origami (coral, violet, mint, gold)
+   - Redesigned crane and bird SVGs with new geometric forms
+   - New origami animations
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Brand Colors */
+  --brand-50: #EFFCFC;
+  --brand-100: #D7F6F7;
+  --brand-200: #B4EEEF;
+  --brand-300: #80E1E4;
+  --brand-400: #45CCD1;
+  --brand-500: #24AEB5;
+  --brand-600: #0D7377;
+  --brand-700: #0F6266;
+  --brand-800: #134F52;
+  --brand-900: #144245;
+
+  /* Accent Colors */
+  --accent-coral: #FF6B6B;
+  --accent-coral-light: #FFE5E5;
+  --accent-gold: #FFD93D;
+  --accent-gold-light: #FFF8E1;
+  --accent-violet: #8B5CF6;
+  --accent-violet-light: #EDE9FE;
+  --accent-mint: #6EE7B7;
+  --accent-mint-light: #ECFDF5;
+
+  /* Neutrals */
+  --gray-50: #FAFAF9;
+  --gray-100: #F5F5F4;
+  --gray-200: #E7E5E4;
+  --gray-300: #D6D3D1;
+  --gray-400: #A8A29E;
+  --gray-500: #78716C;
+  --gray-600: #57534E;
+  --gray-700: #44403C;
+  --gray-800: #292524;
+  --gray-900: #1C1917;
+
+  /* Surfaces */
+  --surface-primary: #FFFFFF;
+  --surface-secondary: #FAFAF9;
+  --surface-dark: #0C0A09;
+
+  /* Gradients */
+  --gradient-aurora: 
+    radial-gradient(ellipse 100% 80% at 0% 0%, rgba(13, 115, 119, 0.15), transparent 50%),
+    radial-gradient(ellipse 80% 60% at 100% 20%, rgba(139, 92, 246, 0.1), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(110, 231, 183, 0.08), transparent 50%);
+
+  --gradient-glow: radial-gradient(circle, rgba(13, 115, 119, 0.4) 0%, transparent 70%);
+  --gradient-border: linear-gradient(135deg, var(--brand-400), var(--accent-violet), var(--accent-mint), var(--brand-400));
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+
+  /* Layout */
+  --nav-height: 64px;
+  --max-width: 1400px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-900);
+  background: var(--surface-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(13, 115, 119, 0.2); }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+@keyframes floatTilt {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+/* New origami animations */
+@keyframes origamiSway {
+  0%, 100% { transform: rotate(-5deg) translateY(0); }
+  25% { transform: rotate(3deg) translateY(-10px); }
+  50% { transform: rotate(-3deg) translateY(-5px); }
+  75% { transform: rotate(5deg) translateY(-12px); }
+}
+
+@keyframes origamiFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  33% { transform: translateY(-20px) rotate(8deg) scale(1.05); }
+  66% { transform: translateY(-10px) rotate(-5deg) scale(0.98); }
+}
+
+@keyframes wingFlutter {
+  0%, 100% { transform: rotateY(0deg) scaleX(1); }
+  25% { transform: rotateY(40deg) scaleX(0.6); }
+  50% { transform: rotateY(0deg) scaleX(1); }
+  75% { transform: rotateY(-40deg) scaleX(0.6); }
+}
+
+@keyframes foldUnfold {
+  0%, 100% { transform: perspective(200px) rotateX(0deg); }
+  50% { transform: perspective(200px) rotateX(20deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.95); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes borderDance {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes meshFloat {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  33% { transform: scale(1.02) rotate(0.5deg); }
+  66% { transform: scale(0.98) rotate(-0.5deg); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; filter: blur(40px); }
+  50% { opacity: 0.8; filter: blur(60px); }
+}
+
+@keyframes logoBreath {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); }
+  50% { transform: scale(1.02); filter: drop-shadow(0 0 8px rgba(13, 115, 119, 0.3)); }
+}
+
+@keyframes navGlowMove {
+  0%, 100% { left: -100%; }
+  50% { left: 100%; }
+}
+
+/* Edge decoration drifts */
+@keyframes driftPath1 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -25px) rotate(15deg); }
+  50% { transform: translate(10px, -40px) rotate(-5deg); }
+  75% { transform: translate(-20px, -15px) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes driftPath2 {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-25px, 30px) rotate(-12deg); }
+  66% { transform: translate(15px, 15px) rotate(8deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes driftPath3 {
+  0% { transform: translate(0, 0) rotate(5deg); }
+  50% { transform: translate(40px, -30px) rotate(-10deg); }
+  100% { transform: translate(0, 0) rotate(5deg); }
+}
+
+@keyframes btnShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COLORFUL EDGE DECORATIONS - Different origami shapes in accent colors
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.edge-decorations {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow: hidden;
+}
+
+.edge-origami {
+  position: absolute;
+  opacity: 0.25;
+  transition: opacity 0.5s ease;
+}
+
+/* Teal crane - left */
+.edge-origami-1 {
+  left: 15px;
+  top: 20%;
+  width: 45px;
+  color: var(--brand-500);
+  animation: driftPath1 18s ease-in-out infinite;
+}
+
+/* Coral shape - left */
+.edge-origami-2 {
+  left: 30px;
+  top: 50%;
+  width: 30px;
+  color: var(--accent-coral);
+  animation: driftPath2 15s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+/* Violet shape - left */
+.edge-origami-3 {
+  left: 20px;
+  top: 75%;
+  width: 35px;
+  color: var(--accent-violet);
+  animation: driftPath3 20s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+/* Mint shape - right */
+.edge-origami-4 {
+  right: 20px;
+  top: 25%;
+  width: 38px;
+  color: var(--accent-mint);
+  animation: driftPath2 17s ease-in-out infinite reverse;
+  animation-delay: -2s;
+}
+
+/* Gold shape - right */
+.edge-origami-5 {
+  right: 35px;
+  top: 55%;
+  width: 32px;
+  color: var(--accent-gold);
+  animation: driftPath1 16s ease-in-out infinite reverse;
+  animation-delay: -6s;
+}
+
+/* Teal shape - right */
+.edge-origami-6 {
+  right: 15px;
+  top: 80%;
+  width: 40px;
+  color: var(--brand-400);
+  animation: driftPath3 19s ease-in-out infinite reverse;
+  animation-delay: -10s;
+}
+
+body.is-scrolling .edge-origami { opacity: 0.35; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SCROLL BIRDS - Redesigned geometric form
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.scroll-birds {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.scroll-bird {
+  position: absolute;
+  opacity: 0;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.scroll-bird svg { width: 100%; height: 100%; }
+
+/* Different colors for birds */
+.scroll-bird-1 { width: 50px; height: 30px; color: var(--brand-500); }
+.scroll-bird-2 { width: 38px; height: 23px; color: var(--accent-coral); }
+.scroll-bird-3 { width: 45px; height: 27px; color: var(--accent-violet); }
+.scroll-bird-4 { width: 32px; height: 19px; color: var(--accent-mint); }
+.scroll-bird-5 { width: 40px; height: 24px; color: var(--brand-600); }
+
+.bird-wing-l, .bird-wing-r {
+  transform-origin: center;
+  animation: wingFlutter 0.4s ease-in-out infinite;
+}
+.bird-wing-r { animation-delay: 0.1s; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   NAVIGATION - Fixed indicator positioning
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1000;
+  transition: all var(--duration-base) var(--ease-out-expo);
+}
+
+.nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-400), var(--accent-violet), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav:hover::before {
+  animation: navGlowMove 3s ease-in-out infinite;
+  opacity: 1;
+}
+
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  border-bottom-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Section indicator - FIXED: now properly positioned */
+.nav-section-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-700);
+  background: var(--brand-50);
+  border: 1px solid var(--brand-200);
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.3s var(--ease-out-expo);
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.nav-section-indicator.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-section-indicator-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--brand-500);
+  border-radius: 2px;
+  transform: rotate(45deg);
+}
+
+.nav-section-indicator-text {
+  transition: opacity 0.15s ease;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--gray-900);
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 38px;
+  height: 38px;
+  transition: all var(--duration-base) var(--ease-spring);
+  animation: logoBreath 4s ease-in-out infinite;
+}
+
+.nav-logo:hover .nav-logo-icon {
+  transform: perspective(500px) rotateY(-15deg) rotateX(10deg) scale(1.1);
+  animation: none;
+  filter: drop-shadow(0 0 12px rgba(13, 115, 119, 0.4));
+}
+
+.nav-logo-text { position: relative; }
+
+.nav-logo-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--brand-500);
+  transition: width var(--duration-base) var(--ease-out-expo);
+}
+
+.nav-logo:hover .nav-logo-text::after { width: 100%; }
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  padding: var(--space-2) var(--space-4);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all var(--duration-fast) ease;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--brand-50);
+  border-radius: inherit;
+  transform: scale(0);
+  transition: transform var(--duration-base) var(--ease-spring);
+  z-index: -1;
+}
+
+.nav-link:hover { color: var(--brand-700); }
+.nav-link:hover::before { transform: scale(1); }
+
+.nav-link.active { color: var(--brand-700); }
+
+/* Nav CTA - Angular style */
+.nav-cta {
+  padding: var(--space-2) var(--space-5);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: var(--brand-600);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 115, 119, 0.35);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.hero-bg {
+  position: fixed;
+  inset: 0;
+  background: var(--gradient-aurora);
+  z-index: -1;
+  animation: meshFloat 20s ease-in-out infinite;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  padding: calc(var(--nav-height) + var(--space-16)) var(--space-8) var(--space-16);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.hero-content { animation: fadeInLeft 0.8s var(--ease-out-expo) forwards; }
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-6);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brand-700);
+  background: var(--brand-50);
+  border: 1px solid var(--brand-200);
+  border-radius: 4px;
+  transition: all var(--duration-base);
+}
+
+.hero-badge:hover {
+  background: var(--brand-100);
+  transform: translateY(-2px);
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--brand-500);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero-title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--gray-900);
+  margin-bottom: var(--space-6);
+}
+
+.hero-title-muted {
+  color: var(--gray-400);
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--gray-600);
+  max-width: 480px;
+  margin-bottom: var(--space-8);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero-visual {
+  position: relative;
+  animation: fadeInRight 0.8s var(--ease-out-expo) 0.2s both;
+}
+
+.hero-mockup {
+  position: relative;
+  background: var(--surface-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-mockup::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: var(--gradient-glow);
+  z-index: -1;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BUTTONS - Angular, Paper-cut, Tilted aesthetic
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary - Sharp corners with cut */
+.btn-primary {
+  background: var(--brand-600);
+  color: white;
+  border-radius: 4px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(13, 115, 119, 0.35);
+}
+
+.btn-primary:hover::after { animation: btnShine 0.5s ease-out; }
+
+/* Secondary - Angled border */
+.btn-secondary {
+  background: var(--surface-primary);
+  color: var(--gray-700);
+  border: 2px solid var(--gray-200);
+  border-radius: 4px;
+  transform: skewX(-2deg);
+}
+
+.btn-secondary > * { transform: skewX(2deg); }
+
+.btn-secondary:hover {
+  border-color: var(--brand-400);
+  color: var(--brand-600);
+  transform: skewX(-2deg) translateY(-2px);
+}
+
+/* Paper Cut - Asymmetric notches */
+.btn-paper-cut {
+  background: var(--surface-primary);
+  color: var(--gray-800);
+  border: 2px solid var(--gray-200);
+  border-radius: 0;
+  clip-path: polygon(
+    8px 0, 100% 0, 100% calc(100% - 8px), 
+    calc(100% - 8px) 100%, 0 100%, 0 8px
+  );
+}
+
+.btn-paper-cut::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--brand-200);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  transition: background var(--duration-fast);
+}
+
+.btn-paper-cut::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--brand-200);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  transition: background var(--duration-fast);
+}
+
+.btn-paper-cut:hover {
+  border-color: var(--brand-300);
+  color: var(--brand-700);
+  transform: translateY(-2px);
+}
+
+.btn-paper-cut:hover::before,
+.btn-paper-cut:hover::after {
+  background: var(--brand-400);
+}
+
+/* Tilted - Rotated slightly */
+.btn-tilted {
+  background: linear-gradient(135deg, var(--brand-500), var(--brand-600));
+  color: white;
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+}
+
+.btn-tilted:hover {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow: 0 10px 30px rgba(13, 115, 119, 0.3);
+}
+
+/* Folded Corner - Paper feel */
+.btn-folded {
+  background: var(--surface-primary);
+  color: var(--gray-800);
+  border-radius: 4px;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-folded::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent var(--brand-100) transparent transparent;
+  transition: all var(--duration-base);
+}
+
+.btn-folded::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--gray-100) 50%, var(--gray-200) 100%);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  transform-origin: top right;
+  transition: all var(--duration-base);
+}
+
+.btn-folded:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-folded:hover::before {
+  border-width: 0 28px 28px 0;
+  border-color: transparent var(--brand-300) transparent transparent;
+}
+
+.btn-folded:hover::after {
+  transform: rotate(-10deg);
+}
+
+/* Diamond Cut - Origami feel */
+.btn-diamond {
+  background: var(--brand-600);
+  color: white;
+  border-radius: 0;
+  clip-path: polygon(
+    12px 0, calc(100% - 12px) 0, 100% 50%, 
+    calc(100% - 12px) 100%, 12px 100%, 0 50%
+  );
+  padding: var(--space-3) var(--space-8);
+}
+
+.btn-diamond:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(13, 115, 119, 0.35);
+}
+
+/* Stacked - Layered paper effect */
+.btn-stacked {
+  background: var(--brand-600);
+  color: white;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.btn-stacked::before {
+  content: '';
+  position: absolute;
+  inset: 4px -3px -4px 3px;
+  background: var(--brand-400);
+  border-radius: 4px;
+  z-index: -1;
+  transition: all var(--duration-base);
+}
+
+.btn-stacked::after {
+  content: '';
+  position: absolute;
+  inset: 8px -6px -8px 6px;
+  background: var(--brand-200);
+  border-radius: 4px;
+  z-index: -2;
+  transition: all var(--duration-base);
+}
+
+.btn-stacked:hover {
+  transform: translate(-2px, -2px);
+}
+
+.btn-stacked:hover::before {
+  inset: 6px -5px -6px 5px;
+}
+
+.btn-stacked:hover::after {
+  inset: 12px -10px -12px 10px;
+}
+
+/* Accent Coral */
+.btn-coral {
+  background: var(--accent-coral);
+  color: white;
+  border-radius: 4px;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+}
+
+.btn-coral:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.35);
+}
+
+/* Accent Violet */
+.btn-violet {
+  background: transparent;
+  color: var(--accent-violet);
+  border: 2px solid var(--accent-violet);
+  border-radius: 4px;
+  transform: rotate(1deg);
+}
+
+.btn-violet:hover {
+  background: var(--accent-violet-light);
+  transform: rotate(0deg) translateY(-2px);
+}
+
+/* Ghost Angular */
+.btn-ghost {
+  background: transparent;
+  color: var(--gray-700);
+  border: 2px solid var(--gray-300);
+  border-radius: 2px;
+}
+
+.btn-ghost:hover {
+  border-color: var(--brand-400);
+  color: var(--brand-600);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.section {
+  position: relative;
+  padding: var(--space-32) var(--space-8);
+}
+
+.section-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-header {
+  max-width: 700px;
+  margin-bottom: var(--space-16);
+}
+
+.section-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  background: var(--brand-50);
+  border-radius: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--gray-500);
+}
+
+.section-alt { background: var(--surface-secondary); }
+.section-dark { background: var(--surface-dark); color: white; }
+.section-dark .section-title { color: white; }
+.section-dark .section-subtitle { color: var(--gray-400); }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CARDS - Origami themed with teal corners
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Paper Fold Card */
+.card-paper-fold {
+  position: relative;
+  background: var(--surface-primary);
+  padding: var(--space-8);
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-base) var(--ease-out-expo);
+  overflow: visible;
+}
+
+.card-paper-fold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 50px 0;
+  border-color: transparent var(--brand-200) transparent transparent;
+  transition: all var(--duration-base) var(--ease-out-expo);
+  z-index: 2;
+}
+
+.card-paper-fold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 50%, var(--gray-200) 100%);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.08);
+  transform-origin: top right;
+  transition: all var(--duration-base) var(--ease-out-expo);
+  z-index: 3;
+}
+
+.card-paper-fold:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-paper-fold:hover::before {
+  border-width: 0 70px 70px 0;
+  border-color: transparent var(--brand-400) transparent transparent;
+}
+
+.card-paper-fold:hover::after {
+  transform: rotate(-20deg) translate(-8px, 8px);
+}
+
+/* Origami Corner Card */
+.card-origami-corner {
+  position: relative;
+  background: var(--surface-primary);
+  padding: var(--space-8);
+  padding-top: calc(var(--space-8) + 15px);
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-base) var(--ease-out-expo);
+  overflow: visible;
+}
+
+.card-origami-corner::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--brand-400), var(--brand-500));
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: all var(--duration-base) var(--ease-spring);
+  z-index: 2;
+}
+
+.card-origami-corner::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  background: var(--brand-300);
+  filter: blur(12px);
+  opacity: 0.5;
+  transition: opacity var(--duration-base);
+}
+
+.card-origami-corner:hover {
+  transform: translateY(-6px);
+}
+
+.card-origami-corner:hover::before {
+  transform: translateY(-8px) rotate(180deg) scale(1.3);
+}
+
+.card-origami-corner:hover::after {
+  opacity: 0.8;
+}
+
+/* Layered Paper Card */
+.card-layered-paper {
+  position: relative;
+  background: var(--surface-primary);
+  padding: var(--space-8);
+  border-radius: 4px;
+  transition: all var(--duration-base) var(--ease-out-expo);
+}
+
+.card-layered-paper::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: var(--brand-100);
+  border-radius: 4px;
+  z-index: -2;
+  transition: all var(--duration-base);
+}
+
+.card-layered-paper::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: var(--brand-50);
+  border-radius: 4px;
+  z-index: -1;
+  transition: all var(--duration-base);
+}
+
+.card-layered-paper:hover {
+  transform: translateY(-8px);
+}
+
+.card-layered-paper:hover::before {
+  inset: 12px;
+  background: var(--brand-200);
+}
+
+.card-layered-paper:hover::after {
+  inset: 6px;
+  background: var(--brand-100);
+}
+
+/* Accent colored cards */
+.card-coral-accent {
+  position: relative;
+  background: var(--surface-primary);
+  padding: var(--space-8);
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  border-left: 4px solid var(--accent-coral);
+  transition: all var(--duration-base);
+}
+
+.card-coral-accent::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  background: var(--accent-coral);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  transition: all var(--duration-base);
+}
+
+.card-coral-accent:hover {
+  transform: translateY(-6px);
+  border-left-width: 6px;
+}
+
+.card-coral-accent:hover::before {
+  transform: translateY(-5px) scale(1.2);
+}
+
+.card-violet-accent {
+  position: relative;
+  background: var(--surface-primary);
+  padding: var(--space-8);
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--duration-base);
+  overflow: hidden;
+}
+
+.card-violet-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, transparent 50%, var(--accent-violet-light) 50%);
+  transition: all var(--duration-base);
+}
+
+.card-violet-accent::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-violet);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: all var(--duration-base);
+}
+
+.card-violet-accent:hover {
+  transform: translateY(-6px);
+}
+
+.card-violet-accent:hover::before {
+  width: 80px;
+  height: 80px;
+}
+
+.card-violet-accent:hover::after {
+  transform: rotate(45deg) scale(1.3);
+}
+
+/* Card content */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-50);
+  color: var(--brand-600);
+  border-radius: 4px;
+  margin-bottom: var(--space-5);
+  transition: all var(--duration-base) var(--ease-spring);
+}
+
+.card-paper-fold:hover .card-icon,
+.card-origami-corner:hover .card-icon,
+.card-layered-paper:hover .card-icon {
+  transform: scale(1.1) rotate(-3deg);
+  background: var(--brand-100);
+}
+
+.card-coral-accent .card-icon {
+  background: var(--accent-coral-light);
+  color: var(--accent-coral);
+}
+
+.card-violet-accent .card-icon {
+  background: var(--accent-violet-light);
+  color: var(--accent-violet);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: var(--space-3);
+}
+
+.card-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-500);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BENTO GRID
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--space-6);
+}
+
+.bento-large { grid-column: span 2; grid-row: span 2; }
+.bento-tall { grid-row: span 2; }
+.bento-wide { grid-column: span 2; }
+
+@media (max-width: 900px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-large, .bento-tall, .bento-wide {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   STATS SECTION
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-8);
+  text-align: center;
+}
+
+.stat { padding: var(--space-8); }
+
+.stat-value {
+  font-size: clamp(48px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--brand-300), var(--accent-mint));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--space-2);
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COLOR SWATCHES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-4);
+}
+
+.swatch {
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--duration-base);
+}
+
+.swatch:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.swatch-color { height: 80px; }
+
+.swatch-info {
+  padding: var(--space-3);
+  background: white;
+}
+
+.swatch-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 2px;
+}
+
+.swatch-value {
+  font-size: 11px;
+  font-family: monospace;
+  color: var(--gray-500);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BUTTONS SHOWCASE
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+.buttons-label {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ORIGAMI SHOWCASE - Redesigned shapes with colors
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.origami-showcase {
+  display: flex;
+  gap: var(--space-12);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: var(--space-8);
+}
+
+.origami-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  cursor: pointer;
+}
+
+.origami-item svg {
+  transition: all var(--duration-base) var(--ease-spring);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.origami-item:hover svg {
+  transform: scale(1.15) translateY(-8px);
+  filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.15));
+}
+
+.origami-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+/* Animation classes for origami */
+.origami-sway { animation: origamiSway 6s ease-in-out infinite; }
+.origami-float { animation: origamiFloat 8s ease-in-out infinite; }
+.origami-tilt { animation: floatTilt 5s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.footer {
+  background: var(--surface-dark);
+  color: var(--gray-400);
+  padding: var(--space-16) var(--space-8);
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.footer-text { font-size: 14px; }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-12);
+  }
+  
+  .hero-content { order: 1; }
+  .hero-visual { order: 2; }
+  
+  .hero-subtitle {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-actions { justify-content: center; }
+  .nav-links { display: none; }
+  .nav-section-indicator { display: none; }
+  .edge-decorations { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .scroll-birds, .edge-decorations { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     COLORFUL EDGE DECORATIONS - Different origami shapes in accent colors
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<div class="edge-decorations" aria-hidden="true">
+  <!-- Teal abstract shape -->
+  <div class="edge-origami edge-origami-1">
+    <svg viewBox="0 0 50 50">
+      <polygon points="25,2 48,20 40,48 10,48 2,20" fill="currentColor"/>
+      <polygon points="25,10 38,22 32,40 18,40 12,22" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
+  
+  <!-- Coral triangle cluster -->
+  <div class="edge-origami edge-origami-2">
+    <svg viewBox="0 0 40 40">
+      <polygon points="20,2 38,35 2,35" fill="currentColor"/>
+      <polygon points="20,12 30,30 10,30" fill="currentColor" opacity="0.4"/>
+    </svg>
+  </div>
+  
+  <!-- Violet diamond -->
+  <div class="edge-origami edge-origami-3">
+    <svg viewBox="0 0 40 50">
+      <polygon points="20,0 40,25 20,50 0,25" fill="currentColor"/>
+      <polygon points="20,8 32,25 20,42 8,25" fill="currentColor" opacity="0.4"/>
+    </svg>
+  </div>
+  
+  <!-- Mint arrow shape -->
+  <div class="edge-origami edge-origami-4">
+    <svg viewBox="0 0 50 35">
+      <polygon points="0,17 25,0 25,10 50,10 50,24 25,24 25,35" fill="currentColor"/>
+    </svg>
+  </div>
+  
+  <!-- Gold star-ish -->
+  <div class="edge-origami edge-origami-5">
+    <svg viewBox="0 0 40 40">
+      <polygon points="20,0 24,15 40,15 27,24 32,40 20,30 8,40 13,24 0,15 16,15" fill="currentColor"/>
+    </svg>
+  </div>
+  
+  <!-- Teal angular bird -->
+  <div class="edge-origami edge-origami-6">
+    <svg viewBox="0 0 50 30">
+      <polygon points="0,15 20,0 25,10 50,8 25,15 50,22 25,20 20,30" fill="currentColor"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     SCROLL BIRDS - Redesigned geometric form, multiple colors
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<div class="scroll-birds" aria-hidden="true">
+  <!-- New angular bird design -->
+  <div class="scroll-bird scroll-bird-1">
+    <svg viewBox="0 0 60 35">
+      <!-- Body - elongated angular shape -->
+      <polygon points="15,17 35,8 55,17 35,26" fill="currentColor"/>
+      <!-- Left wing -->
+      <polygon class="bird-wing-l" points="15,17 0,5 20,14" fill="currentColor" opacity="0.7"/>
+      <!-- Right wing -->
+      <polygon class="bird-wing-r" points="55,17 60,5 50,14" fill="currentColor" opacity="0.7"/>
+      <!-- Tail -->
+      <polygon points="15,17 5,17 10,22" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="scroll-bird scroll-bird-2">
+    <svg viewBox="0 0 60 35">
+      <polygon points="15,17 35,8 55,17 35,26" fill="currentColor"/>
+      <polygon class="bird-wing-l" points="15,17 0,5 20,14" fill="currentColor" opacity="0.7"/>
+      <polygon class="bird-wing-r" points="55,17 60,5 50,14" fill="currentColor" opacity="0.7"/>
+      <polygon points="15,17 5,17 10,22" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="scroll-bird scroll-bird-3">
+    <svg viewBox="0 0 60 35">
+      <polygon points="15,17 35,8 55,17 35,26" fill="currentColor"/>
+      <polygon class="bird-wing-l" points="15,17 0,5 20,14" fill="currentColor" opacity="0.7"/>
+      <polygon class="bird-wing-r" points="55,17 60,5 50,14" fill="currentColor" opacity="0.7"/>
+      <polygon points="15,17 5,17 10,22" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="scroll-bird scroll-bird-4">
+    <svg viewBox="0 0 60 35">
+      <polygon points="15,17 35,8 55,17 35,26" fill="currentColor"/>
+      <polygon class="bird-wing-l" points="15,17 0,5 20,14" fill="currentColor" opacity="0.7"/>
+      <polygon class="bird-wing-r" points="55,17 60,5 50,14" fill="currentColor" opacity="0.7"/>
+      <polygon points="15,17 5,17 10,22" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
+  <div class="scroll-bird scroll-bird-5">
+    <svg viewBox="0 0 60 35">
+      <polygon points="15,17 35,8 55,17 35,26" fill="currentColor"/>
+      <polygon class="bird-wing-l" points="15,17 0,5 20,14" fill="currentColor" opacity="0.7"/>
+      <polygon class="bird-wing-r" points="55,17 60,5 50,14" fill="currentColor" opacity="0.7"/>
+      <polygon points="15,17 5,17 10,22" fill="currentColor" opacity="0.5"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <!-- Redesigned logo - more angular, abstract -->
+    <svg class="nav-logo-icon" viewBox="0 0 100 100">
+      <polygon points="50,5 85,35 70,90 30,90 15,35" fill="var(--brand-600)"/>
+      <polygon points="50,15 72,38 62,80 38,80 28,38" fill="var(--brand-400)" opacity="0.6"/>
+      <polygon points="15,35 5,25 30,30" fill="var(--brand-500)" opacity="0.8"/>
+      <polygon points="85,35 95,25 70,30" fill="var(--brand-700)" opacity="0.8"/>
+    </svg>
+    <span class="nav-logo-text">Cadencio</span>
+  </a>
+  
+  <!-- Section indicator - fixed positioning -->
+  <div class="nav-section-indicator" id="sectionIndicator">
+    <span class="nav-section-indicator-dot"></span>
+    <span class="nav-section-indicator-text" id="sectionIndicatorText">Design System</span>
+  </div>
+  
+  <ul class="nav-links">
+    <li><a href="#colors" class="nav-link" data-section="colors">Cores</a></li>
+    <li><a href="#buttons" class="nav-link" data-section="buttons">Botões</a></li>
+    <li><a href="#cards" class="nav-link" data-section="cards">Cards</a></li>
+    <li><a href="#origami" class="nav-link" data-section="origami">Origami</a></li>
+  </ul>
+  
+  <button class="nav-cta">Começar</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<div class="hero-bg"></div>
+
+<section class="hero" id="hero" data-section-name="Design System v5">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Design System v5
+    </div>
+    
+    <h1 class="hero-title">
+      Cadencio<br>
+      <span class="hero-title-muted">Design System</span>
+    </h1>
+    
+    <p class="hero-subtitle">
+      Botões angulares com estética de papel cortado. Origamis coloridos nas bordas. 
+      Formas geométricas redesenhadas. Header com indicador de seção.
+    </p>
+    
+    <div class="hero-actions">
+      <a href="#cards" class="btn btn-primary">
+        Ver Cards
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="#buttons" class="btn btn-secondary"><span>Ver Botões</span></a>
+    </div>
+  </div>
+  
+  <div class="hero-visual">
+    <div class="hero-mockup" style="padding: 24px;">
+      <div style="display: flex; gap: 16px;">
+        <div style="width: 60px; height: 60px; background: var(--brand-100); border-radius: 4px;"></div>
+        <div style="flex: 1;">
+          <div style="height: 16px; width: 60%; background: var(--gray-200); border-radius: 2px; margin-bottom: 8px;"></div>
+          <div style="height: 12px; width: 80%; background: var(--gray-100); border-radius: 2px;"></div>
+        </div>
+      </div>
+      <div style="margin-top: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+        <div style="height: 80px; background: var(--brand-50); border-radius: 4px;"></div>
+        <div style="height: 80px; background: var(--accent-violet-light); border-radius: 4px;"></div>
+        <div style="height: 80px; background: var(--accent-coral-light); border-radius: 4px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     COLORS
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="colors" data-section-name="Cores">
+  <div class="section-container">
+    <div class="section-header" data-reveal>
+      <span class="section-badge">01</span>
+      <h2 class="section-title">Cores</h2>
+      <p class="section-subtitle">Paleta completa com teal primário e acentos coloridos para os origamis.</p>
+    </div>
+    
+    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; margin-top: 40px;" data-reveal>Brand (Teal)</h3>
+    <div class="swatch-grid" data-reveal>
+      <div class="swatch stagger-1">
+        <div class="swatch-color" style="background: var(--brand-50);"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand 50</div><div class="swatch-value">#EFFCFC</div></div>
+      </div>
+      <div class="swatch stagger-2">
+        <div class="swatch-color" style="background: var(--brand-200);"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand 200</div><div class="swatch-value">#B4EEEF</div></div>
+      </div>
+      <div class="swatch stagger-3">
+        <div class="swatch-color" style="background: var(--brand-400);"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand 400</div><div class="swatch-value">#45CCD1</div></div>
+      </div>
+      <div class="swatch stagger-4">
+        <div class="swatch-color" style="background: var(--brand-600);"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand 600</div><div class="swatch-value">#0D7377</div></div>
+      </div>
+      <div class="swatch stagger-5">
+        <div class="swatch-color" style="background: var(--brand-800);"></div>
+        <div class="swatch-info"><div class="swatch-name">Brand 800</div><div class="swatch-value">#134F52</div></div>
+      </div>
+    </div>
+    
+    <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; margin-top: 40px;" data-reveal>Accent Colors (Origami)</h3>
+    <div class="swatch-grid" data-reveal>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--accent-coral);"></div>
+        <div class="swatch-info"><div class="swatch-name">Coral</div><div class="swatch-value">#FF6B6B</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--accent-gold);"></div>
+        <div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-value">#FFD93D</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--accent-violet);"></div>
+        <div class="swatch-info"><div class="swatch-name">Violet</div><div class="swatch-value">#8B5CF6</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: var(--accent-mint);"></div>
+        <div class="swatch-info"><div class="swatch-name">Mint</div><div class="swatch-value">#6EE7B7</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     BUTTONS SECTION - Angular, paper-cut aesthetic
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="buttons" data-section-name="Botões">
+  <div class="section-container">
+    <div class="section-header" data-reveal>
+      <span class="section-badge">02</span>
+      <h2 class="section-title">Botões</h2>
+      <p class="section-subtitle">Estética angular de papel cortado. Cantos chanfrados, inclinações, camadas. Nada arredondado.</p>
+    </div>
+    
+    <div data-reveal>
+      <div class="buttons-row">
+        <span class="buttons-label">Primary / Filled</span>
+        <button class="btn btn-primary">Chanfrado</button>
+        <button class="btn btn-tilted">Inclinado</button>
+        <button class="btn btn-diamond">Diamante</button>
+        <button class="btn btn-stacked">Empilhado</button>
+      </div>
+      
+      <div class="buttons-row">
+        <span class="buttons-label">Paper Cut / Fold</span>
+        <button class="btn btn-paper-cut">Paper Cut</button>
+        <button class="btn btn-folded">Dobra no Canto</button>
+        <button class="btn btn-secondary"><span>Skew Angular</span></button>
+      </div>
+      
+      <div class="buttons-row">
+        <span class="buttons-label">Accent Colors</span>
+        <button class="btn btn-coral">Coral</button>
+        <button class="btn btn-violet">Violet Outline</button>
+        <button class="btn btn-ghost">Ghost Angular</button>
+      </div>
+    </div>
+    
+    <div style="margin-top: 48px; padding: 24px; background: var(--gray-50); border-radius: 4px;" data-reveal>
+      <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--gray-700);">Técnicas CSS</h4>
+      <ul style="font-size: 13px; color: var(--gray-600); line-height: 1.8; list-style: none;">
+        <li><strong>clip-path:</strong> Corta cantos criando formas angulares (chanfrado, diamante, paper-cut)</li>
+        <li><strong>transform: skewX():</strong> Inclina o botão mantendo texto legível</li>
+        <li><strong>transform: rotate():</strong> Leve rotação para efeito "solto"</li>
+        <li><strong>::before/::after:</strong> Camadas empilhadas, cantos dobrados com revelação de cor</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     CARDS SECTION
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="cards" data-section-name="Cards">
+  <div class="section-container">
+    <div class="section-header" data-reveal>
+      <span class="section-badge">03</span>
+      <h2 class="section-title">Cards</h2>
+      <p class="section-subtitle">Cards com dobras de papel, cantos teal, e acentos coloridos. Hover para ver animações.</p>
+    </div>
+    
+    <div class="bento-grid" data-reveal>
+      <!-- Paper Fold Card (Large) -->
+      <div class="card-paper-fold bento-large">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <path d="M14 2v6h6"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Paper Fold Card</h3>
+        <p class="card-description">
+          Canto que dobra revelando teal por baixo. A dobra abre mais no hover, 
+          como uma página sendo virada.
+        </p>
+        <div style="margin-top: 16px; padding: 12px; background: var(--gray-50); border-radius: 4px; font-size: 12px; color: var(--gray-600);">
+          Hover: fold opens 20°, reveals brand-400
+        </div>
+      </div>
+      
+      <!-- Origami Corner -->
+      <div class="card-origami-corner">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Origami Corner</h3>
+        <p class="card-description">Diamante teal flutuante que gira 180° no hover.</p>
+      </div>
+      
+      <!-- Coral Accent Card -->
+      <div class="card-coral-accent">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Coral Accent</h3>
+        <p class="card-description">Borda coral com triângulo flutuante.</p>
+      </div>
+      
+      <!-- Violet Accent Card -->
+      <div class="card-violet-accent">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+            <line x1="9" y1="9" x2="9.01" y2="9"/>
+            <line x1="15" y1="9" x2="15.01" y2="9"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Violet Accent</h3>
+        <p class="card-description">Canto violet com diamante decorativo.</p>
+      </div>
+      
+      <!-- Layered Paper -->
+      <div class="card-layered-paper">
+        <div class="card-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3 class="card-title">Layered Paper</h3>
+        <p class="card-description">Camadas de papel em tons de teal que se expandem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<section class="section section-dark" data-section-name="Estatísticas">
+  <div class="section-container">
+    <div class="stats-grid" data-reveal>
+      <div class="stat">
+        <div class="stat-value">500+</div>
+        <div class="stat-label">Estúdios</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">95%</div>
+        <div class="stat-label">Satisfação</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">15min</div>
+        <div class="stat-label">Setup</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Suporte</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     ORIGAMI SHOWCASE - Redesigned with colors
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="origami" data-section-name="Origami">
+  <div class="section-container">
+    <div class="section-header" data-reveal>
+      <span class="section-badge">04</span>
+      <h2 class="section-title">Elementos Origami</h2>
+      <p class="section-subtitle">Formas geométricas abstratas em cores variadas. Usadas nas bordas, como decoração e identidade.</p>
+    </div>
+    
+    <div class="origami-showcase" data-reveal>
+      <!-- Abstract Crane - Teal -->
+      <div class="origami-item">
+        <svg class="origami-sway" width="80" height="80" viewBox="0 0 100 100">
+          <polygon points="50,5 85,35 70,90 30,90 15,35" fill="var(--brand-600)"/>
+          <polygon points="50,20 70,40 60,75 40,75 30,40" fill="var(--brand-400)" opacity="0.6"/>
+          <polygon points="15,35 0,25 25,32" fill="var(--brand-500)" opacity="0.8"/>
+          <polygon points="85,35 100,25 75,32" fill="var(--brand-700)" opacity="0.8"/>
+        </svg>
+        <span class="origami-label">Abstract Crane</span>
+      </div>
+      
+      <!-- Angular Bird - Coral -->
+      <div class="origami-item">
+        <svg class="origami-float" width="90" height="55" viewBox="0 0 90 55">
+          <polygon points="20,27 50,10 80,27 50,44" fill="var(--accent-coral)"/>
+          <polygon points="20,27 5,12 28,22" fill="var(--accent-coral)" opacity="0.7"/>
+          <polygon points="80,27 90,12 75,22" fill="var(--accent-coral)" opacity="0.7"/>
+          <polygon points="20,27 8,30 15,38" fill="var(--accent-coral)" opacity="0.5"/>
+        </svg>
+        <span class="origami-label">Angular Bird</span>
+      </div>
+      
+      <!-- Diamond - Violet -->
+      <div class="origami-item">
+        <svg class="origami-tilt" width="60" height="80" viewBox="0 0 60 80">
+          <polygon points="30,0 60,40 30,80 0,40" fill="var(--accent-violet)"/>
+          <polygon points="30,12 48,40 30,68 12,40" fill="var(--accent-violet)" opacity="0.5"/>
+          <polygon points="30,25 38,40 30,55 22,40" fill="var(--accent-violet)" opacity="0.3"/>
+        </svg>
+        <span class="origami-label">Diamond</span>
+      </div>
+      
+      <!-- Arrow - Mint -->
+      <div class="origami-item">
+        <svg class="origami-float" width="80" height="50" viewBox="0 0 80 50" style="animation-delay: -2s;">
+          <polygon points="0,25 35,5 35,15 80,15 80,35 35,35 35,45" fill="var(--accent-mint)"/>
+          <polygon points="10,25 35,12 35,20 60,20 60,30 35,30 35,38" fill="var(--accent-mint)" opacity="0.5"/>
+        </svg>
+        <span class="origami-label">Arrow</span>
+      </div>
+      
+      <!-- Star - Gold -->
+      <div class="origami-item">
+        <svg class="origami-sway" width="70" height="70" viewBox="0 0 70 70" style="animation-delay: -3s;">
+          <polygon points="35,0 42,25 70,25 48,40 55,65 35,50 15,65 22,40 0,25 28,25" fill="var(--accent-gold)"/>
+          <polygon points="35,12 40,28 55,28 43,38 48,52 35,44 22,52 27,38 15,28 30,28" fill="var(--accent-gold)" opacity="0.5"/>
+        </svg>
+        <span class="origami-label">Star</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <svg width="28" height="28" viewBox="0 0 100 100">
+        <polygon points="50,5 85,35 70,90 30,90 15,35" fill="var(--brand-400)"/>
+        <polygon points="50,20 70,40 60,75 40,75 30,40" fill="var(--brand-300)" opacity="0.6"/>
+      </svg>
+      Cadencio Design System
+    </div>
+    <div class="footer-text">Feito com origami para estúdios brasileiros</div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════════════════════════════════ -->
+<script>
+// Section indicator
+const sections = document.querySelectorAll('section[data-section-name]');
+const sectionIndicator = document.getElementById('sectionIndicator');
+const sectionIndicatorText = document.getElementById('sectionIndicatorText');
+const navLinks = document.querySelectorAll('.nav-link[data-section]');
+const nav = document.getElementById('nav');
+
+let currentSection = '';
+let indicatorVisible = false;
+
+function updateSectionIndicator() {
+  const scrollY = window.scrollY;
+  const viewportHeight = window.innerHeight;
+  
+  const heroHeight = document.getElementById('hero')?.offsetHeight || viewportHeight;
+  const shouldShowIndicator = scrollY > heroHeight * 0.5;
+  
+  if (shouldShowIndicator !== indicatorVisible) {
+    indicatorVisible = shouldShowIndicator;
+    sectionIndicator.classList.toggle('visible', indicatorVisible);
+  }
+  
+  let newSection = '';
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    if (rect.top < viewportHeight * 0.4 && rect.bottom > viewportHeight * 0.3) {
+      newSection = section.dataset.sectionName;
+    }
+  });
+  
+  if (newSection && newSection !== currentSection) {
+    currentSection = newSection;
+    sectionIndicatorText.style.opacity = '0';
+    setTimeout(() => {
+      sectionIndicatorText.textContent = currentSection;
+      sectionIndicatorText.style.opacity = '1';
+    }, 150);
+    
+    navLinks.forEach(link => {
+      const sectionEl = Array.from(sections).find(s => s.dataset.sectionName === currentSection);
+      link.classList.toggle('active', sectionEl?.id === link.dataset.section);
+    });
+  }
+}
+
+// Scroll birds
+const birds = document.querySelectorAll('.scroll-bird');
+let lastScrollY = 0;
+let scrollVelocity = 0;
+let isScrolling = false;
+let scrollTimeout;
+
+const birdConfigs = [
+  { baseY: 120, amplitude: 90, frequency: 2.5, phase: 0, speedMult: 1 },
+  { baseY: 200, amplitude: 70, frequency: 3, phase: 0.3, speedMult: 0.85 },
+  { baseY: 160, amplitude: 80, frequency: 2.2, phase: 0.6, speedMult: 1.1 },
+  { baseY: 280, amplitude: 60, frequency: 3.5, phase: 0.9, speedMult: 0.75 },
+  { baseY: 240, amplitude: 75, frequency: 2.8, phase: 1.2, speedMult: 0.95 },
+];
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+let animatedScrollY = 0;
+
+function updateBirds() {
+  const targetScrollY = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+  
+  animatedScrollY = lerp(animatedScrollY, targetScrollY, 0.08);
+  
+  const scrollProgress = Math.min(animatedScrollY / maxScroll, 1);
+  scrollVelocity = lerp(scrollVelocity, Math.abs(targetScrollY - lastScrollY), 0.1);
+  
+  const scrollDirection = targetScrollY > lastScrollY ? 1 : -1;
+  
+  birds.forEach((bird, i) => {
+    const config = birdConfigs[i];
+    
+    const adjustedProgress = Math.max(0, Math.min(1, (scrollProgress - i * 0.08) / 0.8));
+    const easedProgress = easeOutQuart(adjustedProgress);
+    
+    const startX = -80;
+    const endX = window.innerWidth + 80;
+    const x = startX + (endX - startX) * easedProgress * config.speedMult;
+    
+    const primaryWave = Math.sin(easedProgress * Math.PI * config.frequency + config.phase) * config.amplitude;
+    const secondaryWave = Math.sin(easedProgress * Math.PI * config.frequency * 2 + config.phase) * (config.amplitude * 0.3);
+    const y = config.baseY + primaryWave + secondaryWave;
+    
+    const baseRotation = scrollDirection * (3 + scrollVelocity * 0.3);
+    const waveRotation = Math.cos(easedProgress * Math.PI * config.frequency) * 8;
+    const rotation = baseRotation + waveRotation;
+    
+    let opacity = 0;
+    if (adjustedProgress > 0.02 && adjustedProgress < 0.98) {
+      const fadeIn = Math.min(adjustedProgress * 10, 1);
+      const fadeOut = Math.min((1 - adjustedProgress) * 10, 1);
+      opacity = Math.min(fadeIn, fadeOut) * 0.6;
+    }
+    
+    bird.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) rotate(${rotation.toFixed(2)}deg)`;
+    bird.style.opacity = opacity.toFixed(3);
+    
+    const flapDuration = Math.max(0.15, 0.4 - scrollVelocity * 0.02);
+    bird.querySelectorAll('.bird-wing-l, .bird-wing-r').forEach(wing => {
+      wing.style.animationDuration = `${flapDuration}s`;
+    });
+  });
+  
+  lastScrollY = targetScrollY;
+  requestAnimationFrame(updateBirds);
+}
+
+requestAnimationFrame(updateBirds);
+
+// Scroll events
+window.addEventListener('scroll', () => {
+  if (!isScrolling) {
+    document.body.classList.add('is-scrolling');
+    isScrolling = true;
+  }
+  
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    document.body.classList.remove('is-scrolling');
+    isScrolling = false;
+  }, 150);
+  
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+  updateSectionIndicator();
+}, { passive: true });
+
+updateSectionIndicator();
+
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+</body>
+</html>

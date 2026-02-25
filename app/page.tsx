@@ -1,31 +1,39 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { ProblemSection } from "@/components/problem-section"
-import { FeaturesSection } from "@/components/features-section"
-import { HowItWorks } from "@/components/how-it-works"
-import { BetaAccess } from "@/components/beta-access"
 import { SocialProof } from "@/components/social-proof"
+import { ProblemSection } from "@/components/problem-section"
+import { FeaturesPrimary } from "@/components/features-primary"
+import { FeaturesSecondary } from "@/components/features-secondary"
+import { HowItWorks } from "@/components/how-it-works"
+import { DashboardPreview } from "@/components/dashboard-preview"
+import { StatsSection } from "@/components/stats-section"
+import { Pricing } from "@/components/pricing"
 import { FaqSection } from "@/components/faq-section"
 import { FinalCta } from "@/components/final-cta"
 import { Footer } from "@/components/footer"
-import { WhatsappFab } from "@/components/whatsapp-fab"
+import { ScrollBirds } from "@/components/scroll-birds"
+import { EdgeDecorations } from "@/components/edge-decorations"
 
 export default function Home() {
   return (
-    <>
+    <div className="film-grain">
+      <ScrollBirds />
+      <EdgeDecorations />
       <Navbar />
       <main>
         <Hero />
-        <ProblemSection />
-        <FeaturesSection />
-        <HowItWorks />
-        <BetaAccess />
         <SocialProof />
+        <ProblemSection />
+        <FeaturesPrimary />
+        <FeaturesSecondary />
+        <HowItWorks />
+        <DashboardPreview />
+        <StatsSection />
+        <Pricing />
         <FaqSection />
         <FinalCta />
       </main>
       <Footer />
-      <WhatsappFab />
-    </>
+    </div>
   )
 }
