@@ -1,159 +1,207 @@
-import { Check } from "lucide-react"
+"use client"
 
-const WHATSAPP_LINK =
-  "https://wa.me/55XXXXXXXXXXX?text=Oi%2C%20quero%20conhecer%20o%20Cadencio"
+import { useEffect, useRef } from "react"
+import { ArrowRight, Play } from "lucide-react"
+import { gsap } from "gsap"
 
-const schedule: { day: string; classes: { name: string; done?: boolean }[] }[] = [
-  {
-    day: "Seg",
-    classes: [
-      { name: "Jazz 09h", done: true },
-      { name: "Ballet 14h" },
-      { name: "Pilates 18h", done: true },
-    ],
-  },
-  {
-    day: "Ter",
-    classes: [
-      { name: "Yoga 08h", done: true },
-      {},
-      { name: "Luta 19h" },
-    ],
-  },
-  {
-    day: "Qua",
-    classes: [
-      {},
-      { name: "Pilates 10h", done: true },
-      { name: "Jazz 17h" },
-    ],
-  },
-  {
-    day: "Qui",
-    classes: [
-      { name: "Ballet 09h" },
-      { name: "Yoga 14h", done: true },
-      {},
-    ],
-  },
-  {
-    day: "Sex",
-    classes: [
-      { name: "Luta 08h" },
-      {},
-      { name: "Pilates 18h" },
-    ],
-  },
-]
+const WHATSAPP = "https://wa.me/5521971715456?text=Oi%2C%20quero%20conhecer%20o%20Cadencio"
 
-function ScheduleMockup() {
+function InteractiveMockup() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Liquid gauge fills up
+      gsap.to(".liquid-fill", {
+        height: "85%",
+        duration: "random(2.5, 4)",
+        ease: "sine.inOut",
+        stagger: {
+          each: 0.5,
+          from: "random"
+        },
+        repeat: -1,
+        yoyo: true
+      })
+
+      // Dots rippling (turning teal and pulsing)
+      const animateDot = (dot: Element) => {
+        const tl = gsap.timeline({
+          delay: gsap.utils.random(0.5, 4),
+          onComplete: () => animateDot(dot)
+        })
+        tl.to(dot, { backgroundColor: "var(--brand-500)", borderColor: "var(--brand-500)", duration: 0.3 })
+          .to(dot.querySelector('.ripple'), { scale: 3, opacity: 0, duration: 1, ease: "power2.out" }, "<")
+          .set(dot.querySelector('.ripple'), { scale: 0.5, opacity: 1 })
+          .to(dot, { backgroundColor: "transparent", borderColor: "var(--gray-300)", duration: 0.3, delay: 2.5 })
+      }
+
+      gsap.utils.toArray(".student-dot").forEach((dot: any) => animateDot(dot))
+
+    }, containerRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <div className="mx-auto mt-10 max-w-2xl rounded-xl border border-border bg-card p-4 shadow-sm md:p-6">
-      <div className="mb-4 flex items-center justify-between">
-        <span className="text-sm font-bold text-foreground">
-          Grade da Semana
-        </span>
-        <span className="text-xs text-muted-foreground">24/02 - 28/02</span>
-      </div>
+    <div ref={containerRef} className="relative z-10 w-full h-full flex items-center justify-center">
+      <div className="relative w-[85%] aspect-[4/3] bg-white rounded-sm shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1),0_0_0_1px_rgba(0,0,0,0.05)] p-6 rotate-[-2deg] flex flex-col gap-5">
 
-      {/* Desktop: all 5 columns */}
-      <div className="hidden md:grid md:grid-cols-5 md:gap-2">
-        {schedule.map((col) => (
-          <div key={col.day} className="flex flex-col gap-2">
-            <span className="text-center text-xs font-semibold text-muted-foreground">
-              {col.day}
-            </span>
-            {col.classes.map((cls, i) =>
-              cls.name ? (
-                <div
-                  key={i}
-                  className="flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1"
-                >
-                  <span className="text-xs font-medium text-primary">
-                    {cls.name}
-                  </span>
-                  {cls.done && (
-                    <Check className="size-3 text-primary" aria-hidden="true" />
-                  )}
-                </div>
-              ) : (
-                <div
-                  key={i}
-                  className="rounded-full bg-muted px-2.5 py-1"
-                >
-                  <span className="invisible text-xs">-</span>
-                </div>
-              )
-            )}
-          </div>
-        ))}
-      </div>
+        {/* Header */}
+        <div className="flex items-center justify-between">
+          <div className="h-5 w-1/3 bg-gray-200 rounded-sm" />
+          <div className="w-10 h-5 rounded-full bg-brand-100" />
+        </div>
 
-      {/* Mobile: 3 columns with fade */}
-      <div className="relative md:hidden">
-        <div className="grid grid-cols-3 gap-2">
-          {schedule.slice(0, 3).map((col) => (
-            <div key={col.day} className="flex flex-col gap-2">
-              <span className="text-center text-xs font-semibold text-muted-foreground">
-                {col.day}
-              </span>
-              {col.classes.map((cls, i) =>
-                cls.name ? (
-                  <div
-                    key={i}
-                    className="flex items-center gap-1 rounded-full bg-primary/10 px-2 py-1"
-                  >
-                    <span className="text-[11px] font-medium text-primary">
-                      {cls.name}
-                    </span>
-                    {cls.done && (
-                      <Check className="size-3 text-primary" aria-hidden="true" />
-                    )}
+        {/* Liquid Schedule Grid */}
+        <div className="flex-1 grid grid-cols-3 gap-4">
+          {[1, 2, 3].map((col) => (
+            <div key={col} className="relative bg-gray-50 rounded-sm border border-gray-100 flex flex-col items-center justify-end overflow-hidden p-2 pb-0">
+
+              {/* Header for column */}
+              <div className="absolute top-2 inset-x-2 h-4 bg-gray-200 rounded-sm opacity-50 z-20" />
+
+              {/* Liquid Fill */}
+              <div className="liquid-fill absolute bottom-0 inset-x-0 bg-brand-50/70 w-full rounded-sm z-0" style={{ height: '20%' }} />
+
+              {/* Dots container */}
+              <div className="relative z-10 w-full flex flex-col gap-2 pb-2 mt-8">
+                {[1, 2, 3, 4].map((dot) => (
+                  <div key={`${col}-${dot}`} className="flex items-center justify-between px-2 py-2 bg-white/90 rounded-sm shadow-sm backdrop-blur-sm border border-white">
+                    <div className="h-1.5 w-1/2 bg-gray-200 rounded-sm" />
+                    <div className="student-dot relative w-3.5 h-3.5 rounded-full border border-gray-300 flex items-center justify-center shrink-0">
+                      <div className="ripple absolute inset-0 rounded-full border border-brand-400 opacity-0" />
+                    </div>
                   </div>
-                ) : (
-                  <div
-                    key={i}
-                    className="rounded-full bg-muted px-2 py-1"
-                  >
-                    <span className="invisible text-[11px]">-</span>
-                  </div>
-                )
-              )}
+                ))}
+              </div>
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-card to-transparent" />
+
+        {/* Decorative corner fold */}
+        <div className="absolute top-0 right-0 w-0 h-0 border-l-[40px] border-l-transparent border-t-[40px] border-t-gray-100" />
+        <div className="absolute top-0 right-0 w-0 h-0 border-r-[40px] border-r-transparent border-b-[40px] border-b-white shadow-[-2px_2px_4px_rgba(0,0,0,0.05)] transform origin-top-right rotate-180 z-30" />
+      </div>
+
+      {/* Floating secondary indicator */}
+      <div className="absolute -bottom-4 right-4 w-48 p-4 bg-white rounded-sm shadow-xl border border-gray-100 rotate-[4deg] z-20">
+        <div className="flex justify-between items-center mb-3">
+          <div className="w-16 h-3 bg-gray-200 rounded-sm" />
+          <div className="w-6 h-6 rounded-full bg-accent-mint/20 flex items-center justify-center">
+            <div className="w-2 h-2 rounded-full bg-accent-mint animate-pulse" />
+          </div>
+        </div>
+        <div className="space-y-2">
+          <div className="w-full h-2 bg-gray-100 rounded-sm" />
+          <div className="w-4/5 h-2 bg-gray-100 rounded-sm" />
+        </div>
       </div>
     </div>
   )
 }
 
 export function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Staggered fade up for hero content
+      gsap.fromTo(
+        ".hero-reveal",
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.3 }
+      )
+
+      // Floating animation for the mockup container
+      gsap.to(".hero-mockup-container", {
+        y: -15,
+        rotation: 1,
+        duration: 4,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 0.5
+      })
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="px-4 pb-16 pt-12 md:px-6 md:pb-24 md:pt-20">
-      <div className="mx-auto max-w-3xl text-center">
-        <h1 className="text-balance text-[28px] font-extrabold leading-tight text-foreground md:text-5xl md:leading-tight">
-          Seu estúdio organizado, sem papel, sem planilha.
-        </h1>
-        <p className="mx-auto mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
-          Controle de presença, turmas e alunos num só lugar — feito para quem
-          administra estúdio, não para quem entende de tecnologia.
-        </p>
-        <div className="mt-8">
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block w-full rounded-lg bg-primary px-8 py-3 text-base font-semibold text-primary-foreground hover:bg-[#0A5C5F] md:w-auto"
-          >
-            Quero experimentar
-          </a>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Beta gratuito para os primeiros estúdios.
+    <section
+      id="home"
+      data-section-name="Home"
+      className="relative min-h-[100dvh] flex items-center pt-24 overflow-hidden bg-white"
+      ref={containerRef}
+    >
+      {/* Aurora Background Mesh */}
+      <div
+        className="absolute inset-0 z-0 opacity-70"
+        style={{ background: "var(--gradient-aurora)" }}
+      />
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+
+        {/* Left Content */}
+        <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left flex flex-col items-center lg:items-start pt-10">
+          <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 bg-brand-50 border border-brand-200 rounded-full mb-6">
+            <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
+            <span className="text-[11px] font-bold text-brand-700 uppercase tracking-widest">
+              SISTEMA OPERACIONAL BETA
+            </span>
+          </div>
+
+          <h1 className="hero-reveal text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-gray-900 leading-[1.05] mb-6">
+            Seu estúdio
+            <br />
+            <span className="text-brand-500">finalmente</span> organizado.
+          </h1>
+
+          <p className="hero-reveal text-lg lg:text-xl text-gray-500 leading-relaxed mb-8 max-w-lg">
+            Controle de presença e gestão de turmas com precisão milimétrica. Onde a simplicidade encontra a operação do seu estúdio.
           </p>
+
+          <div className="hero-reveal flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary w-full sm:w-auto"
+            >
+              Iniciar Protocolo
+              <ArrowRight size={16} />
+            </a>
+            <a href="#metodologia" className="btn-ghost w-full sm:w-auto group">
+              <span className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center bg-gray-50 group-hover:bg-brand-50 group-hover:border-brand-200 transition-colors">
+                <Play size={10} className="text-gray-500 group-hover:text-brand-600 ml-0.5" />
+              </span>
+              Ver Método
+            </a>
+          </div>
+
+          {/* Trust hints */}
+          <div className="hero-reveal mt-12 flex items-center justify-center lg:justify-start gap-6 text-[12px] font-mono text-gray-400">
+            <span className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent-mint" />
+              SETUP: 15 MIN
+            </span>
+            <span className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-400" />
+              LATÊNCIA ZERO
+            </span>
+          </div>
+        </div>
+
+        {/* Right Visual - Interactive Mockup */}
+        <div className="hero-reveal hidden lg:block relative w-full aspect-square max-w-[600px] mx-auto">
+          {/* Glow behind mockup */}
+          <div className="absolute inset-20 bg-brand-400/20 blur-[80px] rounded-full z-0" />
+
+          <div className="hero-mockup-container relative z-10 w-full h-full flex items-center justify-center">
+            <InteractiveMockup />
+          </div>
         </div>
       </div>
-      <ScheduleMockup />
     </section>
   )
 }

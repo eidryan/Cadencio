@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { EdgeDecorations } from '@/components/edge-decorations'
+import { ScrollBirds } from '@/components/scroll-birds'
 import './globals.css'
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'Cadencio — Controle de presença para estúdios e academias',
-  description: 'Presença, turmas e alunos num só lugar. Feito para estúdios de dança, pilates, yoga e academias. Beta gratuito.',
+  title: 'Cadencio — Precisão em Gestão',
+  description: 'Controle de presença e gestão de turmas com precisão milimétrica.',
   openGraph: {
-    title: 'Cadencio — Seu estúdio organizado, sem papel, sem planilha.',
-    description: 'Controle de presença, turmas e alunos num só lugar. Beta gratuito para os primeiros estúdios.',
+    title: 'Cadencio — Precisão em Gestão',
+    description: 'Controle de presença e gestão de turmas.',
     type: 'website',
-    url: 'https://cadencio.app',
-    images: ['/og-image.png'],
   },
 }
 
@@ -24,7 +24,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className="font-sans antialiased">
+      <body className={`${inter.variable} font-sans antialiased text-[#1C1917] bg-[#FFFFFF] selection:bg-[#0D7377]/20 overflow-x-hidden`} suppressHydrationWarning>
+        <svg className="pointer-events-none fixed isolate z-50 opacity-5 mix-blend-soft-light" width="100%" height="100%">
+          <filter id="pedroduartenoise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.80" numOctaves="4" stitchTiles="stitch" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#pedroduartenoise)" />
+        </svg>
+        <EdgeDecorations />
+        <ScrollBirds />
         {children}
         <Analytics />
       </body>

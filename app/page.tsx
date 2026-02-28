@@ -1,31 +1,23 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { ProblemSection } from "@/components/problem-section"
-import { FeaturesSection } from "@/components/features-section"
+import { FeaturesPrimary } from "@/components/features-primary"
+import { Philosophy } from "@/components/philosophy"
 import { HowItWorks } from "@/components/how-it-works"
-import { BetaAccess } from "@/components/beta-access"
-import { SocialProof } from "@/components/social-proof"
-import { FaqSection } from "@/components/faq-section"
-import { FinalCta } from "@/components/final-cta"
+import { Pricing } from "@/components/pricing"
 import { Footer } from "@/components/footer"
-import { WhatsappFab } from "@/components/whatsapp-fab"
 
 export default function Home() {
   return (
-    <>
+    <div className="film-grain">
       <Navbar />
       <main>
         <Hero />
-        <ProblemSection />
-        <FeaturesSection />
+        <FeaturesPrimary />
+        <Philosophy />
         <HowItWorks />
-        <BetaAccess />
-        <SocialProof />
-        <FaqSection />
-        <FinalCta />
+        <Pricing />
       </main>
       <Footer />
-      <WhatsappFab />
-    </>
+    </div>
   )
 }
