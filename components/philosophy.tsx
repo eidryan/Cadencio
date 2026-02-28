@@ -58,31 +58,33 @@ export function Philosophy() {
         <section
             ref={sectionRef}
             id="filosofia"
-            className="relative py-32 md:py-48 bg-[#1A1A1A] text-[#F2F0E9] overflow-hidden"
+            className="relative py-32 md:py-48 bg-surface-dark text-gray-100 overflow-hidden"
         >
-            {/* Dark organic background texture */}
+            {/* Dark abstract background texture */}
             <div
-                className="bg-parallax absolute inset-0 -z-10 bg-cover bg-center opacity-10"
+                className="bg-parallax absolute inset-0 z-0 bg-cover bg-center opacity-10 mix-blend-overlay"
                 style={{
-                    backgroundImage: "url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=2727&auto=format&fit=crop')",
+                    backgroundImage: "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')",
                     height: "120%" // extra height for parallax
                 }}
             />
+            {/* Heavy gradient to ensure text readability */}
+            <div className="absolute inset-0 z-0 bg-gradient-to-t from-surface-dark via-surface-dark/80 to-transparent" />
 
             <div className="mx-auto max-w-4xl px-6 lg:px-8 relative z-10">
                 <div className="inline-flex items-center gap-2 mb-12">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#CC5833]" />
-                    <span className="text-xs font-mono font-semibold tracking-widest text-[#CC5833] uppercase">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-mint" />
+                    <span className="text-xs font-bold tracking-widest text-accent-mint uppercase">
                         O Manifesto
                     </span>
                 </div>
 
-                <div className="manifesto-text text-3xl md:text-5xl lg:text-[64px] font-sans font-extrabold leading-[1.15] tracking-tight">
-                    <p className="mb-12 text-[#F2F0E9]/40">
+                <div className="manifesto-text text-3xl md:text-5xl lg:text-[64px] font-sans font-bold leading-[1.15] tracking-tight">
+                    <p className="mb-12 text-gray-400">
                         {splitText("A maioria dos softwares fitness foca em: gráficos complexos, automação de marketing inútil e portais confusos para o aluno.")}
                     </p>
-                    <p className="text-[#F2F0E9]">
-                        {splitText("Nós focamos em:")} <span className="font-cormorant italic font-normal text-4xl md:text-6xl lg:text-[76px] text-[#CC5833] reveal-word tracking-normal">precisão absoluta </span>{splitText("no controle operacional do seu estúdio.")}
+                    <p className="text-gray-100">
+                        {splitText("Nós focamos em:")} <span className="text-4xl md:text-6xl lg:text-[76px] text-accent-mint reveal-word tracking-tight">precisão absoluta </span>{splitText("no controle operacional do seu estúdio.")}
                     </p>
                 </div>
             </div>

@@ -39,14 +39,14 @@ export function HowItWorks() {
       wrappers.forEach((wrapper, i) => {
         if (i === 0) return
 
-        // Background color transitions: Cream -> Muted/Secondary -> Cream
+        // Background color transitions
         ScrollTrigger.create({
           trigger: wrapper,
           start: "top 60%",
           end: "top 40%",
           scrub: true,
-          onEnter: () => gsap.to(sectionRef.current, { backgroundColor: i === 1 ? "#E8E4DD" : "#F2F0E9", duration: 0.5, ease: "power2.out" }),
-          onLeaveBack: () => gsap.to(sectionRef.current, { backgroundColor: i === 1 ? "#F2F0E9" : "#E8E4DD", duration: 0.5, ease: "power2.out" })
+          onEnter: () => gsap.to(sectionRef.current, { backgroundColor: i === 1 ? "var(--gray-50)" : "#ffffff", duration: 0.5, ease: "power2.out" }),
+          onLeaveBack: () => gsap.to(sectionRef.current, { backgroundColor: i === 1 ? "#ffffff" : "var(--gray-50)", duration: 0.5, ease: "power2.out" })
         })
 
         // Scale down and fade previous card as the new one arrives
@@ -70,21 +70,22 @@ export function HowItWorks() {
   return (
     <section
       ref={sectionRef}
-      id="como-funciona"
-      className="py-32 lg:py-48 bg-[#F2F0E9] relative transition-colors duration-700"
+      id="metodologia"
+      data-section-name="Método"
+      className="py-32 lg:py-48 bg-white relative transition-colors duration-700"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
         <div className="mb-24 lg:mb-40 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center justify-center gap-2 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1A1A1A]" />
-            <span className="text-xs font-mono font-semibold tracking-widest text-[#1A1A1A] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+            <span className="text-xs font-bold tracking-widest text-brand-700 uppercase">
               O Protocolo Cadencio
             </span>
           </div>
-          <h2 className="text-[40px] md:text-5xl lg:text-[72px] font-sans font-extrabold text-[#1A1A1A] tracking-tight leading-[1.05]">
-            Nenhuma <span className="font-cormorant italic font-normal text-[#CC5833] text-[48px] md:text-6xl lg:text-[84px]">fricção.</span>
+          <h2 className="text-4xl md:text-5xl lg:text-[72px] font-bold text-gray-900 tracking-tight leading-[1.05]">
+            Nenhuma <span className="text-gray-400">fricção.</span>
           </h2>
         </div>
 
@@ -107,18 +108,18 @@ export function HowItWorks() {
                 }}
               >
                 <div
-                  className={`protocol-card w-full max-w-2xl bg-white border border-[#E8E4DD] p-10 md:p-14 lg:p-16 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] rounded-[2rem] md:rounded-[3rem] ${alignClass}`}
+                  className={`protocol-card w-full max-w-2xl bg-white border border-gray-200 p-10 md:p-14 lg:p-16 shadow-xl rounded-sm card-paper-fold ${alignClass}`}
                 >
-                  {/* Oversized phase number */}
-                  <div className="text-[80px] md:text-[120px] font-sans font-extrabold text-[#F2F0E9] leading-[0.8] tracking-tighter mb-8 -ml-2 selection:bg-transparent">
+                  {/* Phase number */}
+                  <div className="text-[80px] md:text-[120px] font-sans font-extrabold text-gray-100 leading-[0.8] tracking-tighter mb-8 -ml-2 selection:bg-transparent">
                     {step.phase}
                   </div>
 
-                  <h3 className="text-3xl md:text-4xl font-sans font-bold text-[#1A1A1A] mb-4 tracking-tight">
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
                     {step.title}
                   </h3>
 
-                  <p className="text-lg md:text-xl text-[#1A1A1A]/70 leading-relaxed font-medium">
+                  <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
