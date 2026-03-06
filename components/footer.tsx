@@ -62,18 +62,17 @@ export function Footer() {
               &copy; {new Date().getFullYear()} Cadencio. Feito no RJ 🇧🇷
             </p>
             <span className="hidden sm:block text-brand-50/20 text-xs">·</span>
-            <p className="text-brand-50/30 text-xs">
+            <p className="text-brand-50/30 text-xs tracking-wide">
               Desenvolvido por{" "}
-              <a href="https://www.linkedin.com/company/blinkbr/" target="_blank" rel="noopener noreferrer" className="text-brand-50/50 hover:text-accent-mint transition-colors font-semibold">
+              <a 
+                href="https://blinkgroup.com.br/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-brand-50/50 hover:text-accent-mint transition-colors font-bold uppercase"
+              >
                 Blink
               </a>
             </p>
-          </div>
-          <div className="flex items-center gap-4 text-brand-50/40">
-            <a href="https://www.linkedin.com/company/blinkbr/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-coral transition-colors p-2 bg-brand-600/10 rounded-sm">
-              <span className="sr-only">LinkedIn</span>
-              <Linkedin size={18} />
-            </a>
           </div>
         </div>
       </div>

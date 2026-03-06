@@ -277,7 +277,7 @@ export function FeaturesPrimary() {
               </div>
               <h4 className="text-xl font-bold text-gray-900 mb-2">Histórico de presença</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Toda chamada fica registrada. Chega no fim do mês sabendo exatamente quem veio, quem faltou e quem pode repor aula.
+                Toda chamada fica registrada. Chegue no fim do mês sabendo exatamente quem veio, quem faltou e quem pode repor aula.
               </p>
             </div>
             <BloomingCanvas />

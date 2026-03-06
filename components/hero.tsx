@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import { ArrowRight, Play } from "lucide-react"
 import { gsap } from "gsap"
 
-const WHATSAPP = "https://wa.me/5521971715456?text=Oi%2C%20quero%20conhecer%20o%20Cadencio"
+import { WHATSAPP_GENERAL as WHATSAPP } from "@/lib/constants"
 
 function InteractiveMockup() {
   const containerRef = useRef<HTMLDivElement>(null)
