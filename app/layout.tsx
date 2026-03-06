@@ -8,7 +8,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'),
+  metadataBase: new URL('https://www.cadencio.app'),
   title: 'Cadencio | Gestão para Estúdios de Dança',
   description: 'Abandone o papel e as planilhas. Controle presença, turmas e alunos com um clique. Feito para quem administra estúdios, não para quem entende de tecnologia.',
   icons: {
