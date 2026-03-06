@@ -80,7 +80,7 @@ export function Philosophy() {
                 </div>
 
                 <div className="manifesto-text text-3xl md:text-5xl lg:text-[64px] font-sans font-bold leading-[1.15] tracking-tight">
-                    <p className="mb-12 text-gray-400">
+                    <p className="mb-12 text-gray-300">
                         {splitText("Você não abriu seu estúdio pra ficar conferindo folha por folha, refazendo conta na calculadora e respondendo aluno no WhatsApp.")}
                     </p>
                     <p className="text-gray-100">

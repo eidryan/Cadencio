@@ -35,7 +35,7 @@ export function Pricing() {
                             Grátis enquanto<br /><span className="text-accent-mint italic pr-2">durar o beta.</span>
                         </h2>
 
-                        <p className="text-lg md:text-xl text-brand-50/70 leading-relaxed max-w-lg mb-8">
+                        <p className="text-lg md:text-xl text-brand-50/90 leading-relaxed max-w-lg mb-8">
                             Estamos abrindo acesso para estúdios no Rio de Janeiro. Enquanto o beta durar, é 100% gratuito: sem cartão de crédito, sem contrato, sem burocracia.
                         </p>
 

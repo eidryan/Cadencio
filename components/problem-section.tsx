@@ -48,7 +48,7 @@ const PROBLEMS = [
         <div className="p-3 bg-white">
           <div className="grid grid-cols-6 gap-1 text-[9px] font-mono">
             {["ALUNO", "SEG", "TER", "QUA", "QUI", "SEX"].map((h) => (
-              <div key={h} className="bg-gray-100 px-1 py-0.5 text-center font-bold text-gray-500">{h}</div>
+              <div key={h} className="bg-gray-100 px-1 py-0.5 text-center font-bold text-gray-600">{h}</div>
             ))}
             {["Ana L.", "1", "1", "0", "1", "1", "Carlos S.", "1", "0", "1", "1", "0", "Diana M.", "0", "1", "1", "0", "1"].map((c, i) => (
               <div
@@ -81,7 +81,7 @@ const PROBLEMS = [
       "Chega no fim do mês e eu não sei dizer quantas aulas cada aluno fez, quem pode repor, quem faltou muito. Aí eu vejo que do jeito que tá não dá mais.",
     visual: (
       <div className="mt-6 p-4 bg-gray-50 rounded-sm border border-gray-100">
-        <div className="text-[10px] font-semibold text-gray-500 mb-3 uppercase tracking-wider">
+        <div className="text-[10px] font-semibold text-gray-600 mb-3 uppercase tracking-wider">
           Frequência por aluno
         </div>
         {[
@@ -157,7 +157,7 @@ export function ProblemSection() {
           <h2 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-4">
             Lista de presença no papel, planilhas soltas e grupo de WhatsApp.
           </h2>
-          <p className="text-lg text-gray-500 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-relaxed">
             Se você se vê em alguma dessas situações, o Cadencio foi feito pra você.
           </p>
         </div>
@@ -190,7 +190,7 @@ export function ProblemSection() {
                 </div>
 
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{p.title}</h3>
-                <p className="text-[15px] text-gray-500 leading-relaxed">{p.description}</p>
+                <p className="text-[15px] text-gray-600 leading-relaxed">{p.description}</p>
 
                 {p.visual}
               </div>
@@ -200,7 +200,7 @@ export function ProblemSection() {
 
         {/* Bridge text */}
         <div className="mt-14 text-center">
-          <p className="text-gray-500 text-lg">
+          <p className="text-gray-600 text-lg">
             Existe um jeito melhor.{" "}
             <a href="#protocolos" className="text-brand-600 font-semibold underline underline-offset-2 hover:text-brand-700">
               Veja como o Cadencio resolve isso.
