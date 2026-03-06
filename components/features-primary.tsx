@@ -108,6 +108,20 @@ function BloomingCanvas() {
         repeat: -1,
         yoyo: true
       })
+
+      // Continuous pulse for the dots
+      gsap.to(".bloom-dot", {
+        scale: 1.1,
+        opacity: 0.8,
+        duration: "random(1.5, 3)",
+        stagger: {
+          each: 0.1,
+          repeat: -1,
+          yoyo: true,
+          from: "random"
+        },
+        ease: "sine.inOut"
+      })
     }, containerRef)
     return () => ctx.revert()
   }, [])
