@@ -19,13 +19,13 @@ export function Footer() {
               <span className="text-2xl font-bold font-sans tracking-tight">Cadencio<span className="text-accent-mint">.</span></span>
             </a>
             <p className="text-brand-50/60 text-sm mb-10 max-w-sm leading-relaxed">
-              O ecossistema operacional definitivo para estúdios artísticos e academias de alto rendimento.
+              Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais.
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-500/10 border border-brand-500/20 rounded-full">
               <span className="w-2 h-2 rounded-full bg-accent-mint animate-pulse" />
               <span className="text-[10px] font-bold text-accent-mint uppercase tracking-widest">
-                System Online
+                No ar · Rio de Janeiro
               </span>
             </div>
           </div>
@@ -35,11 +35,11 @@ export function Footer() {
 
           {/* Links Group 1 */}
           <div className="md:col-span-3 lg:col-span-3 pb-8 md:pb-0 border-b border-brand-50/10 md:border-b-0">
-            <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Plataforma</h4>
+            <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Navegue</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
-              <li><a href="#protocolos" className="hover:text-accent-mint transition-colors">Protocolos</a></li>
-              <li><a href="#metodologia" className="hover:text-accent-mint transition-colors">Método</a></li>
-              <li><a href="#beta" className="hover:text-accent-mint transition-colors">Acesso Beta</a></li>
+              <li><a href="#protocolos" className="hover:text-accent-mint transition-colors">Funcionalidades</a></li>
+              <li><a href="#como-funciona" className="hover:text-accent-mint transition-colors">Como Funciona</a></li>
+              <li><a href="#beta" className="hover:text-accent-mint transition-colors">Entrar Grátis</a></li>
             </ul>
           </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
           <div className="md:col-span-3 lg:col-span-3">
             <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Empresa</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
-              <li><a href="#filosofia" className="hover:text-accent-mint transition-colors">Manifesto</a></li>
+              <li><a href="#filosofia" className="hover:text-accent-mint transition-colors">Por que o Cadencio?</a></li>
               <li><a href="#" className="hover:text-accent-mint transition-colors">Termos de Uso</a></li>
               <li><a href="#" className="hover:text-accent-mint transition-colors">Privacidade</a></li>
             </ul>

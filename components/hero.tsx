@@ -147,18 +147,18 @@ export function Hero() {
           <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 bg-brand-50 border border-brand-200 rounded-full mb-6">
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
             <span className="text-[11px] font-bold text-brand-700 uppercase tracking-widest">
-              SISTEMA OPERACIONAL BETA
+              BETA GRATUITO · RIO DE JANEIRO
             </span>
           </div>
 
           <h1 className="hero-reveal text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-gray-900 leading-[1.05] mb-6">
-            Seu estúdio
+            Seu estúdio organizado,
             <br />
-            <span className="text-brand-500">finalmente</span> organizado.
+            <span className="text-brand-500">sem papel,</span> sem planilha.
           </h1>
 
           <p className="hero-reveal text-lg lg:text-xl text-gray-500 leading-relaxed mb-8 max-w-lg">
-            Controle de presença e gestão de turmas com precisão milimétrica. Onde a simplicidade encontra a operação do seu estúdio.
+            Registre quem veio, quem faltou e gerencie suas turmas num só lugar — feito pra quem administra estúdio, não pra quem entende de tecnologia.
           </p>
 
           <div className="hero-reveal flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -168,14 +168,14 @@ export function Hero() {
               rel="noopener noreferrer"
               className="btn-primary w-full sm:w-auto"
             >
-              Iniciar Protocolo
+              Quero sair do caderninho
               <ArrowRight size={16} />
             </a>
-            <a href="#metodologia" className="btn-ghost w-full sm:w-auto group">
+            <a href="#como-funciona" className="btn-ghost w-full sm:w-auto group">
               <span className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center bg-gray-50 group-hover:bg-brand-50 group-hover:border-brand-200 transition-colors">
                 <Play size={10} className="text-gray-500 group-hover:text-brand-600 ml-0.5" />
               </span>
-              Ver Método
+              Ver como funciona
             </a>
           </div>
 
@@ -183,11 +183,11 @@ export function Hero() {
           <div className="hero-reveal mt-12 flex items-center justify-center lg:justify-start gap-6 text-[12px] font-mono text-gray-400">
             <span className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-accent-mint" />
-              SETUP: 15 MIN
+              PRONTO EM 15 MIN
             </span>
             <span className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-brand-400" />
-              LATÊNCIA ZERO
+              SEM INSTALAÇÃO
             </span>
           </div>
         </div>

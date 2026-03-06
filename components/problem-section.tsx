@@ -9,10 +9,10 @@ const PROBLEMS = [
     color: "#FF6B6B",
     colorLight: "#FFE5E5",
     cardClass: "card-coral-accent",
-    tag: "Problema 01",
-    title: "Presença no papel",
+    tag: "Reconhece isso?",
+    title: "O caderninho que some",
     description:
-      "Cadernos perdidos, letra ilegível, informações que somem no fim do mês. Sem histórico, sem controle.",
+      "Tô há anos nessa fichinha de presença. Na hora parece que tá tudo certo, mas depois não tenho certeza de nada — e no fim do mês é uma confusão.",
     visual: (
       <div className="mt-6 p-4 bg-gray-50 rounded-sm border border-gray-100">
         <div className="flex items-center gap-2 mb-3">
@@ -36,10 +36,10 @@ const PROBLEMS = [
     color: "#FFD93D",
     colorLight: "#FFF8E1",
     cardClass: "card-layered-paper",
-    tag: "Problema 02",
-    title: "Planilha que só você entende",
+    tag: "E isso aqui?",
+    title: "A planilha que só você entende",
     description:
-      "Sem backup, sem acesso compartilhado, sem histórico. Quando alguém precisa, você tem que explicar tudo do zero.",
+      "Uso lista impressa pra aluno assinar, depois tenho que jogar tudo no Excel — é um trabalho danado. E cada coisa num arquivo diferente: cadastro numa, presença noutra.",
     visual: (
       <div className="mt-6 overflow-hidden rounded-sm border border-gray-200">
         <div className="bg-green-700 px-3 py-1.5 text-[10px] font-mono text-green-100">
@@ -75,10 +75,10 @@ const PROBLEMS = [
     color: "#8B5CF6",
     colorLight: "#EDE9FE",
     cardClass: "card-violet-accent",
-    tag: "Problema 03",
-    title: "Sem dados para decidir",
+    tag: "E no fim do mês?",
+    title: "Não sei dizer o que aconteceu",
     description:
-      "Quem está faltando demais? Qual turma está crescendo? Sem visibilidade, você decide no escuro.",
+      "Chega no fim do mês e eu não sei dizer quantas aulas cada aluno fez, quem pode repor, quem faltou muito. Aí eu vejo que do jeito que tá não dá mais.",
     visual: (
       <div className="mt-6 p-4 bg-gray-50 rounded-sm border border-gray-100">
         <div className="text-[10px] font-semibold text-gray-500 mb-3 uppercase tracking-wider">
@@ -153,12 +153,12 @@ export function ProblemSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-2xl mb-16">
-          <span className="section-badge">Reconhece isso?</span>
+          <span className="section-badge">Você também vive isso?</span>
           <h2 className="text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-4">
-            A gestão do seu estúdio não precisa ser assim.
+            Lista de presença no papel, planilhas soltas e grupo de WhatsApp.
           </h2>
           <p className="text-lg text-gray-500 leading-relaxed">
-            A maioria dos estúdios ainda depende de papel, planilha ou memória. Isso custa tempo, dados e decisões certas.
+            Se você se vê em alguma dessas situações, o Cadencio foi feito pra você.
           </p>
         </div>
 
@@ -202,8 +202,8 @@ export function ProblemSection() {
         <div className="mt-14 text-center">
           <p className="text-gray-500 text-lg">
             Existe um jeito melhor.{" "}
-            <a href="#funcionalidades" className="text-brand-600 font-semibold underline underline-offset-2 hover:text-brand-700">
-              Veja como o Cadencio resolve.
+            <a href="#protocolos" className="text-brand-600 font-semibold underline underline-offset-2 hover:text-brand-700">
+              Veja como o Cadencio resolve isso.
             </a>
           </p>
         </div>
