@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from "react"
 import { Menu, X } from "lucide-react"
 import { gsap } from "gsap"
 
-const WHATSAPP = "https://wa.me/5521971715456?text=Oi%2C%20quero%20conhecer%20o%20Cadencio"
+import { WHATSAPP_GENERAL as WHATSAPP } from "@/lib/constants"
 
 const SECTIONS = [
-  { id: "protocolos", label: "Protocolos" },
-  { id: "metodologia", label: "Metodologia" },
-  { id: "beta", label: "Beta" },
+  { id: "protocolos", label: "Funcionalidades" },
+  { id: "como-funciona", label: "Como Funciona" },
+  { id: "beta", label: "Entrar Grátis" },
 ]
 
 export function Navbar() {

@@ -207,14 +207,14 @@ export function FeaturesPrimary() {
           <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-brand-50 border border-brand-200 rounded-full">
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
             <span className="text-xs font-bold text-brand-700 uppercase tracking-widest">
-              Artefatos Funcionais
+              O que você vai ter
             </span>
           </div>
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-            Não é um software.<br />É um ecossistema.
+            Chega de apagar<br />incêndio todo dia.
           </h3>
           <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
-            Substitua a desordem do papel e do Excel por um processo de telemetria elegante. Construído para ser fluido, altamente responsivo e silencioso.
+            Pare de conferir folha por folha, de redigitar em planilha, de se perder no WhatsApp. O Cadencio organiza seu estúdio de verdade: simples, rápido, sem complicação.
           </p>
         </div>
 
@@ -234,9 +234,9 @@ export function FeaturesPrimary() {
                   <line x1="12" y1="3" x2="12" y2="15" />
                 </svg>
               </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-2">Importe sua Planilha</h4>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">Traga sua planilha</h4>
               <p className="text-gray-600 leading-relaxed">
-                Traga seus alunos e matrículas de uma vez. O sistema absorve o caos dos seus controles atuais e transmuta tudo em cards organizados automaticamente.
+                Importe seus alunos de uma vez. Aceita Excel. Em minutos, todo mundo está cadastrado e você não precisa redigitar nada do zero.
               </p>
             </div>
           </div>
@@ -252,9 +252,9 @@ export function FeaturesPrimary() {
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
               </div>
-              <h4 className="text-xl font-bold text-gray-900 mb-2">Histórico Completo</h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-2">Histórico de presença</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Toda presença registrada fica salva. Um calendário que floresce dados e documenta a jornada do estúdio no tempo.
+                Toda chamada fica registrada. Chega no fim do mês sabendo exatamente quem veio, quem faltou e quem pode repor aula.
               </p>
             </div>
             <BloomingCanvas />
@@ -271,9 +271,9 @@ export function FeaturesPrimary() {
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
               </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-2">Equipe Colaborativa</h4>
+              <h4 className="text-2xl font-bold text-gray-900 mb-2">Secretária e professor no mesmo lugar</h4>
               <p className="text-gray-600 leading-relaxed max-w-sm">
-                Atribuição de papéis harmônica. Secretárias e professores acessando uma única fonte da verdade em tempo real, sem colisões.
+                Convide sua secretária e seus professores. Cada um acessa o que precisa, sem bagunça e sem você precisar explicar tudo do zero toda vez.
               </p>
             </div>
             <div className="flex-1 w-full relative z-10">

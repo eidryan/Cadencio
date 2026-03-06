@@ -8,12 +8,32 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'Cadencio — Precisão em Gestão',
-  description: 'Controle de presença e gestão de turmas com precisão milimétrica.',
+  title: 'Cadencio',
+  description: 'Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais. Grátis no beta.',
+  icons: {
+    icon: '/icon.svg',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
-    title: 'Cadencio — Precisão em Gestão',
-    description: 'Controle de presença e gestão de turmas.',
+    title: 'Cadencio',
+    description: 'Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais. Grátis no beta.',
+    siteName: 'Cadencio',
+    locale: 'pt_BR',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 180,
+        height: 180,
+        alt: 'Cadencio',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Cadencio',
+    description: 'Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais. Grátis no beta.',
+    images: ['/opengraph-image.png'],
   },
 }
 

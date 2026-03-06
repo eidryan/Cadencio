@@ -14,7 +14,7 @@ export function BetaAccess() {
     <section className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center text-2xl font-bold text-foreground md:text-3xl">
-          Estamos em beta — e queremos seu estúdio.
+          Estamos em beta e queremos seu estúdio.
         </h2>
         <div className="mx-auto mt-10 max-w-lg rounded-xl border border-border border-l-primary bg-card p-6 [border-left-width:4px]">
           <h3 className="text-lg font-bold text-foreground">

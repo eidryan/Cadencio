@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react"
+import { Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -19,13 +19,13 @@ export function Footer() {
               <span className="text-2xl font-bold font-sans tracking-tight">Cadencio<span className="text-accent-mint">.</span></span>
             </a>
             <p className="text-brand-50/60 text-sm mb-10 max-w-sm leading-relaxed">
-              O ecossistema operacional definitivo para estúdios artísticos e academias de alto rendimento.
+              Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais.
             </p>
 
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-500/10 border border-brand-500/20 rounded-full">
               <span className="w-2 h-2 rounded-full bg-accent-mint animate-pulse" />
               <span className="text-[10px] font-bold text-accent-mint uppercase tracking-widest">
-                System Online
+                No ar · Rio de Janeiro
               </span>
             </div>
           </div>
@@ -35,11 +35,11 @@ export function Footer() {
 
           {/* Links Group 1 */}
           <div className="md:col-span-3 lg:col-span-3 pb-8 md:pb-0 border-b border-brand-50/10 md:border-b-0">
-            <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Plataforma</h4>
+            <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Navegue</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
-              <li><a href="#protocolos" className="hover:text-accent-mint transition-colors">Protocolos</a></li>
-              <li><a href="#metodologia" className="hover:text-accent-mint transition-colors">Método</a></li>
-              <li><a href="#beta" className="hover:text-accent-mint transition-colors">Acesso Beta</a></li>
+              <li><a href="#protocolos" className="hover:text-accent-mint transition-colors">Funcionalidades</a></li>
+              <li><a href="#como-funciona" className="hover:text-accent-mint transition-colors">Como Funciona</a></li>
+              <li><a href="#beta" className="hover:text-accent-mint transition-colors">Entrar Grátis</a></li>
             </ul>
           </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
           <div className="md:col-span-3 lg:col-span-3">
             <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Empresa</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
-              <li><a href="#filosofia" className="hover:text-accent-mint transition-colors">Manifesto</a></li>
+              <li><a href="#filosofia" className="hover:text-accent-mint transition-colors">Por que o Cadencio?</a></li>
               <li><a href="#" className="hover:text-accent-mint transition-colors">Termos de Uso</a></li>
               <li><a href="#" className="hover:text-accent-mint transition-colors">Privacidade</a></li>
             </ul>
@@ -57,13 +57,22 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-brand-500/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-brand-50/40 text-xs font-semibold uppercase tracking-wide">
-            &copy; {new Date().getFullYear()} Cadencio. Feito no RJ 🇧🇷
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <p className="text-brand-50/40 text-xs font-semibold uppercase tracking-wide">
+              &copy; {new Date().getFullYear()} Cadencio. Feito no RJ 🇧🇷
+            </p>
+            <span className="hidden sm:block text-brand-50/20 text-xs">·</span>
+            <p className="text-brand-50/30 text-xs">
+              Desenvolvido por{" "}
+              <a href="https://www.linkedin.com/company/blinkbr/" target="_blank" rel="noopener noreferrer" className="text-brand-50/50 hover:text-accent-mint transition-colors font-semibold">
+                Blink
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-4 text-brand-50/40">
-            <a href="https://instagram.com/cadencio.app" target="_blank" rel="noopener noreferrer" className="hover:text-accent-coral transition-colors p-2 bg-brand-600/10 rounded-sm">
-              <span className="sr-only">Instagram</span>
-              <Instagram size={18} />
+            <a href="https://www.linkedin.com/company/blinkbr/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-coral transition-colors p-2 bg-brand-600/10 rounded-sm">
+              <span className="sr-only">LinkedIn</span>
+              <Linkedin size={18} />
             </a>
           </div>
         </div>

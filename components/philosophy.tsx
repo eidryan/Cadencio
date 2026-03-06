@@ -75,16 +75,16 @@ export function Philosophy() {
                 <div className="inline-flex items-center gap-2 mb-12">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent-mint" />
                     <span className="text-xs font-bold tracking-widest text-accent-mint uppercase">
-                        O Manifesto
+                        Por que o Cadencio?
                     </span>
                 </div>
 
                 <div className="manifesto-text text-3xl md:text-5xl lg:text-[64px] font-sans font-bold leading-[1.15] tracking-tight">
                     <p className="mb-12 text-gray-400">
-                        {splitText("A maioria dos softwares fitness foca em: gráficos complexos, automação de marketing inútil e portais confusos para o aluno.")}
+                        {splitText("Você não abriu seu estúdio pra ficar conferindo folha por folha, refazendo conta na calculadora e respondendo aluno no WhatsApp.")}
                     </p>
                     <p className="text-gray-100">
-                        {splitText("Nós focamos em:")} <span className="text-4xl md:text-6xl lg:text-[76px] text-accent-mint reveal-word tracking-tight">precisão absoluta </span>{splitText("no controle operacional do seu estúdio.")}
+                        {splitText("Nós existimos pra você")} <span className="text-4xl md:text-6xl lg:text-[76px] text-accent-mint reveal-word tracking-tight">parar de apagar incêndio </span>{splitText("e voltar a se dedicar aos seus alunos.")}
                     </p>
                 </div>
             </div>

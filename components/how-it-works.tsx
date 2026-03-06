@@ -11,20 +11,20 @@ if (typeof window !== "undefined") {
 const steps = [
   {
     phase: "01",
-    title: "Sincronização",
-    desc: "Importe sua base atual de alunos e defina os horários do estúdio. Tudo via painel simples ou com nossa ajuda pelo WhatsApp.",
+    title: "Crie sua conta",
+    desc: "Em menos de dois minutos você cadastra seu estúdio. Se quiser, nossa equipe te ajuda pelo WhatsApp, sem burocracia, sem formulário complicado.",
     align: "center", // First is center
   },
   {
     phase: "02",
-    title: "Implementação",
-    desc: "Acesse pelo navegador em qualquer dispositivo. O Cadencio é ultraleve. Nenhum aplicativo precisa ser baixado pelas suas alunas.",
+    title: "Configure suas turmas",
+    desc: "Adicione suas turmas, horários e alunos. Funciona no navegador do celular ou do computador, sem aplicativo pra baixar, sem instalação.",
     align: "right", // Staggered right
   },
   {
     phase: "03",
-    title: "Telemetria Ativa",
-    desc: "Comece a registrar presenças com um clique. Deixe o sistema acumular o histórico e gerar os relatórios do mês automaticamente.",
+    title: "Registre presença",
+    desc: "Com um clique você marca quem veio e quem faltou. O histórico fica salvo, o mês fecha sozinho. Nada de conferir folha por folha depois.",
     align: "left", // Staggered left
   }
 ]
@@ -70,8 +70,8 @@ export function HowItWorks() {
   return (
     <section
       ref={sectionRef}
-      id="metodologia"
-      data-section-name="Método"
+      id="como-funciona"
+      data-section-name="Como Funciona"
       className="py-32 lg:py-48 bg-white relative transition-colors duration-700"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -81,11 +81,11 @@ export function HowItWorks() {
           <div className="inline-flex items-center justify-center gap-2 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
             <span className="text-xs font-bold tracking-widest text-brand-700 uppercase">
-              O Protocolo Cadencio
+              Como funciona
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-[72px] font-bold text-gray-900 tracking-tight leading-[1.05]">
-            Nenhuma <span className="text-gray-400">fricção.</span>
+            Em 15 minutos você <span className="text-gray-400">sai do caderninho.</span>
           </h2>
         </div>
 

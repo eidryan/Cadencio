@@ -1,7 +1,6 @@
 import { Check, ArrowRight } from "lucide-react"
 
-// Whatsapp link (could be exported from a central place)
-const WHATSAPP = "https://wa.me/5521971715456?text=Ola%2C+quero+entrar+para+o+beta+do+Cadencio"
+import { WHATSAPP_BETA as WHATSAPP } from "@/lib/constants"
 
 export function Pricing() {
     return (
@@ -28,24 +27,24 @@ export function Pricing() {
                         <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 bg-brand-500/10 border border-brand-500/20 rounded-full">
                             <span className="w-2 h-2 rounded-full bg-accent-coral animate-pulse" />
                             <span className="text-[11px] font-bold text-accent-coral uppercase tracking-widest">
-                                Acesso Exclusivo
+                                Beta Gratuito
                             </span>
                         </div>
 
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-brand-50 leading-tight tracking-tight mb-6">
-                            O futuro da gestão é <span className="text-accent-mint italic pr-2">agora.</span>
+                            Grátis enquanto<br /><span className="text-accent-mint italic pr-2">durar o beta.</span>
                         </h2>
 
                         <p className="text-lg md:text-xl text-brand-50/70 leading-relaxed max-w-lg mb-8">
-                            Estamos selecionando estúdios parceiros para moldar o futuro do Cadencio. Obtenha acesso antecipado a todos os recursos da ferramenta, e garanta sua licença vitalícia gratuita.
+                            Estamos abrindo acesso para estúdios no Rio de Janeiro. Enquanto o beta durar, é 100% gratuito: sem cartão de crédito, sem contrato, sem burocracia.
                         </p>
 
                         <ul className="space-y-4 mb-10">
                             {[
-                                "Setup guiado com a nossa equipe",
-                                "Suporte prioritário via WhatsApp",
-                                "Acesso a novas funcionalidades em primeira mão",
-                                "Isenção total de mensalidades no futuro"
+                                "A gente te ajuda a configurar tudo pelo WhatsApp",
+                                "Suporte direto, sem robô, sem fila de espera",
+                                "Você testa antes de todo mundo as novidades",
+                                "Gratuito agora. Quem entrar no beta fica com condições especiais"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
                                     <div className="w-6 h-6 rounded-sm bg-brand-600/30 flex items-center justify-center shrink-0 border border-brand-500/30">
@@ -65,8 +64,8 @@ export function Pricing() {
                         <div className="relative bg-white p-8 md:p-12 shadow-2xl flex flex-col card-paper-fold text-gray-900 border border-gray-100 z-10">
                             <div className="flex justify-between items-start mb-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Membro Fundador</h3>
-                                    <p className="text-brand-600 text-sm font-bold uppercase tracking-wide">Early Access Program</p>
+                                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Acesso Beta</h3>
+                                    <p className="text-brand-600 text-sm font-bold uppercase tracking-wide">Estúdios fundadores</p>
                                 </div>
                                 <div className="bg-accent-coral/10 text-accent-coral text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide border border-accent-coral/20 transform rotate-2">
                                     100% OFF
@@ -80,7 +79,7 @@ export function Pricing() {
 
                             <div className="mb-8 p-4 bg-brand-50 rounded-sm border-l-4 border-brand-500">
                                 <p className="text-brand-700 font-semibold text-sm">
-                                    Vagas limitadas para estúdios no Rio de Janeiro.
+                                    Estamos aceitando estúdios de dança, pilates e artes marciais no Rio de Janeiro.
                                 </p>
                             </div>
 
@@ -91,13 +90,13 @@ export function Pricing() {
                                 className="w-full btn-primary text-center flex justify-center !py-4"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
-                                    Solicitar Acesso Beta
+                                    Quero entrar no beta
                                     <ArrowRight size={18} />
                                 </span>
                             </a>
 
                             <p className="text-center text-gray-400 text-xs font-semibold mt-6 uppercase tracking-wider">
-                                Sem necessidade de cartão de crédito.
+                                Sem cartão de crédito. Sem contrato.
                             </p>
                         </div>
                     </div>
