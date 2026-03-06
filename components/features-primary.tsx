@@ -104,8 +104,8 @@ function BloomingCanvas() {
   }, [])
 
   return (
-    <div ref={containerRef} className="mt-8 grid grid-cols-12 gap-1.5 p-4 bg-white rounded-sm h-48 content-start overflow-hidden border border-gray-100 shadow-sm">
-      {Array.from({ length: 84 }).map((_, i) => (
+    <div ref={containerRef} className="mt-8 grid grid-cols-12 gap-1.5 p-4 bg-white rounded-sm aspect-video content-start overflow-hidden border border-gray-100 shadow-sm">
+      {Array.from({ length: 60 }).map((_, i) => (
         <div key={i} className="bloom-dot w-full aspect-square rounded-[2px]" />
       ))}
     </div>
