@@ -12,13 +12,13 @@ const steps = [
   {
     phase: "01",
     title: "Crie sua conta",
-    desc: "Em menos de dois minutos você cadastra seu estúdio. Se quiser, nossa equipe te ajuda pelo WhatsApp — sem burocracia, sem formulário complicado.",
+    desc: "Em menos de dois minutos você cadastra seu estúdio. Se quiser, nossa equipe te ajuda pelo WhatsApp, sem burocracia, sem formulário complicado.",
     align: "center", // First is center
   },
   {
     phase: "02",
     title: "Configure suas turmas",
-    desc: "Adicione suas turmas, horários e alunos. Funciona no navegador do celular ou do computador — sem aplicativo pra baixar, sem instalação.",
+    desc: "Adicione suas turmas, horários e alunos. Funciona no navegador do celular ou do computador, sem aplicativo pra baixar, sem instalação.",
     align: "right", // Staggered right
   },
   {

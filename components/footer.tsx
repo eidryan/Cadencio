@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react"
+import { Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -57,13 +57,22 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-brand-500/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-brand-50/40 text-xs font-semibold uppercase tracking-wide">
-            &copy; {new Date().getFullYear()} Cadencio. Feito no RJ 🇧🇷
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <p className="text-brand-50/40 text-xs font-semibold uppercase tracking-wide">
+              &copy; {new Date().getFullYear()} Cadencio. Feito no RJ 🇧🇷
+            </p>
+            <span className="hidden sm:block text-brand-50/20 text-xs">·</span>
+            <p className="text-brand-50/30 text-xs">
+              Desenvolvido por{" "}
+              <a href="https://www.linkedin.com/company/blinkbr/" target="_blank" rel="noopener noreferrer" className="text-brand-50/50 hover:text-accent-mint transition-colors font-semibold">
+                Blink
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-4 text-brand-50/40">
-            <a href="https://instagram.com/cadencio.app" target="_blank" rel="noopener noreferrer" className="hover:text-accent-coral transition-colors p-2 bg-brand-600/10 rounded-sm">
-              <span className="sr-only">Instagram</span>
-              <Instagram size={18} />
+            <a href="https://www.linkedin.com/company/blinkbr/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-coral transition-colors p-2 bg-brand-600/10 rounded-sm">
+              <span className="sr-only">LinkedIn</span>
+              <Linkedin size={18} />
             </a>
           </div>
         </div>

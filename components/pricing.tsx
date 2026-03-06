@@ -1,7 +1,6 @@
 import { Check, ArrowRight } from "lucide-react"
 
-// Whatsapp link (could be exported from a central place)
-const WHATSAPP = "https://wa.me/5521971715456?text=Ola%2C+quero+entrar+para+o+beta+do+Cadencio"
+import { WHATSAPP_BETA as WHATSAPP } from "@/lib/constants"
 
 export function Pricing() {
     return (
@@ -37,7 +36,7 @@ export function Pricing() {
                         </h2>
 
                         <p className="text-lg md:text-xl text-brand-50/70 leading-relaxed max-w-lg mb-8">
-                            Estamos abrindo acesso para estúdios no Rio de Janeiro. Enquanto o beta durar, é 100% gratuito — sem cartão de crédito, sem contrato, sem burocracia.
+                            Estamos abrindo acesso para estúdios no Rio de Janeiro. Enquanto o beta durar, é 100% gratuito: sem cartão de crédito, sem contrato, sem burocracia.
                         </p>
 
                         <ul className="space-y-4 mb-10">
@@ -45,7 +44,7 @@ export function Pricing() {
                                 "A gente te ajuda a configurar tudo pelo WhatsApp",
                                 "Suporte direto, sem robô, sem fila de espera",
                                 "Você testa antes de todo mundo as novidades",
-                                "Gratuito agora — e quem entrar no beta fica com condições especiais"
+                                "Gratuito agora. Quem entrar no beta fica com condições especiais"
                             ].map((item, i) => (
                                 <li key={i} className="flex items-center gap-3">
                                     <div className="w-6 h-6 rounded-sm bg-brand-600/30 flex items-center justify-center shrink-0 border border-brand-500/30">

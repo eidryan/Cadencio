@@ -214,7 +214,7 @@ export function FeaturesPrimary() {
             Chega de apagar<br />incêndio todo dia.
           </h3>
           <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
-            Pare de conferir folha por folha, de redigitar em planilha, de se perder no WhatsApp. O Cadencio organiza seu estúdio de verdade — simples, rápido, sem complicação.
+            Pare de conferir folha por folha, de redigitar em planilha, de se perder no WhatsApp. O Cadencio organiza seu estúdio de verdade: simples, rápido, sem complicação.
           </p>
         </div>
 
@@ -236,7 +236,7 @@ export function FeaturesPrimary() {
               </div>
               <h4 className="text-2xl font-bold text-gray-900 mb-2">Traga sua planilha</h4>
               <p className="text-gray-600 leading-relaxed">
-                Importe seus alunos de uma vez — aceita Excel. Em minutos, todo mundo está cadastrado e você não precisa redigitar nada do zero.
+                Importe seus alunos de uma vez. Aceita Excel. Em minutos, todo mundo está cadastrado e você não precisa redigitar nada do zero.
               </p>
             </div>
           </div>

@@ -12,21 +12,21 @@ const PROBLEMS = [
     tag: "Reconhece isso?",
     title: "O caderninho que some",
     description:
-      "Tô há anos nessa fichinha de presença. Na hora parece que tá tudo certo, mas depois não tenho certeza de nada — e no fim do mês é uma confusão.",
+      "Tô há anos nessa fichinha de presença. Na hora parece que tá tudo certo, mas depois não tenho certeza de nada. No fim do mês é uma confusão.",
     visual: (
       <div className="mt-6 p-4 bg-gray-50 rounded-sm border border-gray-100">
         <div className="flex items-center gap-2 mb-3">
           <div className="w-4 h-4 border-2 border-gray-300 rounded-sm" />
           <div className="h-2 bg-gray-200 rounded flex-1" />
         </div>
-        {["Ana Lima ✓ ✓ ✓ — ✓", "Carlos S. ✓ — ✓ ✓ —", "Diana M. — ✓ ✓ — ✓"].map((line, i) => (
+        {["Ana Lima ✓ ✓ ✓ x ✓", "Carlos S. ✓ x ✓ ✓ x", "Diana M. x ✓ ✓ x ✓"].map((line, i) => (
           <div key={i} className="flex items-center gap-2 mb-2">
             <div className="w-4 h-4 border-2 border-gray-200 rounded-sm shrink-0" />
             <div className="font-mono text-[11px] text-gray-400 line-through">{line}</div>
           </div>
         ))}
         <div className="mt-3 px-2 py-1 bg-red-50 border border-red-100 text-[10px] text-red-500 font-medium rounded-sm">
-          ⚠ Caderno perdido — dados do mês inacessíveis
+          ⚠ Caderno perdido: dados do mês inacessíveis
         </div>
       </div>
     ),
@@ -39,7 +39,7 @@ const PROBLEMS = [
     tag: "E isso aqui?",
     title: "A planilha que só você entende",
     description:
-      "Uso lista impressa pra aluno assinar, depois tenho que jogar tudo no Excel — é um trabalho danado. E cada coisa num arquivo diferente: cadastro numa, presença noutra.",
+      "Uso lista impressa pra aluno assinar, depois tenho que jogar tudo no Excel. É um trabalho danado. E cada coisa num arquivo diferente: cadastro numa, presença noutra.",
     visual: (
       <div className="mt-6 overflow-hidden rounded-sm border border-gray-200">
         <div className="bg-green-700 px-3 py-1.5 text-[10px] font-mono text-green-100">

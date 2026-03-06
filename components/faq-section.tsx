@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "Funciona para pilates / yoga / artes marciais?",
     answer:
-      "Sim. O Cadencio funciona para qualquer espaço com turmas, horários e alunos — dança, pilates, yoga, luta, ginástica.",
+      "Sim. O Cadencio funciona para qualquer espaço com turmas, horários e alunos: dança, pilates, yoga, luta, ginástica.",
   },
   {
     question: "Preciso instalar alguma coisa?",

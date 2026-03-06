@@ -158,7 +158,7 @@ export function Hero() {
           </h1>
 
           <p className="hero-reveal text-lg lg:text-xl text-gray-500 leading-relaxed mb-8 max-w-lg">
-            Registre quem veio, quem faltou e gerencie suas turmas num só lugar — feito pra quem administra estúdio, não pra quem entende de tecnologia.
+            Registre quem veio, quem faltou e gerencie suas turmas num só lugar. Feito pra quem administra estúdio, não pra quem entende de tecnologia.
           </p>
 
           <div className="hero-reveal flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
