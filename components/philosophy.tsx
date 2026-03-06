@@ -81,7 +81,7 @@ export function Philosophy() {
 
                 <div className="manifesto-text text-3xl md:text-5xl lg:text-[64px] font-sans font-bold leading-[1.15] tracking-tight">
                     <p className="mb-12 text-gray-300">
-                        {splitText("Você não abriu seu estúdio pra ficar conferindo folha por folha, refazendo conta na calculadora e respondendo aluno no WhatsApp.")}
+                        {splitText("Você não abriu seu estúdio pra ficar conferindo folha por folha e refazendo conta na calculadora.")}
                     </p>
                     <p className="text-gray-100">
                         {splitText("Nós existimos pra você")} <span className="text-4xl md:text-6xl lg:text-[76px] text-accent-mint reveal-word tracking-tight">parar de apagar incêndio </span>{splitText("e voltar a se dedicar aos seus alunos.")}
