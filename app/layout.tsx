@@ -21,14 +21,6 @@ export const metadata: Metadata = {
     siteName: 'Cadencio',
     locale: 'pt_BR',
     type: 'website',
-    images: [
-      {
-        url: '/opengraph-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Cadencio - Sistema de Controle para Estúdios',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
