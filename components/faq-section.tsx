@@ -46,7 +46,7 @@ export function FaqSection() {
               <AccordionTrigger className="text-left text-base font-semibold text-foreground">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+              <AccordionContent className="text-sm leading-relaxed text-gray-600">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

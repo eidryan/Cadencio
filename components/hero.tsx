@@ -157,7 +157,7 @@ export function Hero() {
             <span className="text-brand-500">sem papel,</span> sem planilha.
           </h1>
 
-          <p className="hero-reveal text-lg lg:text-xl text-gray-500 leading-relaxed mb-8 max-w-lg">
+          <p className="hero-reveal text-lg lg:text-xl text-gray-600 leading-relaxed mb-8 max-w-lg">
             Registre quem veio, quem faltou e gerencie suas turmas num só lugar. Feito pra quem administra estúdio, não pra quem entende de tecnologia.
           </p>
 

@@ -99,13 +99,36 @@ function BloomingCanvas() {
           }
         }
       )
+
+      // Floating animation for the whole container
+      gsap.to(containerRef.current, {
+        y: -10,
+        duration: 3,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true
+      })
+
+      // Continuous pulse for the dots
+      gsap.to(".bloom-dot", {
+        scale: 1.1,
+        opacity: 0.8,
+        duration: "random(1.5, 3)",
+        stagger: {
+          each: 0.1,
+          repeat: -1,
+          yoyo: true,
+          from: "random"
+        },
+        ease: "sine.inOut"
+      })
     }, containerRef)
     return () => ctx.revert()
   }, [])
 
   return (
-    <div ref={containerRef} className="mt-8 grid grid-cols-12 gap-1.5 p-4 bg-white rounded-sm border border-gray-100 shadow-sm h-48 content-start">
-      {Array.from({ length: 96 }).map((_, i) => (
+    <div ref={containerRef} className="mt-8 grid grid-cols-12 gap-1.5 p-4 bg-white rounded-sm aspect-[12/7] content-start overflow-hidden border border-gray-100 shadow-sm">
+      {Array.from({ length: 72 }).map((_, i) => (
         <div key={i} className="bloom-dot w-full aspect-square rounded-[2px]" />
       ))}
     </div>
