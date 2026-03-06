@@ -8,31 +8,31 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
-  title: 'Cadencio',
-  description: 'Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais. Grátis no beta.',
+  title: 'Cadencio | Gestão para Estúdios de Dança',
+  description: 'Abandone o papel e as planilhas. Controle presença, turmas e alunos com um clique. Feito para quem administra estúdios, não para quem entende de tecnologia.',
   icons: {
     icon: '/icon.svg',
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'Cadencio',
-    description: 'Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais. Grátis no beta.',
+    title: 'Cadencio | Gestão Simplificada para Estúdios de Dança',
+    description: 'A maneira mais fácil de organizar seu estúdio: controle de presença em 1 clique, histórico automático e tudo o que você precisa em um só lugar.',
     siteName: 'Cadencio',
     locale: 'pt_BR',
     type: 'website',
     images: [
       {
         url: '/opengraph-image.png',
-        width: 180,
-        height: 180,
-        alt: 'Cadencio',
+        width: 1200,
+        height: 630,
+        alt: 'Cadencio - Sistema de Controle para Estúdios',
       },
     ],
   },
   twitter: {
-    card: 'summary',
-    title: 'Cadencio',
-    description: 'Controle de presença e gestão de turmas para estúdios de dança, pilates e artes marciais. Grátis no beta.',
+    card: 'summary_large_image',
+    title: 'Cadencio | Gestão para Estúdios de Dança',
+    description: 'Seu estúdio organizado, sem papel e sem planilha. O controle que você sempre quis, agora na palma da mão.',
     images: ['/opengraph-image.png'],
   },
 }
