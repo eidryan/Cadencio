@@ -6,10 +6,12 @@ import { gsap } from "gsap"
 
 import { WHATSAPP_GENERAL as WHATSAPP } from "@/lib/constants"
 
+const APP_URL = "https://my.cadencio.app"
+
 const SECTIONS = [
   { id: "protocolos", label: "Funcionalidades" },
   { id: "como-funciona", label: "Como Funciona" },
-  { id: "beta", label: "Entrar Grátis" },
+  { id: "precos", label: "Preços" },
 ]
 
 export function Navbar() {
@@ -88,15 +90,21 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <a
-          href={WHATSAPP}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-paper-cut shrink-0 !py-2 !px-4 text-sm"
-        >
-          Começar
-        </a>
+        {/* Desktop CTAs */}
+        <div className="flex items-center gap-3">
+          <a
+            href={`${APP_URL}/login`}
+            className="text-sm font-semibold text-gray-600 transition-all duration-300 hover:-translate-y-[2px] hover:text-brand-600"
+          >
+            Entrar
+          </a>
+          <a
+            href={`${APP_URL}/register`}
+            className="btn-paper-cut shrink-0 !py-2 !px-4 text-sm"
+          >
+            Começar grátis
+          </a>
+        </div>
       </div>
 
       {/* Mobile Toggle */}
@@ -123,10 +131,17 @@ export function Navbar() {
           ))}
           <div className="h-px bg-gray-200 my-2" />
           <a
-            href={WHATSAPP}
+            href={`${APP_URL}/login`}
+            className="text-lg font-medium text-gray-900 hover:text-brand-600"
+            onClick={() => setMenuOpen(false)}
+          >
+            Entrar
+          </a>
+          <a
+            href={`${APP_URL}/register`}
             className="w-full btn-primary text-center"
           >
-            Começar
+            Começar grátis
           </a>
         </div>
       )}

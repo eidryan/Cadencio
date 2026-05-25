@@ -1,108 +1,206 @@
-import { Check, ArrowRight } from "lucide-react"
+"use client"
 
-import { WHATSAPP_BETA as WHATSAPP } from "@/lib/constants"
+import { useState } from "react"
+import { Check } from "lucide-react"
+
+const APP_URL = "https://my.cadencio.app"
+
+const PLANS = [
+  {
+    key: "starter",
+    name: "Starter",
+    monthly: 79,
+    annual: 63,
+    annualTotal: 758,
+    description: "Para estúdios que estão começando e querem sair das planilhas.",
+    features: [
+      "Controle de presença",
+      "Gestão de turmas e horários",
+      "Cadastro de alunas (até 100)",
+      "Relatórios de presença",
+      "App mobile responsivo",
+      "Suporte por email",
+    ],
+    cta: "Começar grátis",
+    highlight: false,
+  },
+  {
+    key: "pro",
+    name: "Pro",
+    monthly: 149,
+    annual: 119,
+    annualTotal: 1430,
+    description: "Para quem quer controle completo — do financeiro ao relatório.",
+    features: [
+      "Tudo do Starter",
+      "Alunas ilimitadas",
+      "Controle financeiro completo",
+      "Importação via planilha Excel",
+      "Relatórios avançados e CSV",
+      "Múltiplos professores",
+      "Suporte prioritário",
+    ],
+    cta: "Começar grátis",
+    highlight: true,
+    badge: "Mais popular",
+  },
+  {
+    key: "business",
+    name: "Business",
+    monthly: 299,
+    annual: 239,
+    annualTotal: 2870,
+    description: "Para estúdios que crescem e precisam de tudo sob controle.",
+    features: [
+      "Tudo do Pro",
+      "Gestão de aulas avulsas (drop-in)",
+      "Analytics avançado",
+      "API de integração",
+      "Onboarding personalizado",
+      "Suporte via WhatsApp",
+      "SLA de atendimento garantido",
+    ],
+    cta: "Começar grátis",
+    highlight: false,
+  },
+]
 
 export function Pricing() {
-    return (
-        <section id="beta" data-section-name="Beta" className="py-32 lg:py-48 bg-surface-dark relative overflow-hidden">
-            {/* Subtle organic noise overlay handled globally, but we can add some local light bursts */}
+  const [annual, setAnnual] = useState(false)
+
+  return (
+    <section
+      id="precos"
+      data-section-name="Preços"
+      className="py-32 lg:py-48 bg-surface-dark relative overflow-hidden"
+    >
+      {/* Background glow */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-600/10 via-surface-dark to-surface-dark opacity-50" />
+
+      {/* Origami corner accent */}
+      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] text-brand-400 opacity-10">
+        <svg viewBox="0 0 100 100" fill="currentColor">
+          <polygon points="100,0 100,100 0,0" />
+          <polygon points="100,20 80,100 20,20" opacity="0.3" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Header */}
+        <div className="mb-16 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-500/20 bg-brand-500/10 px-3 py-1.5">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-accent-mint" />
+            <span className="text-[11px] font-bold uppercase tracking-widest text-accent-mint">
+              14 dias grátis em todos os planos
+            </span>
+          </div>
+
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-brand-50 md:text-5xl">
+            Preços simples e honestos
+          </h2>
+          <p className="mx-auto max-w-xl text-lg text-brand-50/70">
+            Sem surpresas na fatura. Cancele quando quiser.
+          </p>
+
+          {/* Billing toggle */}
+          <div className="mt-10 inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/5 p-1.5">
+            <button
+              onClick={() => setAnnual(false)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+                !annual
+                  ? "bg-brand-500 text-white shadow-sm"
+                  : "text-brand-50/60 hover:text-brand-50"
+              }`}
+            >
+              Mensal
+            </button>
+            <button
+              onClick={() => setAnnual(true)}
+              className={`flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-all ${
+                annual
+                  ? "bg-brand-500 text-white shadow-sm"
+                  : "text-brand-50/60 hover:text-brand-50"
+              }`}
+            >
+              Anual
+              <span className="rounded-full bg-accent-mint/20 px-2 py-0.5 text-[10px] font-bold text-accent-mint">
+                2 meses grátis
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Plan cards */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {PLANS.map((plan) => (
             <div
-                className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-600/10 via-surface-dark to-surface-dark opacity-50 pointer-events-none"
-            />
-
-            {/* Teal abstract origami background element */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-10 pointer-events-none text-brand-400">
-                <svg viewBox="0 0 100 100" fill="currentColor">
-                    <polygon points="100,0 100,100 0,0" />
-                    <polygon points="100,20 80,100 20,20" opacity="0.3" />
-                </svg>
-            </div>
-
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-                    {/* Left: Copy */}
-                    <div>
-                        <div className="inline-flex items-center gap-2 mb-8 px-3 py-1.5 bg-brand-500/10 border border-brand-500/20 rounded-full">
-                            <span className="w-2 h-2 rounded-full bg-accent-coral animate-pulse" />
-                            <span className="text-[11px] font-bold text-accent-coral uppercase tracking-widest">
-                                Beta Gratuito
-                            </span>
-                        </div>
-
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-brand-50 leading-tight tracking-tight mb-6">
-                            Grátis enquanto<br /><span className="text-accent-mint italic pr-2">durar o beta.</span>
-                        </h2>
-
-                        <p className="text-lg md:text-xl text-brand-50/90 leading-relaxed max-w-lg mb-8">
-                            Estamos abrindo acesso para estúdios no Rio de Janeiro. Enquanto o beta durar, é 100% gratuito: sem cartão de crédito, sem contrato, sem burocracia.
-                        </p>
-
-                        <ul className="space-y-4 mb-10">
-                            {[
-                                "A gente te ajuda a configurar tudo pelo WhatsApp",
-                                "Suporte direto, sem robô, sem fila de espera",
-                                "Você testa antes de todo mundo as novidades",
-                                "Gratuito agora. Quem entrar no beta fica com condições especiais"
-                            ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-sm bg-brand-600/30 flex items-center justify-center shrink-0 border border-brand-500/30">
-                                        <Check size={14} className="text-accent-mint" />
-                                    </div>
-                                    <span className="text-brand-50/90 text-[15px]">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Right: Pricing Card */}
-                    <div className="relative w-full max-w-md mx-auto lg:ml-auto">
-                        {/* Soft glow behind card */}
-                        <div className="absolute inset-0 bg-brand-500/10 blur-[80px] rounded-full z-0" />
-
-                        <div className="relative bg-white p-8 md:p-12 shadow-2xl flex flex-col card-paper-fold text-gray-900 border border-gray-100 z-10">
-                            <div className="flex justify-between items-start mb-6">
-                                <div>
-                                    <h3 className="text-2xl font-bold text-gray-900 mb-1">Acesso Beta</h3>
-                                    <p className="text-brand-600 text-sm font-bold uppercase tracking-wide">Estúdios fundadores</p>
-                                </div>
-                                <div className="bg-accent-coral/10 text-accent-coral text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wide border border-accent-coral/20 transform rotate-2">
-                                    100% OFF
-                                </div>
-                            </div>
-
-                            <div className="my-8 flex items-baseline gap-2">
-                                <span className="text-[64px] font-extrabold font-sans leading-none text-gray-900 tracking-tighter">R$0</span>
-                                <span className="text-gray-400 font-semibold text-lg line-through decoration-accent-coral pt-2">R$97/mês</span>
-                            </div>
-
-                            <div className="mb-8 p-4 bg-brand-50 rounded-sm border-l-4 border-brand-500">
-                                <p className="text-brand-700 font-semibold text-sm">
-                                    Estamos aceitando estúdios de dança, pilates e artes marciais no Rio de Janeiro.
-                                </p>
-                            </div>
-
-                            <a
-                                href={WHATSAPP}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full btn-primary text-center flex justify-center !py-4"
-                            >
-                                <span className="relative z-10 flex items-center gap-2">
-                                    Quero entrar no beta
-                                    <ArrowRight size={18} />
-                                </span>
-                            </a>
-
-                            <p className="text-center text-gray-400 text-xs font-semibold mt-6 uppercase tracking-wider">
-                                Sem cartão de crédito. Sem contrato.
-                            </p>
-                        </div>
-                    </div>
-
+              key={plan.key}
+              className={`relative flex flex-col rounded-sm border p-8 transition-all duration-300 ${
+                plan.highlight
+                  ? "border-brand-500/40 bg-white/[0.07] shadow-[0_0_60px_rgba(36,174,181,0.15)]"
+                  : "border-white/10 bg-white/[0.03]"
+              }`}
+            >
+              {plan.badge && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span className="rounded-full border border-brand-400/30 bg-brand-500 px-4 py-1 text-xs font-bold uppercase tracking-widest text-white shadow-md">
+                    {plan.badge}
+                  </span>
                 </div>
+              )}
+
+              <div className="mb-6">
+                <h3 className="text-lg font-bold text-brand-50">{plan.name}</h3>
+                <p className="mt-1 text-sm text-brand-50/50">{plan.description}</p>
+              </div>
+
+              <div className="mb-8">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-5xl font-extrabold tracking-tight text-brand-50">
+                    R${annual ? plan.annual : plan.monthly}
+                  </span>
+                  <span className="text-brand-50/40">/mês</span>
+                </div>
+                {annual && (
+                  <p className="mt-1.5 text-xs text-brand-50/40">
+                    Cobrado anualmente como{" "}
+                    <span className="text-brand-50/60">
+                      R${plan.annualTotal.toLocaleString("pt-BR")}
+                    </span>
+                  </p>
+                )}
+              </div>
+
+              <ul className="mb-8 flex-1 space-y-3">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-brand-500/30 bg-brand-600/30">
+                      <Check size={11} className="text-accent-mint" />
+                    </div>
+                    <span className="text-sm text-brand-50/75">{f}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={`${APP_URL}/register?plan=${plan.key}&interval=${annual ? "year" : "month"}`}
+                className={`w-full rounded-sm py-3 text-center text-sm font-bold transition-all ${
+                  plan.highlight
+                    ? "bg-brand-500 text-white hover:bg-brand-400 shadow-sm"
+                    : "border border-brand-500/30 text-brand-300 hover:border-brand-400/50 hover:bg-brand-500/10"
+                }`}
+              >
+                {plan.cta}
+              </a>
             </div>
-        </section>
-    )
+          ))}
+        </div>
+
+        {/* Footer note */}
+        <p className="mt-12 text-center text-sm text-brand-50/30">
+          Cartão de crédito necessário apenas após o período de teste. Cancele a qualquer momento, sem multa.
+        </p>
+      </div>
+    </section>
+  )
 }
