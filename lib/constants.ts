@@ -1,3 +1,6 @@
+// ─── App ─────────────────────────────────────────────────────────────────────
+export const APP_URL = "https://my.cadencio.app"
+
 // ─── WhatsApp ───────────────────────────────────────────────────────────────
 // To change the WhatsApp number, update WHATSAPP_PHONE below.
 // Format: country code + area code + number, no spaces or symbols.
