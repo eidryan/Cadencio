@@ -197,7 +197,7 @@ export function Pricing() {
 
         {/* Footer note */}
         <p className="mt-12 text-center text-sm text-brand-50/30">
-          Cartão de crédito necessário apenas após o período de teste. Cancele a qualquer momento, sem multa.
+          Cancele a qualquer momento, sem multa.
         </p>
       </div>
     </section>
