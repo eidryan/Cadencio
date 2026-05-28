@@ -9,7 +9,7 @@ const PLANS = [
   {
     key: "starter",
     name: "Starter",
-    monthly: 79,
+    monthly: 99,
     annual: 63,
     annualTotal: 758,
     description: "Para estúdios que estão começando e querem sair das planilhas.",
@@ -18,7 +18,6 @@ const PLANS = [
       "Gestão de turmas e horários",
       "Cadastro de alunas (até 100)",
       "Relatórios de presença",
-      "App mobile responsivo",
       "Suporte por email",
     ],
     cta: "Começar grátis",
