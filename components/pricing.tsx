@@ -1,24 +1,40 @@
 "use client"
 
 import { useState } from "react"
-import { Check } from "lucide-react"
+import { Check, Sparkles } from "lucide-react"
 
 const APP_URL = "https://my.cadencio.app"
 
-const PLANS = [
+type PlanFeature = { label: string; soon?: boolean }
+
+type Plan = {
+  key: string
+  name: string
+  monthly: number
+  annual: number
+  annualTotal: number
+  description: string
+  features: PlanFeature[]
+  cta: string
+  highlight: boolean
+  badge?: string
+}
+
+const PLANS: Plan[] = [
   {
     key: "starter",
     name: "Starter",
-    monthly: 99,
+    monthly: 79,
     annual: 63,
     annualTotal: 758,
     description: "Para estúdios que estão começando e querem sair das planilhas.",
     features: [
-      "Controle de presença",
-      "Gestão de turmas e horários",
-      "Cadastro de alunas (até 100)",
-      "Relatórios de presença",
-      "Suporte por email",
+      { label: "Até 60 alunas" },
+      { label: "Gestão de turmas e horários" },
+      { label: "Controle de presença" },
+      { label: "Controle de pagamentos" },
+      { label: "Relatórios de presença" },
+      { label: "Suporte por email" },
     ],
     cta: "Começar grátis",
     highlight: false,
@@ -29,15 +45,18 @@ const PLANS = [
     monthly: 149,
     annual: 119,
     annualTotal: 1430,
-    description: "Para quem quer controle completo — do financeiro ao relatório.",
+    description: "Para quem quer decidir com dados — e agir antes de perder alunas.",
     features: [
-      "Tudo do Starter",
-      "Alunas ilimitadas",
-      "Controle financeiro completo",
-      "Importação via planilha Excel",
-      "Relatórios avançados e CSV",
-      "Múltiplos professores",
-      "Suporte prioritário",
+      { label: "Tudo do Starter" },
+      { label: "Até 150 alunas" },
+      { label: "Controle financeiro completo" },
+      { label: "Importação via planilha Excel" },
+      { label: "Relatórios avançados e CSV" },
+      { label: "Múltiplos professores" },
+      { label: "Tendências de frequência", soon: true },
+      { label: "Alerta de alunas esfriando", soon: true },
+      { label: "Cobrança via WhatsApp", soon: true },
+      { label: "Suporte prioritário" },
     ],
     cta: "Começar grátis",
     highlight: true,
@@ -49,15 +68,15 @@ const PLANS = [
     monthly: 299,
     annual: 239,
     annualTotal: 2870,
-    description: "Para estúdios que crescem e precisam de tudo sob controle.",
+    description: "Para estúdios que precisam rodar no automático — sem depender de você.",
     features: [
-      "Tudo do Pro",
-      "Gestão de aulas avulsas (drop-in)",
-      "Analytics avançado",
-      "API de integração",
-      "Onboarding personalizado",
-      "Suporte via WhatsApp",
-      "SLA de atendimento garantido",
+      { label: "Tudo do Pro" },
+      { label: "Alunas ilimitadas" },
+      { label: "Equipe com permissões (recepção, sócio)" },
+      { label: "Desempenho por professor", soon: true },
+      { label: "Automações de cobrança e follow-up", soon: true },
+      { label: "Onboarding personalizado" },
+      { label: "Suporte via WhatsApp" },
     ],
     cta: "Começar grátis",
     highlight: false,
@@ -172,11 +191,28 @@ export function Pricing() {
 
               <ul className="mb-8 flex-1 space-y-3">
                 {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border border-brand-500/30 bg-brand-600/30">
-                      <Check size={11} className="text-accent-mint" />
+                  <li key={f.label} className="flex items-start gap-3">
+                    <div
+                      className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-sm border ${
+                        f.soon
+                          ? "border-accent-gold/30 bg-accent-gold/10"
+                          : "border-brand-500/30 bg-brand-600/30"
+                      }`}
+                    >
+                      {f.soon ? (
+                        <Sparkles size={11} className="text-accent-gold" />
+                      ) : (
+                        <Check size={11} className="text-accent-mint" />
+                      )}
                     </div>
-                    <span className="text-sm text-brand-50/75">{f}</span>
+                    <span className={`text-sm ${f.soon ? "text-brand-50/55" : "text-brand-50/75"}`}>
+                      {f.label}
+                      {f.soon && (
+                        <span className="ml-2 inline-block rounded-full bg-accent-gold/15 px-2 py-0.5 align-middle text-[10px] font-bold uppercase tracking-wide text-accent-gold">
+                          Em breve
+                        </span>
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>
