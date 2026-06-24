@@ -17,7 +17,7 @@ export function FinalCta() {
           Quero experimentar
         </a>
         <p className="mt-4 text-sm text-primary-foreground/70">
-          {"Beta gratuito · Sem cartão · Aceitando apenas 10 estúdios"}
+          {"14 dias grátis · Cancele quando quiser · Sem instalação"}
         </p>
       </div>
     </section>

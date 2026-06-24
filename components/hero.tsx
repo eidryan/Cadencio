@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import { ArrowRight, Play } from "lucide-react"
 import { gsap } from "gsap"
 
-import { WHATSAPP_GENERAL as WHATSAPP } from "@/lib/constants"
+import { TRIAL_CTA } from "@/lib/site"
 
 function InteractiveMockup() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -147,7 +147,7 @@ export function Hero() {
           <div className="hero-reveal inline-flex items-center gap-2 px-3 py-1 bg-brand-50 border border-brand-200 rounded-full mb-6">
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
             <span className="text-[11px] font-bold text-brand-700 uppercase tracking-widest">
-              BETA GRATUITO · RIO DE JANEIRO
+              14 DIAS GRÁTIS · CANCELE QUANDO QUISER
             </span>
           </div>
 
@@ -163,12 +163,10 @@ export function Hero() {
 
           <div className="hero-reveal flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={TRIAL_CTA.href}
               className="btn-primary w-full sm:w-auto"
             >
-              Quero sair do caderninho
+              {TRIAL_CTA.label}
               <ArrowRight size={16} />
             </a>
             <a href="#como-funciona" className="btn-ghost w-full sm:w-auto group">

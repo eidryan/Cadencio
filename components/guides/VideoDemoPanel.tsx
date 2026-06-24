@@ -30,7 +30,7 @@ export function VideoDemoPanel({ demo, framed = false }: { demo: Demo; framed?: 
           <p className="mt-2 text-sm leading-relaxed text-gray-600">{demo.description}</p>
         </div>
         <span className="inline-flex shrink-0 items-center gap-2 rounded-sm border border-brand-200 bg-brand-50 px-3 py-2 text-xs font-bold text-brand-700">
-          <Play size={13} />
+          {demo.videoUrl ? <Play size={13} /> : <Video size={13} />}
           {demo.durationLabel}
         </span>
       </div>

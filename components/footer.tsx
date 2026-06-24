@@ -50,8 +50,8 @@ export function Footer() {
             <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Empresa</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
               <li><a href="/#filosofia" className="hover:text-accent-mint transition-colors">Por que o Cadencio?</a></li>
-              <li><a href="#" className="hover:text-accent-mint transition-colors">Termos de Uso</a></li>
-              <li><a href="#" className="hover:text-accent-mint transition-colors">Privacidade</a></li>
+              <li><a href="/#precos" className="hover:text-accent-mint transition-colors">Planos</a></li>
+              <li><a href="/#como-funciona" className="hover:text-accent-mint transition-colors">Como funciona</a></li>
             </ul>
           </div>
 

@@ -7,14 +7,14 @@ import {
 
 const faqs = [
   {
-    question: "O que é o beta?",
+    question: "Como funciona o teste grátis?",
     answer:
-      "Estamos nas primeiras versões do Cadencio. Você usa gratuitamente, nos conta o que funciona e o que pode melhorar, e quando lançarmos oficialmente, recebe condições especiais como agradecimento.",
+      "Você pode testar o Cadencio por 14 dias para organizar presença, turmas e alunos antes de escolher um plano.",
   },
   {
-    question: "Quanto tempo dura o beta?",
+    question: "Posso cancelar quando quiser?",
     answer:
-      "Não temos data fixa. Avisaremos com antecedência antes de qualquer mudança.",
+      "Sim. O teste pode ser cancelado a qualquer momento, sem compromisso de permanência.",
   },
   {
     question: "Funciona para pilates / yoga / artes marciais?",

@@ -129,7 +129,7 @@ export default async function Image() {
           }}
         >
           <div style={{ width: 8, height: 8, background: '#24AEB5', borderRadius: '50%' }} />
-          BETA GRATUITO · CADENCIO.APP
+          TESTE GRÁTIS POR 14 DIAS · CADENCIO.APP
         </div>
       </div>
     ),

@@ -6,7 +6,7 @@ const WHATSAPP_LINK =
 const perks = [
   "Acesso completo à plataforma",
   "Onboarding assistido pela nossa equipe",
-  "Condições especiais quando lançarmos oficialmente",
+  "Cancele quando quiser",
 ]
 
 export function BetaAccess() {
@@ -14,11 +14,11 @@ export function BetaAccess() {
     <section className="px-4 py-16 md:px-6 md:py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center text-2xl font-bold text-foreground md:text-3xl">
-          Estamos em beta e queremos seu estúdio.
+          Comece com 14 dias grátis no Cadencio.
         </h2>
         <div className="mx-auto mt-10 max-w-lg rounded-xl border border-border border-l-primary bg-card p-6 [border-left-width:4px]">
           <h3 className="text-lg font-bold text-foreground">
-            Acesso antecipado gratuito
+            Teste completo para seu estúdio
           </h3>
           <ul className="mt-4 flex flex-col gap-3">
             {perks.map((perk) => (
@@ -41,8 +41,7 @@ export function BetaAccess() {
           </a>
         </div>
         <p className="mx-auto mt-6 max-w-md text-center text-sm text-muted-foreground">
-          Aceitando apenas 10 estúdios. Você usa, nos dá feedback, e ajuda a
-          construir o melhor produto para estúdios.
+          Use o Cadencio para organizar presença, turmas e alunos antes de escolher o plano ideal.
         </p>
       </div>
     </section>

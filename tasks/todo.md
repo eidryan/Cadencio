@@ -111,7 +111,7 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - [x] Atualizar `components/navbar.tsx` com link visível para `Guias`, âncoras absolutas e CTA de teste por 14 dias.
 - [x] Atualizar `components/footer.tsx` com links para `Guias`/`Demos` e CTA de teste por 14 dias.
 - [x] Rodar `npm run lint` e `npm run build`, registrando o resultado real.
-- [ ] Criar commit do Task 6.
+- [x] Criar commit do Task 6.
 
 ## Task 6 Notes
 - Escopo restrito a `app/sitemap.ts`, `app/robots.ts`, `app/layout.tsx`, `components/navbar.tsx`, `components/footer.tsx` e este tracker.
@@ -154,3 +154,12 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - O único ajuste necessário encontrado em polish foi corrigir `app/layout.tsx` para usar `twitter.images: ['/opengraph-image']`; a rota antiga `/opengraph-image.png` respondia `404` no browser, enquanto `/opengraph-image` abriu corretamente.
 - `npm run lint` segue falhando por tooling ausente neste checkout; o comando chama `eslint .`, mas o binário/configuração não está operacional o bastante para uso como gate de release local.
 - A verificação de `/sitemap.xml` e `/robots.txt` ficou limitada pelo navegador embutido, que bloqueou navegação direta para esses tipos de resposta com `net::ERR_BLOCKED_BY_CLIENT`; a presença das metadata routes já havia sido comprovada no Task 6 build local e não houve indício novo de regressão nesta passada.
+
+## Final Review Fixes
+- Alinhado `app/opengraph-image.tsx` ao posicionamento atual de teste grátis por 14 dias, removendo a promessa antiga de beta do preview social.
+- Ajustada a página `/demos` para falar em roteiros/demos em produção enquanto `videoUrl` ainda estiver vazio, sem prometer vídeos gravados já assistíveis.
+- Ajustado o badge de `VideoDemoPanel` para não mostrar ícone de play quando a demo ainda não tem vídeo.
+- Removidos links `href="#"` do footer, trocando por âncoras reais da home.
+- Alinhada a hero e copies legadas de beta ao teste grátis de 14 dias para evitar conflito entre home, páginas orgânicas e metadata.
+- Corrigido o checklist do Task 6 para refletir que o commit `4a3ccf5` já existe no branch.
+- Verificação após as correções: `npm run build` passou; `tsc --noEmit --pretty false --project tsconfig.json` continua bloqueado apenas pelo erro preexistente em `components/scroll-birds.tsx`.

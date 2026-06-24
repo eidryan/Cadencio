@@ -10,8 +10,8 @@ import { absoluteUrl } from "@/lib/site"
 import { buildOrganizationJsonLd, buildSoftwareJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
-  title: "Demos Cadencio | Veja o Produto em Ação",
-  description: "Assista aos fluxos do Cadencio para presença, turmas, planilhas e histórico em estúdios de dança.",
+  title: "Demos Cadencio | Roteiros de Demonstração",
+  description: "Conheça os roteiros de demonstração do Cadencio para presença, turmas, planilhas e histórico em estúdios de dança.",
   alternates: {
     canonical: absoluteUrl("/demos"),
   },
@@ -40,15 +40,15 @@ export default function DemosPage() {
               Veja como o Cadencio resolve a rotina do estúdio.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-              Demos curtas para entender chamada, turmas, importação e histórico antes de começar o teste grátis.
+              Roteiros curtos para entender chamada, turmas, importação e histórico antes de começar o teste grátis.
             </p>
           </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
           <div className="mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Fluxos gravados</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">Escolha a rotina que você quer ver</h2>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Demos em produção</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">Escolha a rotina que você quer conhecer</h2>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {demos.map((demo) => (
