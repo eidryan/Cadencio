@@ -39,3 +39,11 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 ## Implementation Checklist
 - [x] Task 1: Content model and site helpers created in `lib/site.ts` and `lib/organic-content.ts`.
 - [x] Task 1 verification: `npm run lint` was blocked because `eslint` is not installed in this checkout; direct TypeScript check of the touched files passed.
+- [x] Task 2: Structured data helpers in `lib/structured-data.ts`.
+- [x] Task 2 verification: `npm run lint` failed with `ESLint output (JSON parse failed: EOF while parsing a value at line 1 column 0)`; focused TypeScript check for `lib/site.ts`, `lib/organic-content.ts`, and `lib/structured-data.ts` passed.
+- [x] Task 2 commit: `feat: add structured data helpers`.
+
+## Review
+- `lib/structured-data.ts` now exports the five requested JSON-LD builders and keeps schema strings aligned with the current Portuguese page content.
+- Demo JSON-LD only includes `VideoObject` when `demo.videoUrl` is present; the current organic demo data still produces breadcrumb-only output.
+- Remaining step is to commit the Task 2 change set.
