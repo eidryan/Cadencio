@@ -76,3 +76,28 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - Aligned the free-trial CTA pair globally to `Teste grátis por 14 dias` plus `Cancele quando quiser.` and added the supporting copy next to the guide-detail hero CTA.
 - Made the guide-detail hero render `guide.description` visibly ahead of `guide.heroSummary`, keeping article JSON-LD aligned with page content.
 - Made the `/guias` hub visibly render the same product description used by `buildSoftwareJsonLd()` so the injected software schema matches visible copy.
+
+## Task 5 Checklist
+- [x] Confirmar o brief do Task 5 e os componentes/lib já disponíveis para `/demos`.
+- [x] Atualizar este tracker com o escopo, restrições e critérios de verificação do Task 5.
+- [x] Criar `app/demos/page.tsx` com navbar, footer, metadata, JSON-LD e grid de demos.
+- [x] Criar `app/demos/[slug]/page.tsx` com async `params`, metadata, breadcrumbs, painel de demo, transcrição e guias relacionados.
+- [x] Rodar `npm run lint` e `npm run build`, registrando o resultado real.
+- [x] Criar commit do Task 5.
+
+## Task 5 Notes
+- Escopo restrito a `app/demos/page.tsx`, `app/demos/[slug]/page.tsx` e este arquivo.
+- Todo o copy visível para visitantes deve permanecer em português do Brasil.
+- As páginas de demo precisam incluir `Navbar` e `Footer`, como as rotas de `/guias`.
+- Em Next.js 16, `params` na rota dinâmica devem usar `Promise<{ slug: string }>` e ser aguardados.
+- `VideoDemoPanel` já trata corretamente o fallback honesto enquanto `videoUrl` continua `null`.
+- Para Open Graph, usar `type: "website"` nas páginas de demo.
+- `npm run lint` já é conhecido por falhar neste repositório por tooling/configuração de ESLint ausente ou quebrada; ainda assim o comando deve ser executado e o resultado real precisa ser reportado.
+- `npm run build` deve ser executado. O erro já conhecido em `components/scroll-birds.tsx` no `tsc` completo continua fora do escopo deste task.
+
+## Task 5 Review
+- Adicionadas as rotas `app/demos/page.tsx` e `app/demos/[slug]/page.tsx` como Server Components, com `Navbar`, `Footer`, metadata, JSON-LD e copy integralmente em português do Brasil.
+- A biblioteca `/demos` agora lista todas as demos orgânicas com hero alinhado ao padrão visual de `/guias` e CTA final de teste grátis.
+- A rota `/demos/[slug]` usa `params: Promise<{ slug: string }>` com `await`, gera páginas estáticas por slug, renderiza breadcrumb, `VideoDemoPanel`, passos da demo e guias relacionados.
+- `npm run build` passou em Next.js 16 e gerou `/demos` mais os quatro slugs atuais de demo em SSG.
+- `npm run lint` continua bloqueado neste checkout: a execução via `npm run lint` ficou pendurada sem saída útil até interrupção manual, e a chamada direta a `eslint .` retorna `zsh:1: command not found: eslint`, indicando ausência do binário/configuração operacional de ESLint no ambiente atual.
