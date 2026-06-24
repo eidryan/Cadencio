@@ -49,8 +49,8 @@ export function Navbar() {
     <nav
       ref={navRef}
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 rounded-sm px-6 py-3 flex items-center justify-between gap-8 ${scrolled
-        ? "bg-white/95 backdrop-blur-xl border border-gray-200 shadow-md text-gray-900 w-[95%] md:w-[800px]"
-        : "bg-transparent text-gray-900 w-full px-12"
+        ? "bg-white/95 backdrop-blur-xl border border-gray-200 shadow-md text-gray-900 w-[95%] max-w-5xl"
+        : "bg-transparent text-gray-900 w-full px-6 lg:px-12"
         }`}
     >
       {/* Abstract Logo */}
@@ -73,9 +73,9 @@ export function Navbar() {
       )}
 
       {/* Right side controls (Links + CTA) */}
-      <div className="hidden md:flex items-center gap-8 z-10">
+      <div className="hidden lg:flex items-center gap-10 z-10">
         {/* Desktop links */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-7">
           {SECTIONS.map((s) => (
             <a
               key={s.href}
@@ -88,7 +88,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTAs */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-5">
           <a
             href={`${APP_URL}/login`}
             className="text-sm font-semibold text-gray-600 transition-all duration-300 hover:-translate-y-[2px] hover:text-brand-600"
@@ -107,7 +107,7 @@ export function Navbar() {
       {/* Mobile Toggle */}
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="md:hidden p-2 text-gray-900"
+        className="lg:hidden p-2 text-gray-900"
         aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
       >
         {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -115,7 +115,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-xl border border-gray-200 shadow-xl rounded-sm p-6 flex flex-col gap-4 md:hidden">
+        <div className="absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-xl border border-gray-200 shadow-xl rounded-sm p-6 flex flex-col gap-4 lg:hidden">
           {SECTIONS.map((s) => (
             <a
               key={s.href}
