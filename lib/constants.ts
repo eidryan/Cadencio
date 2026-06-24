@@ -8,7 +8,7 @@ export const APP_URL = "https://my.cadencio.app"
 export const WHATSAPP_PHONE = "5521989474138"
 
 export const WHATSAPP_BETA =
-  `https://wa.me/${WHATSAPP_PHONE}?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+participar+do+Beta+Gratuito+do+Cadencio.`
+  `https://wa.me/${WHATSAPP_PHONE}?text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+come%C3%A7ar+o+teste+gr%C3%A1tis+de+14+dias+do+Cadencio.`
 
 export const WHATSAPP_GENERAL =
   `https://wa.me/${WHATSAPP_PHONE}?text=Oi%21+Vi+o+site+do+Cadencio+e+queria+entender+melhor+como+funciona+para+o+meu+est%C3%BAdio.`

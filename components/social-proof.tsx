@@ -57,7 +57,7 @@ export function SocialProof() {
               ))}
             </div>
             <div className="text-sm text-gray-600">
-              <span className="font-semibold text-gray-800">+40 estúdios</span> no beta
+              <span className="font-semibold text-gray-800">+40 estúdios</span> acompanhados
             </div>
           </div>
         </div>
