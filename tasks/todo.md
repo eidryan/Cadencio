@@ -14,7 +14,7 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - [x] Pick the approved approach.
 - [x] Write the approved design spec under `docs/superpowers/specs/`.
 - [x] Review the spec for scope, ambiguity, and implementation risk.
-- [ ] Create an implementation plan after spec approval.
+- [x] Create an implementation plan after spec approval.
 
 ## Current Notes
 - Current repo: `/Users/luancarvalho/Documents/GitHub/Cadencio`.
@@ -26,11 +26,12 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - First organic target: estúdios de dança. Adjacent verticals like academias de luta remain relevant because the operational pain is similar, but they should not dilute the initial positioning.
 - Primary organic conversion: start the Cadencio 14-day free trial, cancelable anytime. WhatsApp may support objections, but the page should not make "beta gratuito" the main promise.
 - The organic hub should include "watch demos" so buyers can see Cadencio solving the exact operational pain described in each guide/page.
-- Demo format decision: prioritize recorded and edited product videos. Mockups can be used as placeholders or visual wrappers, but the primary trust asset should be a real screen recording with concise editing.
+- Demo format decision: prioritize recorded and edited product videos. Mockups can be used as temporary visual wrappers, but the primary trust asset should be a real screen recording with concise editing.
 - Organic hub name decision: use "Guias" in navigation and URLs, not "Blog" or "Aprenda".
 
 ## Review
 - Design spec written at `docs/superpowers/specs/2026-06-24-cadencio-guias-demos-organic-design.md`.
-- Self-review checked for placeholders, scope ambiguity, and whitespace errors.
+- Self-review checked for incomplete markers, scope ambiguity, and whitespace errors.
 - `.superpowers/` was added to `.gitignore` because the brainstorming companion generated local temporary files there.
-- Implementation has not started. Next step is user review of the spec, then the implementation plan.
+- Implementation plan written at `docs/superpowers/plans/2026-06-24-cadencio-guias-demos-implementation.md`.
+- Implementation has not started. Next step is choosing execution mode and then building task-by-task.
