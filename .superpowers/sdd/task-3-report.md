@@ -30,3 +30,9 @@ Also updated `tasks/todo.md` to record Task 3 progress and verification.
 ## Concerns
 
 - The repository-level TypeScript check currently reports an unrelated error outside `components/guides/*`, so only the isolated Task 3 compile is green.
+
+## Review Fix
+
+- Adjusted `DemoCard` so null `demo.videoUrl` values render a temporary, non-playable state instead of a fake video tile.
+- Kept the play-oriented visual only for demos that actually have a video URL.
+- Updated the breadcrumb landmark label to Brazilian Portuguese.
