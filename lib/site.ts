@@ -3,7 +3,7 @@ export const APP_URL = "https://my.cadencio.app"
 
 export const TRIAL_CTA = {
   label: "Teste grátis por 14 dias",
-  helper: "Cancele quando quiser. Sem compromisso.",
+  helper: "Cancele quando quiser.",
   href: `${APP_URL}/register`,
 } as const
 

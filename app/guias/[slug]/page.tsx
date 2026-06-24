@@ -89,14 +89,18 @@ export default async function GuidePage({ params }: PageProps) {
               />
               <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-700">{guide.primaryKeyword}</p>
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">{guide.title}</h1>
-              <p className="mt-6 text-xl leading-relaxed text-gray-600">{guide.heroSummary}</p>
+              <p className="mt-6 text-xl leading-relaxed text-gray-600">{guide.description}</p>
+              <p className="mt-3 text-lg leading-relaxed text-gray-600">{guide.heroSummary}</p>
               <div className="mt-8 flex flex-wrap items-center gap-4 text-sm font-semibold text-gray-500">
                 <span>{guide.readingTime}</span>
                 <span>Atualizado em {formatGuideDate(guide.updatedAt)}</span>
               </div>
-              <a href={TRIAL_CTA.href} className="btn-paper-cut mt-8 inline-flex">
-                {TRIAL_CTA.label}
-              </a>
+              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <a href={TRIAL_CTA.href} className="btn-paper-cut inline-flex">
+                  {TRIAL_CTA.label}
+                </a>
+                <p className="text-sm font-semibold text-gray-600">{TRIAL_CTA.helper}</p>
+              </div>
             </div>
           </header>
 

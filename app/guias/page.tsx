@@ -41,6 +41,9 @@ export default function GuiasPage() {
               Gestão prática para estúdios de dança que querem sair do caderno.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+              Sistema de controle de presença, turmas e alunos para estúdios de dança.
+            </p>
+            <p className="mt-3 max-w-2xl text-lg leading-relaxed text-gray-600">
               Conteúdos diretos sobre presença, turmas, planilhas e histórico, sempre com demos para ver o Cadencio em
               ação.
             </p>
@@ -67,7 +70,7 @@ export default function GuiasPage() {
         <section className="bg-gray-50 py-20">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mb-10">
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Watch demos</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Veja demos</p>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900">Veja o fluxo antes de testar</h2>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">

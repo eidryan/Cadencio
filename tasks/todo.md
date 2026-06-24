@@ -70,3 +70,9 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - `npm run build` succeeded and emitted static routes for `/guias` and all four current guide slugs.
 - Known repo issues remain unchanged: `npm run lint` exits with `ESLint output (JSON parse failed: EOF while parsing a value at line 1 column 0)` and full `tsc` still reports the existing `components/scroll-birds.tsx` cast error.
 - Current hub/demo cards link to `/demos` routes that are still out of scope for Task 4 and are not yet present in `app/`.
+
+## Task 4 Review Fixes
+- Replaced the remaining English visitor-facing copy on `/guias` with Brazilian Portuguese.
+- Aligned the free-trial CTA pair globally to `Teste grátis por 14 dias` plus `Cancele quando quiser.` and added the supporting copy next to the guide-detail hero CTA.
+- Made the guide-detail hero render `guide.description` visibly ahead of `guide.heroSummary`, keeping article JSON-LD aligned with page content.
+- Made the `/guias` hub visibly render the same product description used by `buildSoftwareJsonLd()` so the injected software schema matches visible copy.
