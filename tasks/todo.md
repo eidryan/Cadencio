@@ -55,3 +55,18 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - [x] Task 3: Shared guide and demo components in `components/guides/*`.
 - [x] Task 3 verification: `npm run lint` failed in this checkout with `ESLint output (JSON parse failed: EOF while parsing a value at line 1 column 0)`; focused TypeScript check of the new guide component files passed.
 - [x] Task 3 commit: `feat: add guide shared components`.
+- [x] Task 4: Build `app/guias/page.tsx` hub route with navbar, footer, metadata, guide/demo sections, and JSON-LD.
+- [x] Task 4: Build `app/guias/[slug]/page.tsx` detail route with async `params`, static params, metadata, breadcrumbs, inline demo panel, FAQ, related guides, and JSON-LD.
+- [x] Task 4 verification: ran `npm run lint`, `npm run build`, and `./node_modules/.bin/tsc --noEmit --pretty false --project tsconfig.json`; build passed and generated `/guias` plus all guide slugs, lint still failed with the known ESLint JSON parse/tooling issue, and `tsc` still fails only on the pre-existing `components/scroll-birds.tsx` error.
+
+## Task 4 Notes
+- Scope is limited to `app/guias/page.tsx`, `app/guias/[slug]/page.tsx`, and this tracker file.
+- Next.js 16 requires `params` to be awaited in both the page component and `generateMetadata`.
+- Full repo `tsc --noEmit` is known to fail on a pre-existing `components/scroll-birds.tsx` issue and is out of scope for this task.
+
+## Task 4 Review
+- Added the `/guias` hub as a server route with site chrome, SEO metadata, organization/software JSON-LD, guide cards, demo cards, and the shared trial CTA.
+- Added the `/guias/[slug]` guide detail route as a server component with awaited `params`, `generateStaticParams`, per-guide metadata, breadcrumb/article JSON-LD, inline demo panel placement, FAQ block, and related guide links.
+- `npm run build` succeeded and emitted static routes for `/guias` and all four current guide slugs.
+- Known repo issues remain unchanged: `npm run lint` exits with `ESLint output (JSON parse failed: EOF while parsing a value at line 1 column 0)` and full `tsc` still reports the existing `components/scroll-birds.tsx` cast error.
+- Current hub/demo cards link to `/demos` routes that are still out of scope for Task 4 and are not yet present in `app/`.
