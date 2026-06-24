@@ -35,3 +35,7 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - `.superpowers/` was added to `.gitignore` because the brainstorming companion generated local temporary files there.
 - Implementation plan written at `docs/superpowers/plans/2026-06-24-cadencio-guias-demos-implementation.md`.
 - Implementation has not started. Next step is choosing execution mode and then building task-by-task.
+
+## Implementation Checklist
+- [x] Task 1: Content model and site helpers created in `lib/site.ts` and `lib/organic-content.ts`.
+- [x] Task 1 verification: `npm run lint` was blocked because `eslint` is not installed in this checkout; direct TypeScript check of the touched files passed.
