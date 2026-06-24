@@ -1,3 +1,54 @@
+# Pricing Beta Square
+
+## Goal
+Add a square/angular entry point in the pricing section that sends visitors to the Cadencio beta page.
+
+## Correction
+The requested "square" is the full pricing area, not a separate card under the plans. The pricing section should become a beta conversion bridge that sends visitors to `https://my.cadencio.app/beta/betatesters-2026#funcionalidades`.
+
+## Revised Conversion Plan
+- [x] Replace the three paid plan cards with one full-section beta invitation.
+- [x] Remove the extra local `/beta` detour and send the pricing section directly to the real beta conversion URL.
+- [x] Reframe the section from "choose a plan" to "enter the 2026 beta before choosing a plan".
+- [x] Keep the section anchored at `#precos` so existing nav still lands there.
+- [x] Add proof/reassurance blocks inside the section: guided setup, full access during beta, no credit-card friction, feedback loop.
+- [x] Make the visual area feel like a beta invitation, with one dominant external CTA and one local supporting link to funcionalidades.
+- [x] Verify the built pricing section output and confirm all pricing-section CTAs point to the beta conversion URL.
+- [x] Remove "sem cartão" promises because the real beta flow asks for card details after the free-trial step.
+- [x] Keep only one external beta CTA in the section; make supporting proof cards non-clickable and the secondary button a local functionality anchor.
+
+## Checklist
+- [x] Confirm current checkout, branch, and pricing/beta structure.
+- [x] Create feature branch `codex/pricing-beta-square`.
+- [x] Save implementation plan at `docs/superpowers/plans/2026-06-24-pricing-beta-conversion-implementation.md`.
+- [x] Add a failing verification for the real beta URL and removal of the local `/beta` route.
+- [x] Replace the old plan/pricing card UI with a full-section beta conversion bridge.
+- [x] Remove the local `/beta` route from the branch and keep `/beta` out of the sitemap.
+- [x] Run build/type/static-output verification and record the real results.
+
+## Notes
+- Current repo: `/Users/luancarvalho/Documents/GitHub/Cadencio`.
+- Base branch before this work: `new-organic-page`.
+- Active feature branch: `codex/pricing-beta-square`.
+- Existing pricing section lives in `components/pricing.tsx`.
+- `components/beta-access.tsx` exists, but the approved flow now bypasses the local `/beta` route and sends pricing traffic directly to the real beta conversion page.
+- Visitor-facing copy must stay in Brazilian Portuguese and respect the angular/origami visual rules from `AGENT-INSTRUCTIONS.md`.
+
+## Review
+- Replaced the three pricing cards with a single full-section beta invitation in `components/pricing.tsx`.
+- The primary pricing-section CTA now points to `https://my.cadencio.app/beta/betatesters-2026#funcionalidades`.
+- Deleted the local `app/beta/page.tsx` route created in the earlier pass and removed `/beta` from `app/sitemap.ts`.
+- Restored `components/beta-access.tsx` to its previous shape because it is no longer part of this flow.
+- TDD check first failed with `Pricing is missing real beta conversion URL`, then passed after implementation with `pricing beta conversion check passed`.
+- `npm run build` passed and no longer generated `/beta` in the route list.
+- `npm run lint` still hangs in this checkout and was interrupted after 30 seconds with no output.
+- `tsc --noEmit --pretty false --project tsconfig.json` still fails only on the pre-existing `components/scroll-birds.tsx(96,15)` SVGElement-to-HTMLElement cast issue.
+- Built HTML verification on `.next/server/app/index.html` found 7 occurrences of the real beta conversion URL, confirmed the new headline, and confirmed no `href="/beta"` remains.
+- Follow-up correction removed the "sem cartão" promise, reduced the pricing section to one external beta CTA, changed `Ver funcionalidades` to `/guias`, and made the proof cards plus bottom note non-clickable.
+- Final built HTML verification found exactly 1 beta conversion URL, confirmed the `/guias` link, and confirmed no "sem cartão" promise remains.
+- Latest CTA correction changed `Ver funcionalidades` from `#protocolos` to `/guias`; focused verification passed with no remaining `href="#protocolos"` in `components/pricing.tsx`.
+- Latest build verification passed; scoped HTML check confirmed the rendered `Ver funcionalidades` CTA links to `/guias`.
+
 # Cadencio Organic Growth Page
 
 ## Goal
