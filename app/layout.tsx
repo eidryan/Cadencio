@@ -10,14 +10,25 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cadencio.app'),
   title: 'Cadencio | Gestão para Estúdios de Dança',
-  description: 'Abandone o papel e as planilhas. Controle presença, turmas e alunos com um clique. Feito para quem administra estúdios, não para quem entende de tecnologia.',
+  description: 'Controle presença, turmas, alunos e histórico em um só lugar. Teste o Cadencio grátis por 14 dias e cancele quando quiser.',
   icons: {
     icon: '/icon.svg',
     apple: '/apple-icon.png',
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: 'Cadencio | Gestão Simplificada para Estúdios de Dança',
-    description: 'A maneira mais fácil de organizar seu estúdio: controle de presença em 1 clique, histórico automático e tudo o que você precisa em um só lugar.',
+    description: 'A maneira mais fácil de organizar seu estúdio: presença, turmas, alunos e histórico em um só lugar.',
     siteName: 'Cadencio',
     locale: 'pt_BR',
     type: 'website',
@@ -25,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Cadencio | Gestão para Estúdios de Dança',
-    description: 'Seu estúdio organizado, sem papel e sem planilha. O controle que você sempre quis, agora na palma da mão.',
+    description: 'Seu estúdio organizado, sem papel e sem planilha. Teste grátis por 14 dias.',
     images: ['/opengraph-image.png'],
   },
 }

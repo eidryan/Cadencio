@@ -2,16 +2,13 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Menu, X } from "lucide-react"
-import { gsap } from "gsap"
-
-import { WHATSAPP_GENERAL as WHATSAPP } from "@/lib/constants"
-
-const APP_URL = "https://my.cadencio.app"
+import { APP_URL, TRIAL_CTA } from "@/lib/site"
 
 const SECTIONS = [
-  { id: "protocolos", label: "Funcionalidades" },
-  { id: "como-funciona", label: "Como Funciona" },
-  { id: "precos", label: "Preços" },
+  { href: "/#protocolos", label: "Funcionalidades" },
+  { href: "/#como-funciona", label: "Como Funciona" },
+  { href: "/#precos", label: "Preços" },
+  { href: "/guias", label: "Guias" },
 ]
 
 export function Navbar() {
@@ -81,8 +78,8 @@ export function Navbar() {
         <div className="flex items-center gap-6">
           {SECTIONS.map((s) => (
             <a
-              key={s.id}
-              href={`#${s.id}`}
+              key={s.href}
+              href={s.href}
               className="text-sm font-semibold transition-all duration-300 hover:-translate-y-[2px] text-gray-600 hover:text-brand-600"
             >
               {s.label}
@@ -102,7 +99,7 @@ export function Navbar() {
             href={`${APP_URL}/register`}
             className="btn-paper-cut shrink-0 !py-2 !px-4 text-sm"
           >
-            Começar grátis
+            {TRIAL_CTA.label}
           </a>
         </div>
       </div>
@@ -121,8 +118,8 @@ export function Navbar() {
         <div className="absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-xl border border-gray-200 shadow-xl rounded-sm p-6 flex flex-col gap-4 md:hidden">
           {SECTIONS.map((s) => (
             <a
-              key={s.id}
-              href={`#${s.id}`}
+              key={s.href}
+              href={s.href}
               className="text-lg font-medium text-gray-900 hover:text-brand-600"
               onClick={() => setMenuOpen(false)}
             >
@@ -140,12 +137,12 @@ export function Navbar() {
           <a
             href={`${APP_URL}/register`}
             className="w-full btn-primary text-center"
+            onClick={() => setMenuOpen(false)}
           >
-            Começar grátis
+            {TRIAL_CTA.label}
           </a>
         </div>
       )}
     </nav>
   )
 }
-

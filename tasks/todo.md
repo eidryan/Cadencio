@@ -101,3 +101,32 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - A rota `/demos/[slug]` usa `params: Promise<{ slug: string }>` com `await`, gera páginas estáticas por slug, renderiza breadcrumb, `VideoDemoPanel`, passos da demo e guias relacionados.
 - `npm run build` passou em Next.js 16 e gerou `/demos` mais os quatro slugs atuais de demo em SSG.
 - `npm run lint` continua bloqueado neste checkout: a execução via `npm run lint` ficou pendurada sem saída útil até interrupção manual, e a chamada direta a `eslint .` retorna `zsh:1: command not found: eslint`, indicando ausência do binário/configuração operacional de ESLint no ambiente atual.
+
+## Task 6 Checklist
+- [x] Ler o brief do Task 6 e confirmar os helpers/rotas já disponíveis.
+- [x] Atualizar este tracker com escopo, restrições e critérios de verificação do Task 6.
+- [x] Criar `app/sitemap.ts` usando `MetadataRoute.Sitemap`.
+- [x] Criar `app/robots.ts` usando `MetadataRoute.Robots`.
+- [x] Atualizar `app/layout.tsx` com metadata alinhada ao trial de 14 dias e às rotas orgânicas.
+- [x] Atualizar `components/navbar.tsx` com link visível para `Guias`, âncoras absolutas e CTA de teste por 14 dias.
+- [x] Atualizar `components/footer.tsx` com links para `Guias`/`Demos` e CTA de teste por 14 dias.
+- [x] Rodar `npm run lint` e `npm run build`, registrando o resultado real.
+- [ ] Criar commit do Task 6.
+
+## Task 6 Notes
+- Escopo restrito a `app/sitemap.ts`, `app/robots.ts`, `app/layout.tsx`, `components/navbar.tsx`, `components/footer.tsx` e este tracker.
+- Todo o copy visível para visitantes deve permanecer em português do Brasil.
+- Links para seções da home a partir de páginas internas devem usar `/#...`, não âncoras relativas simples.
+- `Navbar` deve continuar sendo Client Component; imports de `lib/site.ts` são seguros apenas por serem constantes estáticas.
+- `npm run lint` precisa ser executado e reportado, mas já é conhecido neste checkout por falhar ou ficar bloqueado por tooling/configuração de ESLint ausente.
+- `npm run build` deve ser executado. O erro já conhecido de `components/scroll-birds.tsx` em `tsc` completo continua fora do escopo deste task.
+
+## Task 6 Review
+- Adicionados `app/sitemap.ts` e `app/robots.ts` com `MetadataRoute`, reaproveitando `guideRoutes`, `demoRoutes`, `SITE_URL` e `absoluteUrl` para expor o hub orgânico e seus slugs.
+- A metadata global de `app/layout.tsx` agora anuncia o teste grátis por 14 dias, inclui regras de `robots` e alinha Open Graph/Twitter ao posicionamento orgânico atual.
+- `components/navbar.tsx` ganhou navegação visível para `Guias`, passou a usar âncoras absolutas (`/#...`) e trocou o CTA por `Teste grátis por 14 dias`, sem perder o status de Client Component.
+- `components/footer.tsx` agora linka corretamente para home sections a partir de páginas internas, adiciona `Guias` e `Demos` e troca o CTA por `Teste grátis por 14 dias`.
+- `npm run build` passou e gerou `○ /robots.txt` e `○ /sitemap.xml` junto de `/guias` e `/demos`.
+- `npm run lint` continua bloqueado neste checkout: a execução via `npm run lint` não produziu saída útil e ficou pendurada até interrupção manual.
+- Verificação local da build servida em `http://127.0.0.1:3002` confirmou `200 OK` para `/sitemap.xml`, `/robots.txt`, `/guias` e `/demos`; `sitemap.xml` lista as rotas de guias/demos e `robots.txt` publica `Host` e `Sitemap` corretos.
+- O único erro de console visto no browser foi preexistente/ambiental: `/_vercel/insights/script.js` retornando `404` fora da Vercel por causa do `Analytics`.

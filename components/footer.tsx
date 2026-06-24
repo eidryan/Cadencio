@@ -1,4 +1,4 @@
-import { Linkedin } from "lucide-react"
+import { TRIAL_CTA } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -37,9 +37,11 @@ export function Footer() {
           <div className="md:col-span-3 lg:col-span-3 pb-8 md:pb-0 border-b border-brand-50/10 md:border-b-0">
             <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Navegue</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
-              <li><a href="#protocolos" className="hover:text-accent-mint transition-colors">Funcionalidades</a></li>
-              <li><a href="#como-funciona" className="hover:text-accent-mint transition-colors">Como Funciona</a></li>
-              <li><a href="#beta" className="hover:text-accent-mint transition-colors">Entrar Grátis</a></li>
+              <li><a href="/#protocolos" className="hover:text-accent-mint transition-colors">Funcionalidades</a></li>
+              <li><a href="/#como-funciona" className="hover:text-accent-mint transition-colors">Como Funciona</a></li>
+              <li><a href="/guias" className="hover:text-accent-mint transition-colors">Guias</a></li>
+              <li><a href="/demos" className="hover:text-accent-mint transition-colors">Demos</a></li>
+              <li><a href={TRIAL_CTA.href} className="hover:text-accent-mint transition-colors">Teste grátis por 14 dias</a></li>
             </ul>
           </div>
 
@@ -47,7 +49,7 @@ export function Footer() {
           <div className="md:col-span-3 lg:col-span-3">
             <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Empresa</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
-              <li><a href="#filosofia" className="hover:text-accent-mint transition-colors">Por que o Cadencio?</a></li>
+              <li><a href="/#filosofia" className="hover:text-accent-mint transition-colors">Por que o Cadencio?</a></li>
               <li><a href="#" className="hover:text-accent-mint transition-colors">Termos de Uso</a></li>
               <li><a href="#" className="hover:text-accent-mint transition-colors">Privacidade</a></li>
             </ul>
