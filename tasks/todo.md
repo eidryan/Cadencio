@@ -130,3 +130,27 @@ Define the organic acquisition strategy for Cadencio before implementing blog or
 - `npm run lint` continua bloqueado neste checkout: a execução via `npm run lint` não produziu saída útil e ficou pendurada até interrupção manual.
 - Verificação local da build servida em `http://127.0.0.1:3002` confirmou `200 OK` para `/sitemap.xml`, `/robots.txt`, `/guias` e `/demos`; `sitemap.xml` lista as rotas de guias/demos e `robots.txt` publica `Host` e `Sitemap` corretos.
 - O único erro de console visto no browser foi preexistente/ambiental: `/_vercel/insights/script.js` retornando `404` fora da Vercel por causa do `Analytics`.
+
+## Task 7 Checklist
+- [x] Ler o brief do Task 7 e confirmar o escopo permitido.
+- [x] Verificar rotas desktop `/`, `/guias`, os dois slugs de guia pedidos, `/demos` e o slug de demo pedido.
+- [x] Verificar viewport mobile em ~390 px, incluindo menu, headings, cards e legibilidade dos CTAs.
+- [x] Conferir `/sitemap.xml`, `/robots.txt` e a referência de Open Graph/Twitter.
+- [x] Aplicar apenas o ajuste de polish encontrado dentro do escopo permitido.
+- [x] Rodar `npm run lint` e `npm run build`, registrando o resultado real.
+- [x] Atualizar este tracker e o relatório final do Task 7.
+- [x] Criar commit do Task 7, se houver mudanças rastreadas.
+
+## Task 7 Notes
+- Escopo de edição mantido em `app/layout.tsx` e `tasks/todo.md`, ambos já alterados nas Tasks 1-6.
+- A automação do browser conseguiu validar as rotas HTML normalmente, mas a navegação direta para `/sitemap.xml` e `/robots.txt` no navegador embutido falhou com `net::ERR_BLOCKED_BY_CLIENT`; isso se comportou como limitação do cliente de browser, não como erro de aplicação.
+- O navegador embutido confirmou que `/opengraph-image` resolve, enquanto `/opengraph-image.png` retornava `404`, então a metadata do Twitter precisava ser alinhada com a route real gerada por `app/opengraph-image.tsx`.
+- `npm run lint` continua não confiável neste checkout porque `eslint` não está instalado/configurado operacionalmente; o comando ainda deve ser rodado e reportado pelo resultado real.
+- O `tsc --noEmit` completo continua fora do escopo do Task 7 e ainda é conhecido por falhar em `components/scroll-birds.tsx`.
+
+## Task 7 Review
+- QA desktop feita nas rotas `/`, `/guias`, `/guias/controle-de-presenca-estudio-danca`, `/guias/organizar-turmas-horarios-escola-danca`, `/demos` e `/demos/chamada-de-turma-em-1-minuto`, com navbar, footer, CTAs, fallback honesto de demo e headings renderizando sem overflow visível.
+- QA mobile feita em viewport `390x844`, incluindo abertura do menu móvel com link para `Guias`, wrap correto dos headings de guias, cards de demo sem vazamento horizontal e CTAs legíveis.
+- O único ajuste necessário encontrado em polish foi corrigir `app/layout.tsx` para usar `twitter.images: ['/opengraph-image']`; a rota antiga `/opengraph-image.png` respondia `404` no browser, enquanto `/opengraph-image` abriu corretamente.
+- `npm run lint` segue falhando por tooling ausente neste checkout; o comando chama `eslint .`, mas o binário/configuração não está operacional o bastante para uso como gate de release local.
+- A verificação de `/sitemap.xml` e `/robots.txt` ficou limitada pelo navegador embutido, que bloqueou navegação direta para esses tipos de resposta com `net::ERR_BLOCKED_BY_CLIENT`; a presença das metadata routes já havia sido comprovada no Task 6 build local e não houve indício novo de regressão nesta passada.

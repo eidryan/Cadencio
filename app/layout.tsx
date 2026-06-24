@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Cadencio | Gestão para Estúdios de Dança',
     description: 'Seu estúdio organizado, sem papel e sem planilha. Teste grátis por 14 dias.',
-    images: ['/opengraph-image.png'],
+    images: ['/opengraph-image'],
   },
 }
 
