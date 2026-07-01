@@ -35,7 +35,7 @@ Novo script `prisma/seed-demo.js` criando tenant fictício **"Estúdio Aurora"**
 - ~15 alunas com nomes fictícios plausíveis
 - Grade de horários preenchida
 - ~2 meses de histórico de presença
-- Arquivo `alunas-exemplo.csv` compatível com o template de importação (para o demo 3)
+- Arquivo `alunas-exemplo.xlsx` compatível com o template de importação (para o demo 3 — o app importa Excel via `/api/students/import`, não CSV)
 - Usuário OWNER com credenciais conhecidas para login nos scripts
 
 Rodado apenas no banco de dev local. Nada toca produção.
