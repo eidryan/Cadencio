@@ -93,7 +93,7 @@ export function ScrollBirds() {
         const flapDuration = Math.max(0.14, 0.4 - scrollVelocity.current * 0.018)
         bird.querySelectorAll<SVGElement>(".bird-wing-l,.bird-wing-r").forEach(
           (wing) => {
-            ;(wing as HTMLElement).style.animationDuration = `${flapDuration}s`
+            wing.style.animationDuration = `${flapDuration}s`
           }
         )
       })

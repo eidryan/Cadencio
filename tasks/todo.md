@@ -1,3 +1,20 @@
+# Vercel Analytics — configuração
+
+## Goal
+Configurar o Web Analytics da Vercel no site `www.cadencio.app`.
+
+## Plano
+- [x] Confirmar pacote `@vercel/analytics` em `package.json` e `package-lock.json`
+- [x] Confirmar uso de `Analytics` no layout raiz do App Router
+- [x] Rodar verificação local (`npm run lint`, `npx tsc --noEmit`, `npm run build`)
+
+## Review
+`@vercel/analytics` já estava instalado na versão `1.6.1`, presente no lockfile, e `app/layout.tsx` já renderizava `<Analytics />` dentro do `<body>` do layout raiz. A verificação do bundle confirmou `@vercel/analytics/dist/next` e `/_vercel/insights` no build gerado.
+
+`npm run lint` não pôde validar código porque o script chama `eslint .`, mas `eslint` não está instalado nem listado como dependência do projeto. O typecheck encontrou um erro pré-existente em `components/scroll-birds.tsx`; foi corrigido removendo um cast desnecessário de `SVGElement` para `HTMLElement`.
+
+---
+
 # SEO Blog Pipeline — Guias operados por IA barata
 
 > Plano anterior (Pricing Beta Square) concluído e preservado no histórico git deste arquivo.
