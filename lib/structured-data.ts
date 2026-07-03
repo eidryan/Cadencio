@@ -87,7 +87,7 @@ export function buildDemoJsonLd(demo: Demo): Record<string, unknown>[] {
         name: demo.title,
         description: demo.description,
         thumbnailUrl: demo.thumbnail ? [absoluteUrl(demo.thumbnail)] : [absoluteUrl("/icon.svg")],
-        uploadDate: "2026-06-24",
+        uploadDate: "2026-07-03",
         duration: demo.durationIso,
         contentUrl: absoluteUrl(demo.videoUrl),
         transcript: demo.transcript.join(" "),
