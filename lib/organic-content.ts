@@ -1,4 +1,9 @@
-export type GuideCategory = "presenca" | "turmas" | "planilhas" | "historico"
+import fs from "node:fs"
+import path from "node:path"
+
+// Categorias permitidas. Ao adicionar uma nova, atualize também ALLOWED_CATEGORIES
+// em scripts/validate-guides.mjs (o validador roda fora do TypeScript).
+export type GuideCategory = "presenca" | "turmas" | "planilhas" | "historico" | "financeiro" | "retencao"
 
 export type GuideSection = {
   heading: string
@@ -22,7 +27,7 @@ export type Guide = {
   updatedAt: string
   readingTime: string
   heroSummary: string
-  demoSlug: string
+  demoSlug: string | null
   sections: GuideSection[]
   faq: GuideFaq[]
   relatedGuides: string[]
@@ -110,200 +115,23 @@ export const demos = [
   },
 ] satisfies Demo[]
 
-export const guides = [
-  {
-    title: "Como controlar presença em estúdio de dança sem caderno ou planilha",
-    slug: "controle-de-presenca-estudio-danca",
-    description: "Um guia prático para substituir listas de presença em papel por um fluxo simples, rastreável e pronto para a rotina do estúdio.",
-    category: "presenca",
-    intent: "Dono de estúdio que ainda usa caderno, lista impressa ou planilha para chamada.",
-    primaryKeyword: "controle de presença para estúdio de dança",
-    secondaryKeywords: ["lista de presença dança", "chamada de turma de dança", "presença de alunas"],
-    publishedAt: "2026-06-24",
-    updatedAt: "2026-06-24",
-    readingTime: "6 min",
-    heroSummary: "A presença precisa ser rápida na porta da sala e confiável no fim do mês. O Cadencio resolve esse intervalo.",
-    demoSlug: "chamada-de-turma-em-1-minuto",
-    sections: [
-      {
-        heading: "Por que o caderno começa a atrapalhar",
-        body: [
-          "No começo, a lista em papel parece suficiente. O problema aparece quando o estúdio cresce, troca professores, mistura reposições e precisa consultar o histórico de uma aluna.",
-          "Quando a informação fica em folhas soltas, o fim do mês vira conferência manual. O dono perde tempo tentando descobrir quem veio, quem faltou e qual dado está correto.",
-        ],
-      },
-      {
-        heading: "O fluxo ideal para uma chamada de turma",
-        body: [
-          "A turma do dia deve abrir com a lista de alunas esperadas. A marcação precisa acontecer em poucos cliques, pelo celular ou computador, sem depender de instalação.",
-          "Depois da aula, o registro precisa ficar salvo automaticamente. Assim, o histórico deixa de depender da memória de quem fez a chamada.",
-        ],
-      },
-      {
-        heading: "Como o Cadencio muda essa rotina",
-        body: [
-          "No Cadencio, a chamada fica ligada à turma, ao horário e à aluna. Isso transforma a presença em dado de gestão, não só em uma anotação.",
-          "A equipe consegue consultar registros anteriores e manter a rotina organizada mesmo quando mais de uma pessoa ajuda na operação.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Preciso instalar aplicativo para fazer chamada?",
-        answer: "Não. O Cadencio funciona no navegador, pelo celular ou computador.",
-      },
-      {
-        question: "Dá para testar antes de decidir?",
-        answer: "Sim. O Cadencio tem teste grátis por 14 dias e pode ser cancelado quando quiser.",
-      },
-    ],
-    relatedGuides: ["organizar-turmas-horarios-escola-danca", "acompanhar-faltas-historico-presenca-alunas"],
-  },
-  {
-    title: "Como organizar turmas e horários em uma escola de dança",
-    slug: "organizar-turmas-horarios-escola-danca",
-    description: "Veja como sair da grade improvisada e montar uma rotina de turmas mais clara para gestão, professores e recepção.",
-    category: "turmas",
-    intent: "Dono de escola de dança organizando horários, modalidades e turmas recorrentes.",
-    primaryKeyword: "organizar turmas de dança",
-    secondaryKeywords: ["horários escola de dança", "gestão de turmas", "grade de aulas dança"],
-    publishedAt: "2026-06-24",
-    updatedAt: "2026-06-24",
-    readingTime: "5 min",
-    heroSummary: "Uma grade clara reduz desencontro, facilita chamada e evita depender de uma planilha que só uma pessoa entende.",
-    demoSlug: "cadastrar-turma-e-horarios",
-    sections: [
-      {
-        heading: "A grade é o centro da operação",
-        body: [
-          "Toda rotina do estúdio passa pelas turmas: horários, modalidades, professor responsável, presença e comunicação com alunas.",
-          "Quando essa estrutura fica espalhada em agenda, planilha e conversa de WhatsApp, a operação depende de conferência constante.",
-        ],
-      },
-      {
-        heading: "O que uma turma precisa ter",
-        body: [
-          "Uma turma precisa de nome, modalidade, capacidade e horários recorrentes. Essas informações devem ser fáceis de revisar conforme a agenda muda.",
-          "Com esse cadastro organizado, a chamada deixa de ser uma tarefa isolada e passa a fazer parte do fluxo normal de gestão.",
-        ],
-      },
-      {
-        heading: "Como o Cadencio ajuda",
-        body: [
-          "O Cadencio centraliza turmas, horários e alunas. Isso ajuda a recepção, os professores e a gestão a trabalharem com a mesma informação.",
-          "O resultado é menos retrabalho e mais clareza sobre o que acontece em cada aula.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Posso ter modalidades diferentes no mesmo estúdio?",
-        answer: "Sim. As turmas podem representar diferentes modalidades e horários dentro do mesmo estúdio.",
-      },
-      {
-        question: "Consigo usar no começo mesmo com poucas turmas?",
-        answer: "Sim. A proposta é funcionar tanto para estúdios pequenos quanto para operações em crescimento.",
-      },
-    ],
-    relatedGuides: ["controle-de-presenca-estudio-danca", "planilha-presenca-danca-quando-deixa-de-funcionar"],
-  },
-  {
-    title: "Planilha de presença para dança: quando ela deixa de funcionar",
-    slug: "planilha-presenca-danca-quando-deixa-de-funcionar",
-    description: "Entenda os sinais de que a planilha deixou de ajudar e começou a criar retrabalho na gestão do estúdio.",
-    category: "planilhas",
-    intent: "Dono de estúdio comparando planilha com sistema de gestão.",
-    primaryKeyword: "planilha de presença para dança",
-    secondaryKeywords: ["controle de presença excel", "substituir planilha estúdio", "gestão sem planilha"],
-    publishedAt: "2026-06-24",
-    updatedAt: "2026-06-24",
-    readingTime: "7 min",
-    heroSummary: "Planilha resolve o começo. Depois, ela pode virar o gargalo que esconde dados importantes da operação.",
-    demoSlug: "importar-alunos-planilha",
-    sections: [
-      {
-        heading: "A planilha é útil até certo ponto",
-        body: [
-          "Excel e Google Sheets ajudam quando a operação ainda é pequena. O problema surge quando a planilha vira cadastro, chamada, financeiro manual e histórico ao mesmo tempo.",
-          "Nesse momento, qualquer ajuste exige cuidado para não quebrar fórmulas, perder filtros ou duplicar informações.",
-        ],
-      },
-      {
-        heading: "Sinais de que a planilha virou gargalo",
-        body: [
-          "Se só uma pessoa entende o arquivo, se os professores não atualizam a informação na hora, ou se o fim do mês exige conferência manual, a planilha já está custando tempo.",
-          "Outro sinal é quando existem versões diferentes do mesmo controle circulando entre computador, celular e mensagens.",
-        ],
-      },
-      {
-        heading: "Como migrar sem recomeçar do zero",
-        body: [
-          "A migração deve aproveitar o que já existe: nomes, contatos e vínculo com turmas. O Cadencio deve receber essa base e transformar a rotina em fluxo de sistema.",
-          "Depois da importação, o cadastro deixa de ser um arquivo isolado e passa a sustentar chamada, histórico e organização de turmas.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Preciso apagar minha planilha atual?",
-        answer: "Não. A planilha pode servir como base de migração e continuar guardada como referência.",
-      },
-      {
-        question: "O Cadencio substitui Excel para presença?",
-        answer: "Sim para o fluxo de presença, turmas e histórico. A ideia é tirar a operação diária da planilha.",
-      },
-    ],
-    relatedGuides: ["controle-de-presenca-estudio-danca", "organizar-turmas-horarios-escola-danca"],
-  },
-  {
-    title: "Como acompanhar faltas e histórico de presença das alunas",
-    slug: "acompanhar-faltas-historico-presenca-alunas",
-    description: "Aprenda a transformar presença em histórico consultável para entender frequência, faltas e reposições.",
-    category: "historico",
-    intent: "Gestor que precisa consultar presença acumulada sem refazer contas.",
-    primaryKeyword: "histórico de presença de alunas",
-    secondaryKeywords: ["faltas em escola de dança", "frequência de alunos dança", "controle de reposição aula"],
-    publishedAt: "2026-06-24",
-    updatedAt: "2026-06-24",
-    readingTime: "6 min",
-    heroSummary: "A chamada só vira gestão quando o histórico fica fácil de consultar.",
-    demoSlug: "historico-de-presenca-aluna",
-    sections: [
-      {
-        heading: "Presença não deveria morrer no dia da aula",
-        body: [
-          "Marcar quem veio é só o primeiro passo. O valor aparece quando o estúdio consegue consultar esse histórico depois.",
-          "Sem histórico organizado, faltas recorrentes, dúvidas de reposição e acompanhamento de frequência ficam espalhados em mensagens e lembranças.",
-        ],
-      },
-      {
-        heading: "O que observar no histórico",
-        body: [
-          "Um bom histórico deve mostrar registros por aluna, por turma e por período. Isso ajuda a responder perguntas simples sem abrir várias planilhas.",
-          "Também ajuda a equipe a conversar com mais contexto quando uma aluna falta muito ou quando há dúvida sobre aulas realizadas.",
-        ],
-      },
-      {
-        heading: "Como o Cadencio deixa isso rastreável",
-        body: [
-          "Cada chamada registrada no Cadencio alimenta o histórico. Assim, o estúdio não depende de refazer conta no fim do mês.",
-          "Em Relatórios, a aba Alunos já cruza esse histórico com um indicador de risco de evasão — combinando faltas seguidas, frequência e inadimplência — para apontar quem precisa de atenção antes que a aluna suma da turma.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Consigo consultar presença depois da aula?",
-        answer: "Sim. A proposta é manter o registro salvo para consulta posterior.",
-      },
-      {
-        question: "Isso ajuda em reposição de aula?",
-        answer: "Ajuda porque o estúdio passa a ter um histórico mais confiável para analisar faltas e presença.",
-      },
-    ],
-    relatedGuides: ["controle-de-presenca-estudio-danca", "planilha-presenca-danca-quando-deixa-de-funcionar"],
-  },
-] satisfies Guide[]
+// Guias são carregados de content/guias/*.json — um arquivo por guia.
+// Para publicar um novo guia, basta adicionar o JSON e rodar `npm run validate:guias`.
+// Ver docs/blog-pipeline/README.md para o workflow completo.
+const GUIDES_DIR = path.join(process.cwd(), "content", "guias")
+
+function loadGuides(): Guide[] {
+  return fs
+    .readdirSync(GUIDES_DIR)
+    .filter((file) => file.endsWith(".json"))
+    .map((file) => {
+      const raw = JSON.parse(fs.readFileSync(path.join(GUIDES_DIR, file), "utf8")) as Guide
+      return { ...raw, demoSlug: raw.demoSlug ?? null }
+    })
+    .sort((a, b) => (a.publishedAt === b.publishedAt ? a.slug.localeCompare(b.slug) : b.publishedAt.localeCompare(a.publishedAt)))
+}
+
+export const guides = loadGuides()
 
 export const guideRoutes = guides.map((guide) => `/guias/${guide.slug}`)
 export const demoRoutes = demos.map((demo) => `/demos/${demo.slug}`)

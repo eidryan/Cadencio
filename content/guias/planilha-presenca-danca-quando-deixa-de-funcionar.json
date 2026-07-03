@@ -1,0 +1,48 @@
+{
+  "title": "Planilha de presença para dança: quando ela deixa de funcionar",
+  "slug": "planilha-presenca-danca-quando-deixa-de-funcionar",
+  "description": "Entenda os sinais de que a planilha deixou de ajudar e começou a criar retrabalho na gestão do estúdio.",
+  "category": "planilhas",
+  "intent": "Dono de estúdio comparando planilha com sistema de gestão.",
+  "primaryKeyword": "planilha de presença para dança",
+  "secondaryKeywords": ["controle de presença excel", "substituir planilha estúdio", "gestão sem planilha"],
+  "publishedAt": "2026-06-24",
+  "updatedAt": "2026-07-03",
+  "readingTime": "7 min",
+  "heroSummary": "Planilha resolve o começo. Depois, ela pode virar o gargalo que esconde dados importantes da operação.",
+  "demoSlug": "importar-alunos-planilha",
+  "sections": [
+    {
+      "heading": "A planilha é útil até certo ponto",
+      "body": [
+        "Excel e Google Sheets ajudam quando a operação ainda é pequena. O problema surge quando a planilha vira cadastro, chamada, financeiro manual e histórico ao mesmo tempo.",
+        "Nesse momento, qualquer ajuste exige cuidado para não quebrar fórmulas, perder filtros ou duplicar informações."
+      ]
+    },
+    {
+      "heading": "Sinais de que a planilha virou gargalo",
+      "body": [
+        "Se só uma pessoa entende o arquivo, se os professores não atualizam a informação na hora, ou se o fim do mês exige conferência manual, a planilha já está custando tempo.",
+        "Outro sinal é quando existem versões diferentes do mesmo controle circulando entre computador, celular e mensagens."
+      ]
+    },
+    {
+      "heading": "Como migrar sem recomeçar do zero",
+      "body": [
+        "A migração deve aproveitar o que já existe: nomes, contatos e vínculo com turmas. O Cadencio deve receber essa base e transformar a rotina em fluxo de sistema.",
+        "Depois da importação, o cadastro deixa de ser um arquivo isolado e passa a sustentar chamada, histórico e organização de turmas."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Preciso apagar minha planilha atual?",
+      "answer": "Não. A planilha pode servir como base de migração e continuar guardada como referência."
+    },
+    {
+      "question": "O Cadencio substitui Excel para presença?",
+      "answer": "Sim para o fluxo de presença, turmas e histórico. A ideia é tirar a operação diária da planilha."
+    }
+  ],
+  "relatedGuides": ["controle-de-presenca-estudio-danca", "controlar-mensalidades-inadimplencia-estudio-danca"]
+}

@@ -1,5 +1,7 @@
 # Cadencio Feature-to-Content Mapping
 
+> ⚠️ **DESATUALIZADO (verificado em 2026-07-03).** Este documento reflete o produto de meados de 2026 e afirma que financeiro e relatórios não existem — **ambos já foram construídos**. Para decisões de conteúdo, use `docs/blog-pipeline/CADENCIO-FACTS.md`, que é a fonte da verdade mantida.
+
 ## Purpose
 This document maps actual product features (`Ln-Carvalho/saas`) to landing page claims (`eidryan/Cadencio`) to ensure we only advertise what's actually built.
 

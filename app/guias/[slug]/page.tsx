@@ -61,7 +61,7 @@ export default async function GuidePage({ params }: PageProps) {
     notFound()
   }
 
-  const demo = getDemoBySlug(guide.demoSlug)
+  const demo = guide.demoSlug ? getDemoBySlug(guide.demoSlug) : undefined
   const relatedGuides = guide.relatedGuides
     .map((relatedSlug) => getGuideBySlug(relatedSlug))
     .filter((item): item is Guide => Boolean(item))

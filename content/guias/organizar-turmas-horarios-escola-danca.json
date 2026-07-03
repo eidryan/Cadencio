@@ -1,0 +1,48 @@
+{
+  "title": "Como organizar turmas e horários em uma escola de dança",
+  "slug": "organizar-turmas-horarios-escola-danca",
+  "description": "Veja como sair da grade improvisada e montar uma rotina de turmas mais clara para gestão, professores e recepção.",
+  "category": "turmas",
+  "intent": "Dono de escola de dança organizando horários, modalidades e turmas recorrentes.",
+  "primaryKeyword": "organizar turmas de dança",
+  "secondaryKeywords": ["horários escola de dança", "gestão de turmas", "grade de aulas dança"],
+  "publishedAt": "2026-06-24",
+  "updatedAt": "2026-06-24",
+  "readingTime": "5 min",
+  "heroSummary": "Uma grade clara reduz desencontro, facilita chamada e evita depender de uma planilha que só uma pessoa entende.",
+  "demoSlug": "cadastrar-turma-e-horarios",
+  "sections": [
+    {
+      "heading": "A grade é o centro da operação",
+      "body": [
+        "Toda rotina do estúdio passa pelas turmas: horários, modalidades, professor responsável, presença e comunicação com alunas.",
+        "Quando essa estrutura fica espalhada em agenda, planilha e conversa de WhatsApp, a operação depende de conferência constante."
+      ]
+    },
+    {
+      "heading": "O que uma turma precisa ter",
+      "body": [
+        "Uma turma precisa de nome, modalidade, capacidade e horários recorrentes. Essas informações devem ser fáceis de revisar conforme a agenda muda.",
+        "Com esse cadastro organizado, a chamada deixa de ser uma tarefa isolada e passa a fazer parte do fluxo normal de gestão."
+      ]
+    },
+    {
+      "heading": "Como o Cadencio ajuda",
+      "body": [
+        "O Cadencio centraliza turmas, horários e alunas. Isso ajuda a recepção, os professores e a gestão a trabalharem com a mesma informação.",
+        "O resultado é menos retrabalho e mais clareza sobre o que acontece em cada aula."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Posso ter modalidades diferentes no mesmo estúdio?",
+      "answer": "Sim. As turmas podem representar diferentes modalidades e horários dentro do mesmo estúdio."
+    },
+    {
+      "question": "Consigo usar no começo mesmo com poucas turmas?",
+      "answer": "Sim. A proposta é funcionar tanto para estúdios pequenos quanto para operações em crescimento."
+    }
+  ],
+  "relatedGuides": ["controle-de-presenca-estudio-danca", "planilha-presenca-danca-quando-deixa-de-funcionar"]
+}

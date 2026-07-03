@@ -12,7 +12,7 @@ import { buildOrganizationJsonLd, buildSoftwareJsonLd } from "@/lib/structured-d
 
 export const metadata: Metadata = {
   title: "Guias Cadencio | Gestão para Estúdios de Dança",
-  description: "Guias práticos para organizar presença, turmas, horários e histórico em estúdios de dança.",
+  description: "Guias práticos para organizar presença, turmas, financeiro e retenção de alunas em estúdios de dança.",
   alternates: {
     canonical: absoluteUrl("/guias"),
   },
@@ -44,8 +44,8 @@ export default function GuiasPage() {
               Sistema de controle de presença, turmas e alunos para estúdios de dança.
             </p>
             <p className="mt-3 max-w-2xl text-lg leading-relaxed text-gray-600">
-              Conteúdos diretos sobre presença, turmas, planilhas e histórico, sempre com demos para ver o Cadencio em
-              ação.
+              Conteúdos diretos sobre presença, turmas, financeiro e retenção de alunas — muitos com demos para ver o
+              Cadencio em ação.
             </p>
           </div>
         </section>

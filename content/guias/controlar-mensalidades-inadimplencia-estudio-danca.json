@@ -1,0 +1,59 @@
+{
+  "title": "Como controlar mensalidades e inadimplência em estúdio de dança",
+  "slug": "controlar-mensalidades-inadimplencia-estudio-danca",
+  "description": "Um guia direto para organizar mensalidades, enxergar quem está em atraso e parar de cobrar de memória no fim do mês.",
+  "category": "financeiro",
+  "intent": "Dono de estúdio que controla pagamentos em planilha, caderno ou conversa de WhatsApp.",
+  "primaryKeyword": "controle de mensalidades para estúdio de dança",
+  "secondaryKeywords": ["inadimplência escola de dança", "mensalidade de alunas", "financeiro para estúdio de dança"],
+  "publishedAt": "2026-07-03",
+  "updatedAt": "2026-07-03",
+  "readingTime": "6 min",
+  "heroSummary": "Cobrança não pode depender de memória. Quando o financeiro fica ao lado da presença, o atraso aparece antes de virar prejuízo.",
+  "demoSlug": null,
+  "sections": [
+    {
+      "heading": "Cobrar de memória custa caro",
+      "body": [
+        "Na maioria dos estúdios, o controle de mensalidades vive espalhado: uma planilha com valores, um caderno com anotações e conversas de WhatsApp para lembrar quem pagou. Cada cobrança exige reconstruir a situação da aluna do zero.",
+        "O custo aparece de duas formas. A primeira é dinheiro que deixa de entrar porque o atraso só é percebido semanas depois. A segunda é o desgaste de cobrar alguém que já pagou — ou de não cobrar quem deveria."
+      ]
+    },
+    {
+      "heading": "O que um controle de mensalidades precisa mostrar",
+      "body": [
+        "O básico é responder três perguntas sem abrir três arquivos: quanto o estúdio tem a receber no mês, quem já pagou e quem está em atraso. Cada aluna precisa ter valor, plano e dia de vencimento próprios, porque a realidade raramente é um preço único.",
+        "Também precisa registrar situações intermediárias, como pagamento parcial. É esse nível de detalhe que evita a conferência manual no fim do mês."
+      ]
+    },
+    {
+      "heading": "Como o financeiro funciona no Cadencio",
+      "body": [
+        "No Cadencio, cada aluna tem um plano com valor e dia de vencimento. A partir disso, o estúdio gera as mensalidades do mês e acompanha cada uma por status: pendente, paga, parcial ou em atraso.",
+        "Registrar um pagamento leva poucos cliques, e o histórico fica salvo por aluna. O painel mostra o total recebido, o que falta entrar e a taxa de inadimplência do mês — números que antes exigiam fechar a planilha à mão."
+      ]
+    },
+    {
+      "heading": "Inadimplência e presença andam juntas",
+      "body": [
+        "Atraso de mensalidade raramente vem sozinho. Muitas vezes ele aparece junto com faltas seguidas — e essa combinação é um dos sinais mais fortes de que a aluna está prestes a sair do estúdio.",
+        "Como o Cadencio guarda presença e financeiro no mesmo lugar, os relatórios cruzam os dois dados e destacam quem precisa de atenção. A cobrança deixa de ser só operacional e vira também uma ferramenta de retenção."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "O Cadencio cobra as alunas por mim?",
+      "answer": "Não. O Cadencio organiza o controle: você gera as mensalidades, registra os pagamentos e enxerga quem está em dia ou em atraso. A conversa de cobrança continua no canal que você já usa com as alunas."
+    },
+    {
+      "question": "Posso ter valores e vencimentos diferentes por aluna?",
+      "answer": "Sim. Cada aluna pode ter plano, valor e dia de vencimento próprios."
+    },
+    {
+      "question": "Preciso de um sistema financeiro separado?",
+      "answer": "Para a rotina de mensalidades do estúdio, não. Presença, cadastro e financeiro ficam no mesmo lugar, alimentando os mesmos relatórios."
+    }
+  ],
+  "relatedGuides": ["reduzir-evasao-alunas-estudio-danca", "planilha-presenca-danca-quando-deixa-de-funcionar"]
+}

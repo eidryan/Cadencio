@@ -1,0 +1,55 @@
+{
+  "title": "Como identificar alunas em risco de evasão antes que elas saiam",
+  "slug": "reduzir-evasao-alunas-estudio-danca",
+  "description": "Aprenda a ler os sinais que antecipam a saída de uma aluna — faltas seguidas, queda de frequência e atraso — e a agir a tempo.",
+  "category": "retencao",
+  "intent": "Dono de estúdio que perde alunas sem aviso e quer agir antes do cancelamento.",
+  "primaryKeyword": "evasão de alunas em estúdio de dança",
+  "secondaryKeywords": ["retenção de alunos de dança", "aluna faltando muito", "risco de evasão"],
+  "publishedAt": "2026-07-03",
+  "updatedAt": "2026-07-03",
+  "readingTime": "6 min",
+  "heroSummary": "Aluna quase nunca avisa que vai sair. Ela começa a faltar. Quem enxerga esse padrão cedo consegue agir antes do cancelamento.",
+  "demoSlug": "historico-de-presenca-aluna",
+  "sections": [
+    {
+      "heading": "A evasão é silenciosa",
+      "body": [
+        "Poucas alunas comunicam a decisão de sair. O caminho comum é outro: uma falta, depois duas seguidas, a frequência cai e, quando o estúdio percebe, a mensalidade seguinte não foi paga e a vaga na turma esfriou.",
+        "O problema não é falta de atenção do dono — é que esses sinais ficam espalhados entre a chamada, o financeiro e a memória de cada professor. Ninguém enxerga o padrão completo a tempo."
+      ]
+    },
+    {
+      "heading": "Os três sinais que antecipam a saída",
+      "body": [
+        "O primeiro sinal são faltas seguidas: duas ou três ausências consecutivas raramente são coincidência. O segundo é a queda de frequência no período — a aluna que vinha em todas as aulas e passou a vir na metade.",
+        "O terceiro é o atraso na mensalidade. Sozinho, pode ser esquecimento. Combinado com faltas, costuma indicar que a aluna já está decidindo se continua. É a combinação dos três que conta a história."
+      ]
+    },
+    {
+      "heading": "Como o Cadencio calcula o risco de evasão",
+      "body": [
+        "Em Relatórios, na aba Alunos, o Cadencio mostra um indicador de risco de evasão para cada aluna — calculado automaticamente a partir das chamadas e do financeiro que o estúdio já registra no dia a dia, combinando faltas seguidas, frequência no período e situação da mensalidade.",
+        "A lista destaca quem precisa de atenção primeiro. Um clique abre o cadastro completo da aluna, com o histórico de presença para embasar a conversa."
+      ]
+    },
+    {
+      "heading": "O que fazer quando o alerta aparece",
+      "body": [
+        "O alerta vale pelo timing: uma mensagem pessoal na segunda falta seguida tem outro efeito do que uma cobrança genérica um mês depois. Pergunte como a aluna está antes de falar de pagamento ou de presença.",
+        "Ofereça caminho de volta — o Cadencio permite registrar reposição em outra aula da grade, o que reduz a sensação de aula perdida. Depois, acompanhe a frequência nas semanas seguintes para confirmar se o risco caiu."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Preciso configurar alguma coisa para ver o risco de evasão?",
+      "answer": "Não. O indicador é calculado automaticamente a partir das chamadas e do financeiro que o estúdio já registra na rotina."
+    },
+    {
+      "question": "Funciona para estúdio pequeno?",
+      "answer": "Sim. Com poucas turmas, o padrão de faltas fica visível ainda mais rápido — e cada aluna retida pesa mais no caixa."
+    }
+  ],
+  "relatedGuides": ["acompanhar-faltas-historico-presenca-alunas", "controlar-mensalidades-inadimplencia-estudio-danca"]
+}

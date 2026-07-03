@@ -1,0 +1,48 @@
+{
+  "title": "Como acompanhar faltas e histórico de presença das alunas",
+  "slug": "acompanhar-faltas-historico-presenca-alunas",
+  "description": "Aprenda a transformar presença em histórico consultável para entender frequência, faltas e reposições.",
+  "category": "historico",
+  "intent": "Gestor que precisa consultar presença acumulada sem refazer contas.",
+  "primaryKeyword": "histórico de presença de alunas",
+  "secondaryKeywords": ["faltas em escola de dança", "frequência de alunos dança", "controle de reposição aula"],
+  "publishedAt": "2026-06-24",
+  "updatedAt": "2026-07-03",
+  "readingTime": "6 min",
+  "heroSummary": "A chamada só vira gestão quando o histórico fica fácil de consultar.",
+  "demoSlug": "historico-de-presenca-aluna",
+  "sections": [
+    {
+      "heading": "Presença não deveria morrer no dia da aula",
+      "body": [
+        "Marcar quem veio é só o primeiro passo. O valor aparece quando o estúdio consegue consultar esse histórico depois.",
+        "Sem histórico organizado, faltas recorrentes, dúvidas de reposição e acompanhamento de frequência ficam espalhados em mensagens e lembranças."
+      ]
+    },
+    {
+      "heading": "O que observar no histórico",
+      "body": [
+        "Um bom histórico deve mostrar registros por aluna, por turma e por período. Isso ajuda a responder perguntas simples sem abrir várias planilhas.",
+        "Também ajuda a equipe a conversar com mais contexto quando uma aluna falta muito ou quando há dúvida sobre aulas realizadas."
+      ]
+    },
+    {
+      "heading": "Como o Cadencio deixa isso rastreável",
+      "body": [
+        "Cada chamada registrada no Cadencio alimenta o histórico. Assim, o estúdio não depende de refazer conta no fim do mês.",
+        "Em Relatórios, a aba Alunos já cruza esse histórico com um indicador de risco de evasão — combinando faltas seguidas, frequência e inadimplência — para apontar quem precisa de atenção antes que a aluna suma da turma."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Consigo consultar presença depois da aula?",
+      "answer": "Sim. A proposta é manter o registro salvo para consulta posterior."
+    },
+    {
+      "question": "Isso ajuda em reposição de aula?",
+      "answer": "Sim. Além do histórico confiável de faltas, o Cadencio permite registrar a reposição da aluna em outra aula da grade, mantendo tudo no mesmo lugar."
+    }
+  ],
+  "relatedGuides": ["controle-de-presenca-estudio-danca", "reduzir-evasao-alunas-estudio-danca"]
+}
