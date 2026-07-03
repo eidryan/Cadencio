@@ -9,9 +9,15 @@ export function DemoCard({ demo }: { demo: Demo }) {
     <a href={`/demos/${demo.slug}`} className="group block overflow-hidden rounded-sm border border-gray-200 bg-white shadow-lg transition-transform duration-300 hover:-translate-y-1">
       <div className="overflow-hidden bg-surface-dark">
         {hasVideo ? (
-          <div className="flex aspect-video items-center justify-center bg-surface-dark text-brand-50">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm border border-brand-400/30 bg-brand-500/15 transition-transform group-hover:scale-105">
-              <Play className="ml-0.5 text-accent-mint" size={24} />
+          <div className="relative aspect-video bg-surface-dark">
+            {demo.thumbnail ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={demo.thumbnail} alt={demo.title} className="h-full w-full object-cover" />
+            ) : null}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/25">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm border border-brand-400/30 bg-brand-500/60 backdrop-blur-sm transition-transform group-hover:scale-105">
+                <Play className="ml-0.5 text-white" size={24} />
+              </div>
             </div>
           </div>
         ) : (

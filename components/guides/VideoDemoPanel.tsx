@@ -7,8 +7,8 @@ export function VideoDemoPanel({ demo, framed = false }: { demo: Demo; framed?: 
     <section className={`rounded-sm border border-gray-200 bg-white ${framed ? "p-5 shadow-xl" : "p-0"}`}>
       <div className="overflow-hidden rounded-sm bg-surface-dark">
         {demo.videoUrl ? (
-          <video controls poster={demo.thumbnail ?? undefined} className="aspect-video w-full bg-surface-dark">
-            <source src={demo.videoUrl} />
+          <video controls preload="metadata" poster={demo.thumbnail ?? undefined} className="aspect-video w-full bg-surface-dark">
+            <source src={demo.videoUrl} type="video/mp4" />
           </video>
         ) : (
           <div className="flex aspect-video flex-col items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(36,174,181,0.22),_transparent_42%),#0C0A09] p-8 text-center text-brand-50">
