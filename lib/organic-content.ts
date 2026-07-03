@@ -287,7 +287,7 @@ export const guides = [
         heading: "Como o Cadencio deixa isso rastreável",
         body: [
           "Cada chamada registrada no Cadencio alimenta o histórico. Assim, o estúdio não depende de refazer conta no fim do mês.",
-          "Esse histórico cria uma base mais confiável para acompanhar presença e tomar decisões operacionais.",
+          "Em Relatórios, a aba Alunos já cruza esse histórico com um indicador de risco de evasão — combinando faltas seguidas, frequência e inadimplência — para apontar quem precisa de atenção antes que a aluna suma da turma.",
         ],
       },
     ],
