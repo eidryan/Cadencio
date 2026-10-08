@@ -96,7 +96,7 @@ export function Navbar() {
             Entrar
           </a>
           <a
-            href={`${APP_URL}/register`}
+            href={TRIAL_CTA.href}
             className="btn-paper-cut shrink-0 !py-2 !px-4 text-sm"
           >
             {TRIAL_CTA.label}
@@ -135,7 +135,7 @@ export function Navbar() {
             Entrar
           </a>
           <a
-            href={`${APP_URL}/register`}
+            href={TRIAL_CTA.href}
             className="w-full btn-primary text-center"
             onClick={() => setMenuOpen(false)}
           >

@@ -178,6 +178,7 @@ export function Hero() {
           </div>
 
           {/* Trust hints */}
+          <p className="hero-reveal mt-4 text-sm text-gray-500">{TRIAL_CTA.helper}</p>
           <div className="hero-reveal mt-12 flex items-center justify-center lg:justify-start gap-6 text-[12px] font-mono text-gray-400">
             <span className="flex items-center gap-2">
               <div className="w-1.5 h-1.5 rounded-full bg-accent-mint" />

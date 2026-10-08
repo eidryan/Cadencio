@@ -11,7 +11,8 @@ Cadencio é um sistema de gestão para estúdios de dança (e atividades similar
 
 - Site: https://www.cadencio.app · App: https://my.cadencio.app
 - Público: donos e gestores de estúdio, não técnicos. Persona feminina predominante ("alunas").
-- Oferta: **teste grátis por 14 dias, cancele quando quiser** (única promessa comercial permitida).
+- Oferta comercial aprovada em **2026-10-08**: **plano Pro por R$ 149/mês, com 14 dias grátis; cancele quando quiser**. Use essa oferta única nos guias e CTAs.
+- Destino de contratação: `https://my.cadencio.app/register?plan=pro&interval=month`. Não anunciar acesso beta, outras faixas de preço ou plano anual para novas contratações. Não prometer teste sem cartão: o checkout exige cartão.
 
 ## ✅ PODE AFIRMAR (verificado no código)
 

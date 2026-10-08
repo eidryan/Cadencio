@@ -4,12 +4,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { PRO_PLAN, TRIAL_CTA } from "@/lib/site"
 
 const faqs = [
   {
     question: "Como funciona o teste grátis?",
     answer:
-      "Você pode testar o Cadencio por 14 dias para organizar presença, turmas e alunos antes de escolher um plano.",
+      `Você pode testar o plano ${PRO_PLAN.name} por 14 dias para organizar presença, turmas e alunos. ${TRIAL_CTA.helper}`,
   },
   {
     question: "Posso cancelar quando quiser?",
