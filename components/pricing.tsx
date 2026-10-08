@@ -1,43 +1,40 @@
-"use client"
-
 import {
   ArrowRight,
   Check,
   ClipboardCheck,
   MessageSquare,
-  ShieldCheck,
   Sparkles,
   Users,
 } from "lucide-react"
 
-const BETA_CONVERSION_URL = "https://my.cadencio.app/beta/betatesters-2026#funcionalidades"
+import { PRO_PLAN, TRIAL_CTA } from "@/lib/site"
 
-const BETA_REASSURANCES = [
+const PLAN_BENEFITS = [
   {
-    title: "Acesso completo",
+    title: "Presença e turmas",
     description: "Use presença, turmas, alunos e histórico no fluxo real do seu estúdio.",
     icon: ClipboardCheck,
   },
   {
-    title: "Configuração guiada",
-    description: "Comece com ajuda para tirar a primeira turma do caderno sem travar.",
+    title: `Até ${PRO_PLAN.studentLimit} alunos`,
+    description: "Organize os cadastros e importe sua planilha de Excel para começar.",
     icon: Users,
   },
   {
-    title: "14 dias grátis",
-    description: "Valide o Cadencio com tempo para testar a rotina antes da primeira cobrança.",
-    icon: ShieldCheck,
+    title: "Financeiro e relatórios",
+    description: "Acompanhe mensalidades, pagamentos e relatórios com exportação em CSV.",
+    icon: Check,
   },
   {
-    title: "Feedback direto",
-    description: "Quem entra no beta ajuda a priorizar o que entra nas próximas versões.",
+    title: "Suporte prioritário",
+    description: "Conte com nossa equipe para tirar dúvidas na rotina do seu estúdio.",
     icon: MessageSquare,
   },
 ]
 
 const QUICK_POINTS = [
   "14 dias grátis",
-  "Acompanhamento inicial",
+  "Um único plano mensal",
   "Funciona no navegador",
   "Ideal para sair do caderno",
 ]
@@ -65,16 +62,16 @@ export function Pricing() {
           <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-brand-500/20 bg-brand-500/10 px-3 py-1.5">
             <span className="h-2 w-2 animate-pulse rounded-full bg-accent-mint" />
             <span className="text-[11px] font-bold uppercase tracking-widest text-accent-mint">
-              Testadores Beta 2026
+              Plano {PRO_PLAN.name}
             </span>
           </div>
 
           <h2 className="mx-auto mb-4 max-w-4xl text-4xl font-bold tracking-tight text-brand-50 md:text-6xl">
-            Entre no Beta 2026 antes de escolher um plano
+            Um único plano para organizar seu estúdio.
           </h2>
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-brand-50/70">
-            Antes de abrir os planos para todo mundo, estamos chamando estúdios para testar o Cadencio com
-            acompanhamento e validar a rotina real de presença, turmas e alunos.
+            Presença, turmas, alunos, financeiro e relatórios em um só lugar. Comece com 14 dias grátis
+            e continue no Pro por {PRO_PLAN.priceLabel}.
           </p>
         </div>
 
@@ -88,16 +85,22 @@ export function Pricing() {
                 <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-accent-gold/25 bg-accent-gold/10 px-3 py-1.5">
                   <Sparkles size={14} className="text-accent-gold" aria-hidden="true" />
                   <span className="text-[11px] font-bold uppercase tracking-widest text-accent-gold">
-                    Vagas limitadas para o beta
+                    14 dias grátis para começar
                   </span>
                 </div>
 
-                <h3 className="max-w-2xl text-3xl font-extrabold tracking-tight text-brand-50 md:text-5xl">
-                  Teste no seu estúdio, com suporte na primeira configuração.
+                <h3 className="text-xl font-bold text-brand-50">Plano {PRO_PLAN.name}</h3>
+                <p className="mt-4 flex items-baseline gap-2 text-brand-50">
+                  <span className="text-xl font-semibold">R$</span>
+                  <span className="text-7xl font-extrabold tracking-tight md:text-8xl">{PRO_PLAN.monthlyPrice}</span>
+                  <span className="text-lg text-brand-50/70">/mês</span>
+                </p>
+                <h3 className="mt-6 max-w-xl text-2xl font-bold tracking-tight text-brand-50 md:text-3xl">
+                  Teste com a rotina real do seu estúdio.
                 </h3>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-brand-50/70 md:text-lg">
-                  O próximo passo não é comparar plano. É colocar uma turma real no Cadencio, registrar presença e ver se
-                  a rotina fica mais leve antes de pagar qualquer coisa.
+                  Cadastre seus alunos, organize as turmas e registre presença durante o teste.
+                  A primeira cobrança acontece após os 14 dias grátis.
                 </p>
 
                 <ul className="mt-8 grid gap-3 text-sm text-brand-50/75 sm:grid-cols-2">
@@ -114,10 +117,10 @@ export function Pricing() {
 
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={BETA_CONVERSION_URL}
+                  href={TRIAL_CTA.href}
                   className="btn-primary text-base"
                 >
-                  Entrar no Beta 2026
+                  {TRIAL_CTA.label}
                   <ArrowRight size={18} aria-hidden="true" />
                 </a>
                 <a
@@ -130,7 +133,7 @@ export function Pricing() {
             </div>
 
             <div className="grid content-stretch gap-4 sm:grid-cols-2">
-              {BETA_REASSURANCES.map((item) => {
+              {PLAN_BENEFITS.map((item) => {
                 const Icon = item.icon
 
                 return (
@@ -156,8 +159,7 @@ export function Pricing() {
             className="relative flex items-center justify-between border-t border-white/10 px-6 py-5 text-left md:px-10"
           >
             <span className="text-sm font-semibold text-brand-50/65">
-              Você não precisa escolher Starter, Pro ou Business agora. Primeiro, entre no beta e valide com sua rotina
-              real durante o período gratuito.
+              {TRIAL_CTA.helper}
             </span>
             <ArrowRight
               size={18}
@@ -168,7 +170,7 @@ export function Pricing() {
         </div>
 
         <p className="mt-8 text-center text-sm text-brand-50/35">
-          O preço final vem depois da validação. O convite agora é participar do beta.
+          Cobrança mensal. Sem compromisso de permanência.
         </p>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import type { Demo, Guide } from "@/lib/organic-content"
-import { absoluteUrl, SITE_URL } from "@/lib/site"
+import { absoluteUrl, PRO_PLAN, SITE_URL, TRIAL_CTA } from "@/lib/site"
 
 const publisher = {
   "@type": "Organization",
@@ -29,9 +29,10 @@ export function buildSoftwareJsonLd(): Record<string, unknown> {
     description: "Sistema de controle de presença, turmas e alunos para estúdios de dança.",
     offers: {
       "@type": "Offer",
-      price: "0",
+      price: String(PRO_PLAN.monthlyPrice),
       priceCurrency: "BRL",
-      description: "Teste grátis por 14 dias. Cancele quando quiser.",
+      description: `Plano ${PRO_PLAN.name} mensal. ${TRIAL_CTA.helper}`,
+      url: TRIAL_CTA.href,
     },
   }
 }

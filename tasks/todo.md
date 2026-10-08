@@ -1,3 +1,26 @@
+# Plano único Pro — 08/10/2026
+
+## Objetivo
+Padronizar o site e os caminhos de contratação no `my.cadencio.app` no Pro mensal existente de R$ 149, com 14 dias grátis.
+
+## Etapas
+- [x] Mapear a página de vendas, CTAs, página beta e onboarding do SaaS.
+- [x] Confirmar com o responsável o Pro de R$ 149/mês como oferta única.
+- [x] Centralizar oferta e links no site; substituir convite beta por preço e condições reais.
+- [x] Unificar o onboarding e encerrar os caminhos de novas contratações de outros planos no SaaS isolado.
+- [x] Verificar build, TypeScript, links, layout desktop/mobile e regressões da cobrança.
+
+## Resultado e validação
+O site apresenta o Pro por R$ 149/mês após 14 dias grátis. Navbar desktop/mobile, hero, preços, rodapé, guias e demos levam a `https://my.cadencio.app/register?plan=pro&interval=month`; os dados estruturados anunciam a mesma oferta.
+
+No SaaS, a branch `codex/unify-pro-plan` foi preparada em um worktree isolado da principal, preservando o checkout financeiro. Os dois seletores usam a mesma oferta; convites beta válidos levam ao cadastro Pro, links antigos são normalizados e cookies legados voltam ao seletor atual. Novos checkouts aceitam somente Pro/mês e OWNER/ADMIN, e recusam uma nova contratação enquanto há assinatura não terminal. O reconhecimento de preços e contratos legados foi preservado.
+
+Builds e TypeScript completos passaram nos dois projetos. Os 6 guias continuam válidos; os CTAs foram conferidos no HTML de 13 páginas. A suíte segura do SaaS passou com 126 arquivos / 1.956 testes, incluindo 32 casos novos. Testes opt-in de Postgres e migration foram excluídos; não houve teste de cobrança real. ESLint dos arquivos alterados no SaaS: zero erros, um aviso pré-existente de `router` sem uso. O site não tem ESLint instalado.
+
+Site e cadastro conferidos visualmente em desktop e celular. A revisão independente foi aprovada após os ajustes de permissão e proteção de assinaturas existentes. Publicação em produção pendente de integração dos PRs.
+
+---
+
 # Vercel Analytics — configuração
 
 ## Goal

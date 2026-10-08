@@ -41,7 +41,7 @@ export function Footer() {
               <li><a href="/#como-funciona" className="hover:text-accent-mint transition-colors">Como Funciona</a></li>
               <li><a href="/guias" className="hover:text-accent-mint transition-colors">Guias</a></li>
               <li><a href="/demos" className="hover:text-accent-mint transition-colors">Demos</a></li>
-              <li><a href={TRIAL_CTA.href} className="hover:text-accent-mint transition-colors">Teste grátis por 14 dias</a></li>
+              <li><a href={TRIAL_CTA.href} className="hover:text-accent-mint transition-colors">{TRIAL_CTA.label}</a></li>
             </ul>
           </div>
 
@@ -50,7 +50,7 @@ export function Footer() {
             <h4 className="font-bold text-[15px] mb-6 tracking-wide text-gray-100">Empresa</h4>
             <ul className="space-y-4 text-[14px] text-brand-50/60">
               <li><a href="/#filosofia" className="hover:text-accent-mint transition-colors">Por que o Cadencio?</a></li>
-              <li><a href="/#precos" className="hover:text-accent-mint transition-colors">Planos</a></li>
+              <li><a href="/#precos" className="hover:text-accent-mint transition-colors">Plano Pro</a></li>
               <li><a href="/#como-funciona" className="hover:text-accent-mint transition-colors">Como funciona</a></li>
             </ul>
           </div>
